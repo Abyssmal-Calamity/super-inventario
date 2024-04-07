@@ -5,7 +5,7 @@ from PyQt6 import QtWidgets, uic
 app=QtWidgets.QApplication([])
 
 # carga archivos .ui
-login =uic.loadUi("ventana1.ui")
+login =uic.loadUi("ventana3.ui")
 entrar =uic.loadUi("ventana2.ui")
 
 def gui_login():
@@ -24,13 +24,17 @@ def gui_login():
 def gui_entrar():
     login.hide()
     entrar.show()
+
     
 
 #botones
-
+#primera ventana
 login.pushButton.clicked.connect(gui_login)
 login.pushButton_2.clicked.connect(quit)
-
+#segundo ventana
+entrar.pushButton.clicked.connect(quit)
+entrar.pushButton_2.clicked.connect(quit) # abrir ventana 1 ,modificar inventario
+entrar.pushButton_3.clicked.connect(quit) #abrir ventana 4 ,  mostrar inventario
 
 #ejecutable
 login.show()

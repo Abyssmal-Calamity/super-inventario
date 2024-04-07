@@ -24,32 +24,19 @@
      </rect>
     </property>
     <property name="text">
-     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;:/cct/Screen_2_2.png&quot;/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     <string/>
     </property>
-   </widget>
-   <widget class="QLabel" name="label_2">
-    <property name="geometry">
-     <rect>
-      <x>50</x>
-      <y>80</y>
-      <width>141</width>
-      <height>41</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">font: 11pt &quot;MS Shell Dlg 2&quot;;</string>
-    </property>
-    <property name="text">
-     <string>Bienvenido admin</string>
+    <property name="pixmap">
+     <pixmap>../imagenes para TPA/Screen_2_JPG.jpg</pixmap>
     </property>
    </widget>
    <widget class="QPushButton" name="pushButton">
     <property name="geometry">
      <rect>
-      <x>210</x>
-      <y>87</y>
-      <width>121</width>
-      <height>31</height>
+      <x>200</x>
+      <y>80</y>
+      <width>131</width>
+      <height>41</height>
      </rect>
     </property>
     <property name="styleSheet">
