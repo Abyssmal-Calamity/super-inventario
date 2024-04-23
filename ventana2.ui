@@ -31,7 +31,7 @@ background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgb
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap>../imagenes para TPA/Screen_2_JPG.jpg</pixmap>
+     <pixmap>images/Screen_2_JPG.jpg</pixmap>
     </property>
    </widget>
    <widget class="QPushButton" name="logoutButton">
@@ -81,28 +81,6 @@ sesion</string>
     </property>
     <property name="text">
      <string>Consultar inventario</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="thomas">
-    <property name="geometry">
-     <rect>
-      <x>995</x>
-      <y>278</y>
-      <width>256</width>
-      <height>256</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background:transparent;</string>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-    <property name="pixmap">
-     <pixmap>../imagenes para TPA/thomas_2.png</pixmap>
-    </property>
-    <property name="alignment">
-     <set>Qt::AlignCenter</set>
     </property>
    </widget>
    <widget class="QLabel" name="userLabel">

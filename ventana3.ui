@@ -31,7 +31,7 @@ background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgb
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap>../imagenes para TPA/Start_Screen_JPG.jpg</pixmap>
+     <pixmap>images/Start_Screen_JPG.jpg</pixmap>
     </property>
     <property name="scaledContents">
      <bool>true</bool>
@@ -102,18 +102,20 @@ border-radius:10px</string>
    <widget class="QLabel" name="textLabel">
     <property name="geometry">
      <rect>
-      <x>630</x>
-      <y>360</y>
-      <width>291</width>
-      <height>20</height>
+      <x>626</x>
+      <y>340</y>
+      <width>270</width>
+      <height>84</height>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">border-radius:10px;
-background:transparent;</string>
+     <string notr="true">background:transparent;</string>
     </property>
     <property name="text">
      <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap>images/bembenido.png</pixmap>
     </property>
     <property name="alignment">
      <set>Qt::AlignCenter</set>
@@ -149,5 +151,6 @@ border-radius:10px;</string>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
+ <resources/>
  <connections/>
 </ui>

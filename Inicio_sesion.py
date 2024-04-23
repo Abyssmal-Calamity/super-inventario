@@ -29,14 +29,17 @@ class Ui_Login(object):
         name = self.userEdit.text()
         password = self.passwordEdit.text()
         if len(name)==0 or len(password)==0:
-            self.textLabel.setText("SE REQUIERE QUE COMPLETE CON INFORMACION")
+            self.textLabel.setGeometry(QtCore.QRect(586, 354, 529, 43))
+            self.textLabel.setPixmap(QtGui.QPixmap("images/Informacion.png"))
         elif name=="profe" and password=="1234":
-            self.textLabel.setText("Bienvenido")
+            self.textLabel.setGeometry(QtCore.QRect(626, 340, 270, 84))
+            self.textLabel.setPixmap(QtGui.QPixmap("images/bembenido.png"))
             self.userEdit.setText(None)
             self.passwordEdit.setText(None)
             self.gui_entrar(log)
         else:
-            self.textLabel.setText("LOS DATOS INGRESADOS SON INCORRECTOS")
+            self.textLabel.setGeometry(QtCore.QRect(586, 354, 480, 43))
+            self.textLabel.setPixmap(QtGui.QPixmap("images/Datos.png"))
     
     def setupUi(self, Login):
         Login.setObjectName("Login")
@@ -47,7 +50,7 @@ class Ui_Login(object):
         self.background = QtWidgets.QLabel(parent=self.centralwidget)
         self.background.setGeometry(QtCore.QRect(10, 0, 1241, 511))
         self.background.setText("")
-        self.background.setPixmap(QtGui.QPixmap("../imagenes para TPA/Start_Screen_JPG.jpg"))
+        self.background.setPixmap(QtGui.QPixmap("images/Start_Screen_JPG.jpg"))
         self.background.setScaledContents(True)
         self.background.setObjectName("background")
         
@@ -61,9 +64,10 @@ class Ui_Login(object):
         self.passwordEdit.setStyleSheet("border-radius:10px\n" "")
         self.passwordEdit.setObjectName("passwordEdit")
         self.textLabel = QtWidgets.QLabel(parent=self.centralwidget)
-        self.textLabel.setGeometry(QtCore.QRect(630, 360, 291, 20))
-        self.textLabel.setStyleSheet("border-radius:10px;\n" "background:transparent;")
-        self.textLabel.setText("Bienvenido")
+        self.textLabel.setGeometry(QtCore.QRect(626, 340, 270, 84))
+        self.textLabel.setStyleSheet("background:transparent;")
+        self.textLabel.setText("")
+        self.textLabel.setPixmap(QtGui.QPixmap("images/bembenido.png"))
         self.textLabel.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
         self.textLabel.setObjectName("textLabel")
 

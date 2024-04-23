@@ -23,7 +23,7 @@ class Ui_ShowInventary(object):
         self.background = QtWidgets.QLabel(parent=self.centralwidget)
         self.background.setGeometry(QtCore.QRect(10, 0, 1241, 511))
         self.background.setText("")
-        self.background.setPixmap(QtGui.QPixmap("../imagenes para TPA/Screen_2_JPG.jpg"))
+        self.background.setPixmap(QtGui.QPixmap("images/Screen_2_JPG.jpg"))
         self.background.setObjectName("background")
 
         # # Interfaz botones con operaciones lambda

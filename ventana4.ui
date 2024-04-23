@@ -31,7 +31,7 @@ background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgb
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap>../imagenes para TPA/Screen_2_JPG.jpg</pixmap>
+     <pixmap>images/Screen_2_JPG.jpg</pixmap>
     </property>
    </widget>
    <widget class="QPushButton" name="btnVolver">

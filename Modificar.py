@@ -23,7 +23,7 @@ class Ui_ModifyWindow(object):
         self.background = QtWidgets.QLabel(parent=self.centralwidget)
         self.background.setGeometry(QtCore.QRect(10, 0, 1241, 511))
         self.background.setText("")
-        self.background.setPixmap(QtGui.QPixmap("../imagenes para TPA/Add_products_screen.jpg"))
+        self.background.setPixmap(QtGui.QPixmap("images/Add_products_screen.jpg"))
         self.background.setAlignment(QtCore.Qt.AlignmentFlag.AlignLeading|QtCore.Qt.AlignmentFlag.AlignLeft|QtCore.Qt.AlignmentFlag.AlignVCenter)
         self.background.setObjectName("background")
 
@@ -41,9 +41,14 @@ class Ui_ModifyWindow(object):
         self.btnVolver.setGeometry(QtCore.QRect(248, 80, 81, 41))
         self.btnVolver.setStyleSheet("font: 10pt \"MS Shell Dlg 2\";")
         self.btnVolver.setObjectName("btnVolver")
-        self.pushButton = QtWidgets.QPushButton(parent=self.centralwidget)
-        self.pushButton.setGeometry(QtCore.QRect(250, 320, 75, 23))
-        self.pushButton.setObjectName("pushButton")
+        self.btnAgregar = QtWidgets.QPushButton(parent=self.centralwidget)
+        self.btnAgregar.setGeometry(QtCore.QRect(462, 452, 75, 41))
+        self.btnAgregar.setStyleSheet("font: 10pt \"MS Shell Dlg 2\";")
+        self.btnAgregar.setObjectName("btnAgregar")
+        self.btnQuitar = QtWidgets.QPushButton(parent=self.centralwidget)
+        self.btnQuitar.setGeometry(QtCore.QRect(1116, 452, 75, 41))
+        self.btnQuitar.setStyleSheet("font: 10pt \"MS Shell Dlg 2\";")
+        self.btnQuitar.setObjectName("btnQuitar")
 
         ModifyWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(parent=ModifyWindow)
@@ -61,4 +66,5 @@ class Ui_ModifyWindow(object):
         _translate = QtCore.QCoreApplication.translate
         ModifyWindow.setWindowTitle(_translate("ModifyWindow", "MainWindow"))
         self.btnVolver.setText(_translate("ModifyWindow", "Volver"))
-        self.pushButton.setText(_translate("ModifyWindow", "PushButton"))
+        self.btnAgregar.setText(_translate("ModifyWindow", "Agregar"))
+        self.btnQuitar.setText(_translate("ModifyWindow", "Quitar"))
