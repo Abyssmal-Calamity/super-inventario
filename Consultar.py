@@ -16,7 +16,7 @@ class Ui_ShowInventary(object):
     
     def setupUi(self, ShowInventary, MainWindow):
         ShowInventary.setObjectName("ShowInventary")
-        ShowInventary.resize(1261, 532)
+        ShowInventary.resize(1261, 532)         # Resolucion ventana
         ShowInventary.setStyleSheet("background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(0, 0, 0, 255), stop:1 rgba(0, 0, 0, 0));\n" "background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(255, 255, 255, 255));")
         self.centralwidget = QtWidgets.QWidget(parent=ShowInventary)
         self.centralwidget.setObjectName("centralwidget")

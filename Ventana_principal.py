@@ -42,7 +42,7 @@ class Ui_MainWindow(object):
 
     def setupUi(self, MainWindow, Login):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(1261, 532)
+        MainWindow.resize(1261, 532)        # Resolucion ventana
         MainWindow.setStyleSheet("background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(0, 0, 0, 255), stop:1 rgba(0, 0, 0, 0));\n" "background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(255, 255, 255, 255));")
         self.centralwidget = QtWidgets.QWidget(parent=MainWindow)
         self.centralwidget.setObjectName("centralwidget")

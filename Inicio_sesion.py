@@ -43,7 +43,7 @@ class Ui_Login(object):
     
     def setupUi(self, Login):
         Login.setObjectName("Login")
-        Login.resize(1261, 532)
+        Login.resize(1261, 532)         # Resolucion ventana
         Login.setStyleSheet("background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(0, 0, 0, 255), stop:1 rgba(0, 0, 0, 0));\n" "background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(255, 255, 255, 255));")
         self.centralwidget = QtWidgets.QWidget(parent=Login)
         self.centralwidget.setObjectName("centralwidget")
@@ -58,10 +58,12 @@ class Ui_Login(object):
         self.userEdit = QtWidgets.QLineEdit(parent=self.centralwidget)
         self.userEdit.setGeometry(QtCore.QRect(680, 230, 181, 31))
         self.userEdit.setStyleSheet("border-radius:10px\n" "")
+        self.userEdit.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
         self.userEdit.setObjectName("userEdit")
         self.passwordEdit = QtWidgets.QLineEdit(parent=self.centralwidget)
         self.passwordEdit.setGeometry(QtCore.QRect(680, 310, 181, 31))
         self.passwordEdit.setStyleSheet("border-radius:10px\n" "")
+        self.passwordEdit.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
         self.passwordEdit.setObjectName("passwordEdit")
         self.textLabel = QtWidgets.QLabel(parent=self.centralwidget)
         self.textLabel.setGeometry(QtCore.QRect(626, 340, 270, 84))
