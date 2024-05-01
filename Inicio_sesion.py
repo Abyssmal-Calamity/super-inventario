@@ -11,9 +11,20 @@ from PyQt6 import QtCore, QtGui, QtWidgets
 
 # Se importa las vistas
 from Ventana_principal import Ui_MainWindow
+from Registro import Ui_Registrar
 
 
 class Ui_Login(object):
+    def gui_registrar(self, registrar):
+        self.ventRegistro = QtWidgets.QMainWindow()
+        self.ui = Ui_Registrar()
+        self.ui.setupUi(self.ventRegistro, registrar)
+        self.ventRegistro.setWindowTitle("ULAGOS Market")
+        self.ventRegistro.setWindowIcon(QtGui.QIcon("icono\\xanxho.png"))
+        self.ventRegistro.show()
+
+        registrar.close()
+
     def gui_entrar(self, login):
         # Se abre la ventana inicio
         self.ventanaInicio = QtWidgets.QMainWindow()
@@ -82,7 +93,7 @@ class Ui_Login(object):
         self.exitButton.setGeometry(QtCore.QRect(1110, 450, 131, 28))
         self.exitButton.setStyleSheet("font: 10pt \"MS Shell Dlg 2\";\n" "border-radius:10px")
         self.exitButton.setObjectName("exitButton")
-        self.btnRegistrar = QtWidgets.QPushButton(parent=self.centralwidget)
+        self.btnRegistrar = QtWidgets.QPushButton(parent=self.centralwidget, clicked = lambda: self.gui_registrar(Login))    #lambda
         self.btnRegistrar.setGeometry(QtCore.QRect(620, 410, 131, 28))
         self.btnRegistrar.setStyleSheet("font: 11pt \"MS Shell Dlg 2\";\n" "border-radius:10px;")
         self.btnRegistrar.setObjectName("btnRegistrar")
