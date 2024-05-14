@@ -46,6 +46,11 @@ background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgb
       <height>31</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <pointsize>12</pointsize>
+     </font>
+    </property>
     <property name="styleSheet">
      <string notr="true">border-radius:10px
 </string>
@@ -59,6 +64,11 @@ background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgb
       <width>181</width>
       <height>31</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>12</pointsize>
+     </font>
     </property>
     <property name="styleSheet">
      <string notr="true">border-radius:10px
@@ -75,8 +85,21 @@ background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgb
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">font: 11pt &quot;MS Shell Dlg 2&quot;;
-border-radius:10px</string>
+     <string notr="true">QPushButton{
+	font: 600 12pt &quot;Segoe UI Semibold&quot;;
+	border-radius:10px;
+}
+QPushButton::hover{
+	background-color: rgb(255, 170, 255);
+	color: rgb(85, 85, 255);
+	border-radius: 10px;
+}
+QPushButton::pressed{
+	font: 700 12pt &quot;Segoe UI&quot;;
+	background-color: rgb(255, 85, 255);
+	color: rgb(255, 255, 255);
+	border-radius: 10px;
+}</string>
     </property>
     <property name="text">
      <string>Ingresar</string>
@@ -92,8 +115,21 @@ border-radius:10px</string>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">font: 10pt &quot;MS Shell Dlg 2&quot;;
-border-radius:10px</string>
+     <string notr="true">QPushButton{
+	font: 600 11pt &quot;Segoe UI Semibold&quot;;
+	border-radius:10px;
+}
+QPushButton::hover{
+	background-color: rgb(255, 170, 255);
+	color: rgb(85, 85, 255);
+	border-radius: 10px;
+}
+QPushButton::pressed{
+	font: 700 11pt &quot;Segoe UI&quot;;
+	background-color: rgb(255, 85, 255);
+	color: rgb(255, 255, 255);
+	border-radius: 10px;
+}</string>
     </property>
     <property name="text">
      <string>Salir</string>
@@ -102,8 +138,57 @@ border-radius:10px</string>
    <widget class="QLabel" name="textLabel">
     <property name="geometry">
      <rect>
-      <x>626</x>
-      <y>340</y>
+      <x>586</x>
+      <y>354</y>
+      <width>480</width>
+      <height>43</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background:transparent;</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton">
+    <property name="geometry">
+     <rect>
+      <x>620</x>
+      <y>410</y>
+      <width>131</width>
+      <height>28</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+	font: 600 12pt &quot;Segoe UI Semibold&quot;;
+	border-radius:10px;
+}
+QPushButton::hover{
+	background-color: rgb(255, 170, 255);
+	color: rgb(85, 85, 255);
+	border-radius: 10px;
+}
+QPushButton::pressed{
+	font: 700 12pt &quot;Segoe UI&quot;;
+	background-color: rgb(255, 85, 255);
+	color: rgb(255, 255, 255);
+	border-radius: 10px;
+}</string>
+    </property>
+    <property name="text">
+     <string>Registrarse</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="bienvenida">
+    <property name="geometry">
+     <rect>
+      <x>490</x>
+      <y>100</y>
       <width>270</width>
       <height>84</height>
      </rect>
@@ -121,23 +206,6 @@ border-radius:10px</string>
      <set>Qt::AlignCenter</set>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton">
-    <property name="geometry">
-     <rect>
-      <x>620</x>
-      <y>410</y>
-      <width>131</width>
-      <height>28</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">font: 11pt &quot;MS Shell Dlg 2&quot;;
-border-radius:10px;</string>
-    </property>
-    <property name="text">
-     <string>Registrarse</string>
-    </property>
-   </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
@@ -145,7 +213,7 @@ border-radius:10px;</string>
      <x>0</x>
      <y>0</y>
      <width>1261</width>
-     <height>21</height>
+     <height>22</height>
     </rect>
    </property>
   </widget>

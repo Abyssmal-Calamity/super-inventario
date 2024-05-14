@@ -7,6 +7,7 @@
 
 
 import sys
+import csv
 from PyQt6 import QtCore, QtGui, QtWidgets
 
 # Se importa las vistas
@@ -43,8 +44,7 @@ class Ui_Login(object):
             self.textLabel.setGeometry(QtCore.QRect(586, 354, 529, 43))
             self.textLabel.setPixmap(QtGui.QPixmap("images/Informacion.png"))
         elif name=="profe" and password=="1234":
-            self.textLabel.setGeometry(QtCore.QRect(626, 340, 270, 84))
-            self.textLabel.setPixmap(QtGui.QPixmap("images/bembenido.png"))
+            self.textLabel.setPixmap(QtGui.QPixmap(None))
             self.userEdit.setText(None)
             self.passwordEdit.setText(None)
             self.gui_entrar(log)
@@ -55,7 +55,8 @@ class Ui_Login(object):
     def setupUi(self, Login):
         Login.setObjectName("Login")
         Login.resize(1261, 532)         # Resolucion ventana
-        Login.setStyleSheet("background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(0, 0, 0, 255), stop:1 rgba(0, 0, 0, 0));\n" "background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(255, 255, 255, 255));")
+        Login.setStyleSheet("background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(0, 0, 0, 255), stop:1 rgba(0, 0, 0, 0));\n"
+                            "background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(255, 255, 255, 255));")
         self.centralwidget = QtWidgets.QWidget(parent=Login)
         self.centralwidget.setObjectName("centralwidget")
         self.background = QtWidgets.QLabel(parent=self.centralwidget)
@@ -68,34 +69,87 @@ class Ui_Login(object):
         # Etiquetas
         self.userEdit = QtWidgets.QLineEdit(parent=self.centralwidget)
         self.userEdit.setGeometry(QtCore.QRect(680, 230, 181, 31))
-        self.userEdit.setStyleSheet("border-radius:10px\n" "")
+        font = QtGui.QFont()
+        font.setPointSize(12)
+        self.userEdit.setFont(font)
+        self.userEdit.setStyleSheet("border-radius: 10px;")
         self.userEdit.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
         self.userEdit.setObjectName("userEdit")
         self.passwordEdit = QtWidgets.QLineEdit(parent=self.centralwidget)
         self.passwordEdit.setGeometry(QtCore.QRect(680, 310, 181, 31))
-        self.passwordEdit.setStyleSheet("border-radius:10px\n" "")
+        font = QtGui.QFont()
+        font.setPointSize(12)
+        self.passwordEdit.setFont(font)
+        self.passwordEdit.setStyleSheet("border-radius: 10px;")
         self.passwordEdit.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
         self.passwordEdit.setObjectName("passwordEdit")
         self.textLabel = QtWidgets.QLabel(parent=self.centralwidget)
-        self.textLabel.setGeometry(QtCore.QRect(626, 340, 270, 84))
-        self.textLabel.setStyleSheet("background:transparent;")
+        self.textLabel.setGeometry(QtCore.QRect(586, 354, 480, 43))
+        self.textLabel.setStyleSheet("background: transparent;")
         self.textLabel.setText("")
-        self.textLabel.setPixmap(QtGui.QPixmap("images/bembenido.png"))
         self.textLabel.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
         self.textLabel.setObjectName("textLabel")
+        self.bienvenida = QtWidgets.QLabel(self.centralwidget)
+        self.bienvenida.setGeometry(QtCore.QRect(490, 100, 270, 84))
+        self.bienvenida.setStyleSheet(u"background: transparent;")
+        self.bienvenida.setPixmap(QtGui.QPixmap(u"images/bembenido.png"))
+        self.bienvenida.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
+        self.bienvenida.setObjectName(u"bienvenida")
 
         # Interfaz botones con operaciones lambda
         self.loginButton = QtWidgets.QPushButton(parent=self.centralwidget, clicked = lambda: self.gui_login(Login))    #lambda
         self.loginButton.setGeometry(QtCore.QRect(810, 410, 131, 28))
-        self.loginButton.setStyleSheet("font: 11pt \"MS Shell Dlg 2\";\n" "border-radius:10px")
+        self.loginButton.setStyleSheet("QPushButton{\n"
+                                    "   font: 600 12pt \"Segoe UI Semibold\";\n"
+                                    "   border-radius: 10px;\n"
+                                    "}\n"
+                                    "QPushButton::hover{\n"
+                                    "   background-color: rgb(255, 170, 255);\n"
+                                    "   color: rgb(85, 85, 255);\n"
+                                    "   border-radius: 10px;\n"
+                                    "}\n"
+                                    "QPushButton::pressed{\n"
+                                    "   font: 700 12pt \"Segoe UI\";\n"
+                                    "   background-color: rgb(255, 85, 255);\n"
+                                    "   color: rgb(255, 255, 255);\n"
+                                    "   border-radius: 10px;\n"
+                                    "}")
         self.loginButton.setObjectName("loginButton")
         self.exitButton = QtWidgets.QPushButton(parent=self.centralwidget)
         self.exitButton.setGeometry(QtCore.QRect(1110, 450, 131, 28))
-        self.exitButton.setStyleSheet("font: 10pt \"MS Shell Dlg 2\";\n" "border-radius:10px")
+        self.exitButton.setStyleSheet("QPushButton{\n"
+                                    "   font: 600 11pt \"Segoe UI Semibold\";\n"
+                                    "   border-radius: 10px;\n"
+                                    "}\n"
+                                    "QPushButton::hover{\n"
+                                    "   background-color: rgb(255, 170, 255);\n"
+                                    "   color: rgb(85, 85, 255);\n"
+                                    "   border-radius: 10px;\n"
+                                    "}\n"
+                                    "QPushButton::pressed{\n"
+                                    "   font: 700 11pt \"Segoe UI\";\n"
+                                    "   background-color: rgb(255, 85, 255);\n"
+                                    "   color: rgb(255, 255, 255);\n"
+                                    "   border-radius: 10px;\n"
+                                    "}")
         self.exitButton.setObjectName("exitButton")
         self.btnRegistrar = QtWidgets.QPushButton(parent=self.centralwidget, clicked = lambda: self.gui_registrar(Login))    #lambda
         self.btnRegistrar.setGeometry(QtCore.QRect(620, 410, 131, 28))
-        self.btnRegistrar.setStyleSheet("font: 11pt \"MS Shell Dlg 2\";\n" "border-radius:10px;")
+        self.btnRegistrar.setStyleSheet("QPushButton{\n"
+                                    "   font: 600 12pt \"Segoe UI Semibold\";\n"
+                                    "   border-radius: 10px;\n"
+                                    "}\n"
+                                    "QPushButton::hover{\n"
+                                    "   background-color: rgb(255, 170, 255);\n"
+                                    "   color: rgb(85, 85, 255);\n"
+                                    "   border-radius: 10px;\n"
+                                    "}\n"
+                                    "QPushButton::pressed{\n"
+                                    "   font: 700 12pt \"Segoe UI\";\n"
+                                    "   background-color: rgb(255, 85, 255);\n"
+                                    "   color: rgb(255, 255, 255);\n"
+                                    "   border-radius: 10px;\n"
+                                    "}")
         self.btnRegistrar.setObjectName("btnRegistrar")
 
         # Se crea una accion para boton salir

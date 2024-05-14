@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1256</width>
-    <height>564</height>
+    <height>546</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,10 +17,10 @@
    <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
-      <x>10</x>
+      <x>0</x>
       <y>0</y>
       <width>1241</width>
-      <height>511</height>
+      <height>491</height>
      </rect>
     </property>
     <property name="text">
@@ -33,91 +33,91 @@
      <bool>true</bool>
     </property>
    </widget>
-   <widget class="QTextEdit" name="textEdit">
+   <widget class="QTextEdit" name="producto1">
     <property name="geometry">
      <rect>
-      <x>150</x>
-      <y>240</y>
+      <x>50</x>
+      <y>230</y>
       <width>231</width>
       <height>21</height>
      </rect>
     </property>
    </widget>
-   <widget class="QTextEdit" name="textEdit_2">
+   <widget class="QTextEdit" name="producto4">
     <property name="geometry">
      <rect>
-      <x>150</x>
-      <y>330</y>
+      <x>50</x>
+      <y>320</y>
       <width>231</width>
       <height>21</height>
      </rect>
     </property>
    </widget>
-   <widget class="QTextEdit" name="textEdit_3">
+   <widget class="QTextEdit" name="producto2">
     <property name="geometry">
      <rect>
-      <x>150</x>
-      <y>270</y>
+      <x>50</x>
+      <y>260</y>
       <width>231</width>
       <height>21</height>
      </rect>
     </property>
    </widget>
-   <widget class="QTextEdit" name="textEdit_4">
+   <widget class="QTextEdit" name="producto3">
     <property name="geometry">
      <rect>
-      <x>150</x>
-      <y>300</y>
+      <x>50</x>
+      <y>290</y>
       <width>231</width>
       <height>21</height>
      </rect>
     </property>
    </widget>
-   <widget class="QTextEdit" name="textEdit_5">
+   <widget class="QTextEdit" name="producto6">
     <property name="geometry">
      <rect>
-      <x>150</x>
-      <y>390</y>
+      <x>50</x>
+      <y>380</y>
       <width>231</width>
       <height>21</height>
      </rect>
     </property>
    </widget>
-   <widget class="QTextEdit" name="textEdit_6">
+   <widget class="QTextEdit" name="producto5">
     <property name="geometry">
      <rect>
-      <x>150</x>
-      <y>360</y>
+      <x>50</x>
+      <y>350</y>
       <width>231</width>
       <height>21</height>
      </rect>
     </property>
    </widget>
-   <widget class="QTextEdit" name="textEdit_7">
+   <widget class="QTextEdit" name="producto8">
     <property name="geometry">
      <rect>
-      <x>150</x>
-      <y>450</y>
+      <x>50</x>
+      <y>440</y>
       <width>231</width>
       <height>21</height>
      </rect>
     </property>
    </widget>
-   <widget class="QTextEdit" name="textEdit_8">
+   <widget class="QTextEdit" name="producto7">
     <property name="geometry">
      <rect>
-      <x>150</x>
-      <y>420</y>
+      <x>50</x>
+      <y>410</y>
       <width>231</width>
       <height>21</height>
      </rect>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_4">
+   <widget class="QPushButton" name="boton_add_prod5">
     <property name="geometry">
      <rect>
-      <x>390</x>
-      <y>360</y>
+      <x>290</x>
+      <y>350</y>
       <width>31</width>
       <height>28</height>
      </rect>
@@ -126,11 +126,11 @@
      <string>+1</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_5">
+   <widget class="QPushButton" name="boton_add_prod7">
     <property name="geometry">
      <rect>
-      <x>390</x>
-      <y>420</y>
+      <x>290</x>
+      <y>410</y>
       <width>31</width>
       <height>28</height>
      </rect>
@@ -139,11 +139,11 @@
      <string>+1</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_6">
+   <widget class="QPushButton" name="boton_add_prod6">
     <property name="geometry">
      <rect>
-      <x>390</x>
-      <y>390</y>
+      <x>290</x>
+      <y>380</y>
       <width>31</width>
       <height>28</height>
      </rect>
@@ -152,11 +152,11 @@
      <string>+1</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_7">
+   <widget class="QPushButton" name="boton_add_prod4">
     <property name="geometry">
      <rect>
-      <x>390</x>
-      <y>330</y>
+      <x>290</x>
+      <y>320</y>
       <width>31</width>
       <height>28</height>
      </rect>
@@ -165,11 +165,11 @@
      <string>+1</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_8">
+   <widget class="QPushButton" name="boton_add_prod3">
     <property name="geometry">
      <rect>
-      <x>390</x>
-      <y>300</y>
+      <x>290</x>
+      <y>290</y>
       <width>31</width>
       <height>28</height>
      </rect>
@@ -178,11 +178,11 @@
      <string>+1</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_9">
+   <widget class="QPushButton" name="boton_add_prod2">
     <property name="geometry">
      <rect>
-      <x>390</x>
-      <y>270</y>
+      <x>290</x>
+      <y>260</y>
       <width>31</width>
       <height>28</height>
      </rect>
@@ -191,11 +191,11 @@
      <string>+1</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_10">
+   <widget class="QPushButton" name="boton_add_prod1">
     <property name="geometry">
      <rect>
-      <x>390</x>
-      <y>240</y>
+      <x>290</x>
+      <y>230</y>
       <width>31</width>
       <height>28</height>
      </rect>
@@ -204,11 +204,11 @@
      <string>+1</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_11">
+   <widget class="QPushButton" name="boton_add_prod8">
     <property name="geometry">
      <rect>
-      <x>390</x>
-      <y>450</y>
+      <x>290</x>
+      <y>440</y>
       <width>31</width>
       <height>28</height>
      </rect>
@@ -217,112 +217,95 @@
      <string>+1</string>
     </property>
    </widget>
-   <widget class="QTextEdit" name="textEdit_9">
+   <widget class="QTextEdit" name="cant_product1">
     <property name="geometry">
      <rect>
-      <x>420</x>
-      <y>500</y>
-      <width>301</width>
+      <x>400</x>
+      <y>230</y>
+      <width>41</width>
       <height>21</height>
      </rect>
     </property>
-   </widget>
-   <widget class="QTextEdit" name="textEdit_10">
-    <property name="geometry">
-     <rect>
-      <x>420</x>
-      <y>500</y>
-      <width>301</width>
-      <height>21</height>
-     </rect>
+    <property name="styleSheet">
+     <string notr="true">h</string>
     </property>
    </widget>
-   <widget class="QTextEdit" name="textEdit_11">
+   <widget class="QTextEdit" name="producto_adquirdo2">
     <property name="geometry">
      <rect>
-      <x>420</x>
-      <y>500</y>
-      <width>301</width>
-      <height>21</height>
-     </rect>
-    </property>
-   </widget>
-   <widget class="QTextEdit" name="textEdit_12">
-    <property name="geometry">
-     <rect>
-      <x>710</x>
+      <x>770</x>
       <y>250</y>
-      <width>301</width>
+      <width>241</width>
       <height>21</height>
      </rect>
     </property>
    </widget>
-   <widget class="QTextEdit" name="textEdit_13">
+   <widget class="QTextEdit" name="producto_adquirdo1">
     <property name="geometry">
      <rect>
-      <x>710</x>
+      <x>770</x>
       <y>220</y>
-      <width>301</width>
+      <width>241</width>
       <height>21</height>
      </rect>
     </property>
    </widget>
-   <widget class="QTextEdit" name="textEdit_14">
+   <widget class="QTextEdit" name="producto_adquirdo7">
     <property name="geometry">
      <rect>
-      <x>710</x>
+      <x>770</x>
       <y>400</y>
-      <width>301</width>
+      <width>241</width>
       <height>21</height>
      </rect>
     </property>
    </widget>
-   <widget class="QTextEdit" name="textEdit_15">
+   <widget class="QTextEdit" name="producto_adquirdo3">
     <property name="geometry">
      <rect>
-      <x>710</x>
+      <x>770</x>
       <y>280</y>
-      <width>301</width>
+      <width>241</width>
       <height>21</height>
      </rect>
     </property>
    </widget>
-   <widget class="QTextEdit" name="textEdit_16">
+   <widget class="QTextEdit" name="producto_adquirdo4">
     <property name="geometry">
      <rect>
-      <x>710</x>
+      <x>770</x>
       <y>310</y>
-      <width>301</width>
+      <width>241</width>
       <height>21</height>
      </rect>
     </property>
    </widget>
-   <widget class="QTextEdit" name="textEdit_17">
+   <widget class="QTextEdit" name="producto_adquirdo6">
     <property name="geometry">
      <rect>
-      <x>710</x>
+      <x>770</x>
       <y>370</y>
-      <width>301</width>
+      <width>241</width>
       <height>21</height>
      </rect>
     </property>
    </widget>
-   <widget class="QTextEdit" name="textEdit_18">
+   <widget class="QTextEdit" name="producto_adquirdo5">
     <property name="geometry">
      <rect>
-      <x>710</x>
+      <x>770</x>
       <y>340</y>
-      <width>301</width>
+      <width>241</width>
       <height>21</height>
      </rect>
     </property>
    </widget>
-   <widget class="QTextEdit" name="textEdit_19">
+   <widget class="QTextEdit" name="producto_adquirdo8">
     <property name="geometry">
      <rect>
-      <x>710</x>
+      <x>770</x>
       <y>430</y>
-      <width>301</width>
+      <width>241</width>
       <height>21</height>
      </rect>
     </property>
@@ -330,10 +313,10 @@
    <widget class="QLabel" name="label_2">
     <property name="geometry">
      <rect>
-      <x>380</x>
-      <y>206</y>
+      <x>280</x>
+      <y>190</y>
       <width>61</width>
-      <height>31</height>
+      <height>41</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -341,6 +324,369 @@
     </property>
     <property name="text">
      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;agregar&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_3">
+    <property name="geometry">
+     <rect>
+      <x>350</x>
+      <y>200</y>
+      <width>51</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 10pt &quot;MS Shell Dlg 2&quot;;</string>
+    </property>
+    <property name="text">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Quitar&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="boton_remo_prod4">
+    <property name="geometry">
+     <rect>
+      <x>360</x>
+      <y>320</y>
+      <width>31</width>
+      <height>28</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>+1</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="boton_remo_prod3">
+    <property name="geometry">
+     <rect>
+      <x>360</x>
+      <y>290</y>
+      <width>31</width>
+      <height>28</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>+1</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="boton_remo_prod2">
+    <property name="geometry">
+     <rect>
+      <x>360</x>
+      <y>260</y>
+      <width>31</width>
+      <height>28</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>+1</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="boton_remo_prod1">
+    <property name="geometry">
+     <rect>
+      <x>360</x>
+      <y>230</y>
+      <width>31</width>
+      <height>28</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>+1</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="boton_remo_prod7">
+    <property name="geometry">
+     <rect>
+      <x>360</x>
+      <y>410</y>
+      <width>31</width>
+      <height>28</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>+1</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="boton_remo_prod6">
+    <property name="geometry">
+     <rect>
+      <x>360</x>
+      <y>380</y>
+      <width>31</width>
+      <height>28</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>+1</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="boton_remo_prod5">
+    <property name="geometry">
+     <rect>
+      <x>360</x>
+      <y>350</y>
+      <width>31</width>
+      <height>28</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>+1</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="boton_remo_prod8">
+    <property name="geometry">
+     <rect>
+      <x>360</x>
+      <y>440</y>
+      <width>31</width>
+      <height>28</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>+1</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="boton_aplicar">
+    <property name="geometry">
+     <rect>
+      <x>440</x>
+      <y>320</y>
+      <width>131</width>
+      <height>28</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 10pt &quot;MS Shell Dlg 2&quot;;</string>
+    </property>
+    <property name="text">
+     <string>Aplicar Cambiós</string>
+    </property>
+   </widget>
+   <widget class="QTextEdit" name="cant_product3">
+    <property name="geometry">
+     <rect>
+      <x>400</x>
+      <y>290</y>
+      <width>41</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">h</string>
+    </property>
+   </widget>
+   <widget class="QTextEdit" name="cant_product2">
+    <property name="geometry">
+     <rect>
+      <x>400</x>
+      <y>260</y>
+      <width>41</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">h</string>
+    </property>
+   </widget>
+   <widget class="QTextEdit" name="cant_product5">
+    <property name="geometry">
+     <rect>
+      <x>400</x>
+      <y>350</y>
+      <width>41</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">h</string>
+    </property>
+   </widget>
+   <widget class="QTextEdit" name="cant_product4">
+    <property name="geometry">
+     <rect>
+      <x>400</x>
+      <y>320</y>
+      <width>41</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">h</string>
+    </property>
+   </widget>
+   <widget class="QTextEdit" name="cant_product6">
+    <property name="geometry">
+     <rect>
+      <x>400</x>
+      <y>380</y>
+      <width>41</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">h</string>
+    </property>
+   </widget>
+   <widget class="QTextEdit" name="cant_product8">
+    <property name="geometry">
+     <rect>
+      <x>400</x>
+      <y>440</y>
+      <width>41</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">h</string>
+    </property>
+   </widget>
+   <widget class="QTextEdit" name="cant_product7">
+    <property name="geometry">
+     <rect>
+      <x>400</x>
+      <y>410</y>
+      <width>41</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">h</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_4">
+    <property name="geometry">
+     <rect>
+      <x>400</x>
+      <y>190</y>
+      <width>71</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 10pt &quot;MS Shell Dlg 2&quot;;</string>
+    </property>
+    <property name="text">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;cantidad&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="thanos">
+    <property name="geometry">
+     <rect>
+      <x>1040</x>
+      <y>440</y>
+      <width>131</width>
+      <height>28</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 10pt &quot;MS Shell Dlg 2&quot;;</string>
+    </property>
+    <property name="text">
+     <string>borrar todo</string>
+    </property>
+   </widget>
+   <widget class="QTextEdit" name="cantidad_final1">
+    <property name="geometry">
+     <rect>
+      <x>700</x>
+      <y>220</y>
+      <width>41</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">h</string>
+    </property>
+   </widget>
+   <widget class="QTextEdit" name="cantidad_final3">
+    <property name="geometry">
+     <rect>
+      <x>700</x>
+      <y>280</y>
+      <width>41</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">h</string>
+    </property>
+   </widget>
+   <widget class="QTextEdit" name="cantidad_final5">
+    <property name="geometry">
+     <rect>
+      <x>700</x>
+      <y>340</y>
+      <width>41</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">h</string>
+    </property>
+   </widget>
+   <widget class="QTextEdit" name="cantidad_final4">
+    <property name="geometry">
+     <rect>
+      <x>700</x>
+      <y>310</y>
+      <width>41</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">h</string>
+    </property>
+   </widget>
+   <widget class="QTextEdit" name="cantidad_final7">
+    <property name="geometry">
+     <rect>
+      <x>700</x>
+      <y>400</y>
+      <width>41</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">h</string>
+    </property>
+   </widget>
+   <widget class="QTextEdit" name="cantidad_final6">
+    <property name="geometry">
+     <rect>
+      <x>700</x>
+      <y>370</y>
+      <width>41</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">h</string>
+    </property>
+   </widget>
+   <widget class="QTextEdit" name="cantidad_final8">
+    <property name="geometry">
+     <rect>
+      <x>700</x>
+      <y>430</y>
+      <width>41</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">h</string>
+    </property>
+   </widget>
+   <widget class="QTextEdit" name="cantidad_final2">
+    <property name="geometry">
+     <rect>
+      <x>700</x>
+      <y>250</y>
+      <width>41</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">h</string>
     </property>
    </widget>
   </widget>

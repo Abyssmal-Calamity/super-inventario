@@ -13,6 +13,10 @@
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(0, 0, 0, 255), stop:1 rgba(0, 0, 0, 0));
+background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(255, 255, 255, 255));</string>
+  </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QLabel" name="label">
     <property name="geometry">
@@ -39,8 +43,13 @@
       <height>41</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <pointsize>12</pointsize>
+     </font>
+    </property>
     <property name="styleSheet">
-     <string notr="true">border-radius:10px</string>
+     <string notr="true">border-radius: 10px;</string>
     </property>
    </widget>
    <widget class="QLineEdit" name="contasena">
@@ -52,8 +61,13 @@
       <height>41</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <pointsize>12</pointsize>
+     </font>
+    </property>
     <property name="styleSheet">
-     <string notr="true">border-radius:10px</string>
+     <string notr="true">border-radius: 10px;</string>
     </property>
    </widget>
    <widget class="QPushButton" name="btnEmpleado">
@@ -67,8 +81,28 @@
     </property>
     <property name="font">
      <font>
+      <family>Segoe UI</family>
       <pointsize>10</pointsize>
+      <italic>false</italic>
+      <bold>false</bold>
      </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+	font: 10pt &quot;Segoe UI&quot;;
+	background-color: rgb(255, 255, 255);
+	border-radius: 10px;
+}
+QPushButton::hover{
+	background-color: rgb(255, 170, 255);
+	color: rgb(85, 85, 255);
+	border-radius: 10px;
+}
+QPushButton::pressed{
+	background-color: rgb(255, 0, 255);
+	color: rgb(255, 255, 255);
+	border-radius: 10px;
+}</string>
     </property>
     <property name="text">
      <string>EMPLEADO</string>
@@ -85,8 +119,28 @@
     </property>
     <property name="font">
      <font>
+      <family>Segoe UI</family>
       <pointsize>10</pointsize>
+      <italic>false</italic>
+      <bold>false</bold>
      </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+	font: 10pt &quot;Segoe UI&quot;;
+	background-color: rgb(255, 255, 255);
+	border-radius: 10px;
+}
+QPushButton::hover{
+	background-color: rgb(255, 170, 255);
+	color: rgb(85, 85, 255);
+	border-radius: 10px;
+}
+QPushButton::pressed{
+	background-color: rgb(255, 0, 255);
+	color: rgb(255, 255, 255);
+	border-radius: 10px;
+}</string>
     </property>
     <property name="text">
      <string>ADMINISTRADOR</string>
@@ -103,10 +157,28 @@
     </property>
     <property name="font">
      <font>
+      <family>Segoe UI</family>
       <pointsize>12</pointsize>
-      <weight>75</weight>
+      <italic>false</italic>
       <bold>true</bold>
      </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+	font: 700 12pt &quot;Segoe UI&quot;;
+	background-color: rgb(255, 255, 255);
+	border-radius: 10px;
+}
+QPushButton::hover{
+	background-color: rgb(255, 170, 255);
+	color: rgb(85, 85, 255);
+	border-radius: 10px;
+}
+QPushButton::pressed{
+	background-color: rgb(255, 0, 255);
+	color: rgb(255, 255, 255);
+	border-radius: 10px;
+}</string>
     </property>
     <property name="text">
      <string>CANCELAR</string>
@@ -123,10 +195,28 @@
     </property>
     <property name="font">
      <font>
+      <family>Segoe UI</family>
       <pointsize>12</pointsize>
-      <weight>75</weight>
+      <italic>false</italic>
       <bold>true</bold>
      </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+	font: 700 12pt &quot;Segoe UI&quot;;
+	background-color: rgb(255, 255, 255);
+	border-radius: 10px;
+}
+QPushButton::hover{
+	background-color: rgb(255, 170, 255);
+	color: rgb(85, 85, 255);
+	border-radius: 10px;
+}
+QPushButton::pressed{
+	background-color: rgb(255, 0, 255);
+	color: rgb(255, 255, 255);
+	border-radius: 10px;
+}</string>
     </property>
     <property name="text">
      <string>CREAR</string>
@@ -144,9 +234,12 @@
     <property name="font">
      <font>
       <pointsize>14</pointsize>
-      <weight>75</weight>
       <bold>true</bold>
      </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(255, 255, 255);
+border-radius: 10px;</string>
     </property>
     <property name="text">
      <string>Cargo elegido</string>
@@ -162,7 +255,7 @@
      <x>0</x>
      <y>0</y>
      <width>1261</width>
-     <height>21</height>
+     <height>22</height>
     </rect>
    </property>
   </widget>
