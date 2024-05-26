@@ -9,146 +9,132 @@
 from PyQt6 import QtCore, QtGui, QtWidgets
 import csv
 
+
 class Ui_Registrar(object):
-    def registro(self, usuario, contrasena):
-        with open('ArchivosCSV/Usuarios.csv', 'w', encoding='utf-8', newline='') as write:
-            writer = csv.writer(write)
-        
-        with open('ArchivosCSV/Usuarios.csv', encoding='utf-8', newline='') as read:
-            reader = csv.reader(read, delimiter=',')
-
-    def cerrar(self, login, reg):
-        login.show()
-        reg.close()
-
+    
     def setupUi(self, Registrar, Login):
-        Registrar.setObjectName("Registrar")
-        Registrar.resize(1261, 532)
-        Registrar.setStyleSheet("background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(0, 0, 0, 255), stop:1 rgba(0, 0, 0, 0));\n"
-        "background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(255, 255, 255, 255));")
-        self.centralwidget = QtWidgets.QWidget(parent=Registrar)
+        self.Registrar = Registrar
+        self.Registrar.setObjectName("Registrar")
+        self.Registrar.resize(1261, 532)         # Resolucion ventana
+        self.Registrar.setStyleSheet("background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(0, 0, 0, 255), stop:1 rgba(0, 0, 0, 0));\n"
+                                "background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(255, 255, 255, 255));")
+        self.centralwidget = QtWidgets.QWidget(parent=self.Registrar)
         self.centralwidget.setObjectName("centralwidget")
 
+        
         # Etiquetas
-        self.label = QtWidgets.QLabel(parent=self.centralwidget)
-        self.label.setGeometry(QtCore.QRect(10, 0, 1241, 511))
-        self.label.setText("")
-        self.label.setPixmap(QtGui.QPixmap("images/Register_Screen_JPG.jpg"))
-        self.label.setObjectName("label")
+        self.fondo = QtWidgets.QLabel(parent=self.centralwidget)
+        self.fondo.setGeometry(QtCore.QRect(10, 0, 1241, 511))
+        self.fondo.setText("")
+        self.fondo.setPixmap(QtGui.QPixmap("images/Register_Screen_JPG.jpg"))
+        self.fondo.setObjectName("fondo")
+
         self.username = QtWidgets.QLineEdit(parent=self.centralwidget)
         font = QtGui.QFont()
-        font.setPointSize(12)
+        font.setPointSize(14)
         self.username.setFont(font)
-        self.username.setGeometry(QtCore.QRect(210, 210, 301, 41))
-        self.username.setStyleSheet("border-radius:10px")
+        self.username.setGeometry(QtCore.QRect(210, 210, 300, 40))
+        self.username.setStyleSheet("border-radius: 10px;\n" "border: 1px solid;")
         self.username.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
         self.username.setObjectName("username")
+
         self.contasena = QtWidgets.QLineEdit(parent=self.centralwidget)
         font = QtGui.QFont()
-        font.setPointSize(12)
+        font.setPointSize(14)
         self.contasena.setFont(font)
-        self.contasena.setGeometry(QtCore.QRect(210, 310, 301, 41))
-        self.contasena.setStyleSheet("border-radius: 10px;")
+        self.contasena.setGeometry(QtCore.QRect(210, 310, 264, 40))
+        self.contasena.setStyleSheet("border-top-left-radius: 10px;\n" "border-bottom-left-radius: 10px;\n"
+                                     "border: solid;\n" "border-width: 1px 0px 1px 1px;")
+        self.contasena.setEchoMode(QtWidgets.QLineEdit.EchoMode.Password)
         self.contasena.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
         self.contasena.setObjectName("contasena")
+        
         self.etiquetaCargo = QtWidgets.QLabel(parent=self.centralwidget)
         self.etiquetaCargo.setGeometry(QtCore.QRect(550, 170, 161, 31))
         font = QtGui.QFont()
         font.setPointSize(14)
         font.setBold(True)
         self.etiquetaCargo.setFont(font)
-        self.etiquetaCargo.setStyleSheet("background-color: rgb(255, 255, 255);\n" "border-radius: 10px;")
+        self.etiquetaCargo.setStyleSheet("background-color: rgb(255, 255, 255);\n" "border-radius: 10px;\n" "border: solid;" "border-width: 1px;")
         self.etiquetaCargo.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
         self.etiquetaCargo.setObjectName("etiquetaCargo")
+        self.nombreCargo = ""
 
+        
         # Interfaz botones
-        self.btnEmpleado = QtWidgets.QPushButton(parent=self.centralwidget)
-        self.btnEmpleado.setGeometry(QtCore.QRect(390, 420, 121, 41))
-        self.btnEmpleado.setStyleSheet("QPushButton{\n"
-                                    "   font: 10pt \"Segoe UI\";\n"
-                                    "   background-color: rgb(255, 255, 255);\n"
-                                    "   border-radius: 10px;\n"
-                                    "}\n"
-                                    "QPushButton::hover{\n"
-                                    "   background-color: rgb(255, 170, 255);\n"
-                                    "   color: rgb(85, 85, 255);\n"
-                                    "   border-radius: 10px;\n"
-                                    "}\n"
-                                    "QPushButton::pressed{\n"
-                                    "   background-color: rgb(255, 85, 255);\n"
-                                    "   color: rgb(255, 255, 255);\n"
-                                    "   border-radius: 10px;\n"
-                                    "}")
-        self.btnEmpleado.setObjectName("btnEmpleado")
+        self.showKey = CustomButton(parent=self.centralwidget)
+        self.showKey.setGeometry(QtCore.QRect(474, 310, 36, 40))
+        self.showKey.setIconSize(QtCore.QSize(32, 32))
+        self.showKey.setText("")
+        self.showKey.setObjectName("showKey")
+
         self.btnAdmin = QtWidgets.QPushButton(parent=self.centralwidget)
-        self.btnAdmin.setGeometry(QtCore.QRect(200, 420, 121, 41))
-        self.btnAdmin.setStyleSheet("QPushButton{\n"
-                                    "   font: 10pt \"Segoe UI\";\n"
-                                    "   background-color: rgb(255, 255, 255);\n"
-                                    "   border-radius: 10px;\n"
-                                    "}\n"
-                                    "QPushButton::hover{\n"
-                                    "   background-color: rgb(255, 170, 255);\n"
-                                    "   color: rgb(85, 85, 255);\n"
-                                    "   border-radius: 10px;\n"
-                                    "}\n"
-                                    "QPushButton::pressed{\n"
-                                    "   background-color: rgb(255, 85, 255);\n"
-                                    "   color: rgb(255, 255, 255);\n"
-                                    "   border-radius: 10px;\n"
-                                    "}")
+        self.btnAdmin.setGeometry(QtCore.QRect(200, 412, 121, 36))
+        font = QtGui.QFont()
+        font.setPointSize(10)
+        self.btnAdmin.setFont(font)
+        self.btnAdmin.setStyleSheet(self.btn_style_sheet_1())
         self.btnAdmin.setObjectName("btnAdmin")
-        self.btnCancelar = QtWidgets.QPushButton(parent=self.centralwidget, clicked = lambda: self.cerrar(Login, Registrar))    #lambda
-        self.btnCancelar.setGeometry(QtCore.QRect(570, 320, 121, 41))
-        self.btnCancelar.setStyleSheet("QPushButton{\n"
-                                    "   font: 700 12pt \"Segoe UI\";\n"
-                                    "   background-color: rgb(255, 255, 255);\n"
-                                    "   border-radius: 10px;\n"
-                                    "}\n"
-                                    "QPushButton::hover{\n"
-                                    "   background-color: rgb(255, 170, 255);\n"
-                                    "   color: rgb(85, 85, 255);\n"
-                                    "   border-radius: 10px;\n"
-                                    "}\n"
-                                    "QPushButton::pressed{\n"
-                                    "   background-color: rgb(255, 85, 255);\n"
-                                    "   color: rgb(255, 255, 255);\n"
-                                    "   border-radius: 10px;\n"
-                                    "}")
-        self.btnCancelar.setObjectName("btnCancelar")
-        usuario = str(self.username)
-        contrasena = str(self.contasena)
-        self.btnCrear = QtWidgets.QPushButton(parent=self.centralwidget, clicked = lambda: self.registro(usuario, contrasena))
+
+        self.btnEmpleado = QtWidgets.QPushButton(parent=self.centralwidget)
+        self.btnEmpleado.setGeometry(QtCore.QRect(390, 412, 121, 36))
+        font = QtGui.QFont()
+        font.setPointSize(10)
+        self.btnEmpleado.setFont(font)
+        self.btnEmpleado.setStyleSheet(self.btn_style_sheet_1())
+        self.btnEmpleado.setObjectName("btnEmpleado")
+
+        self.btnCrear = QtWidgets.QPushButton(parent=self.centralwidget)
         self.btnCrear.setGeometry(QtCore.QRect(570, 240, 121, 41))
-        self.btnCrear.setStyleSheet("QPushButton{\n"
-                                    "   font: 700 12pt \"Segoe UI\";\n"
-                                    "   background-color: rgb(255, 255, 255);\n"
-                                    "   border-radius: 10px;\n"
-                                    "}\n"
-                                    "QPushButton::hover{\n"
-                                    "   background-color: rgb(255, 170, 255);\n"
-                                    "   color: rgb(85, 85, 255);\n"
-                                    "   border-radius: 10px;\n"
-                                    "}\n"
-                                    "QPushButton::pressed{\n"
-                                    "   background-color: rgb(255, 85, 255);\n"
-                                    "   color: rgb(255, 255, 255);\n"
-                                    "   border-radius: 10px;\n"
-                                    "}")
+        font = QtGui.QFont()
+        font.setPointSize(12)
+        font.setBold(True)
+        self.btnCrear.setFont(font)
+        self.btnCrear.setStyleSheet(self.btn_style_sheet_1())
         self.btnCrear.setObjectName("btnCrear")
         
-        Registrar.setCentralWidget(self.centralwidget)
-        self.menubar = QtWidgets.QMenuBar(parent=Registrar)
+        self.btnCancelar = QtWidgets.QPushButton(parent=self.centralwidget)
+        self.btnCancelar.setGeometry(QtCore.QRect(570, 320, 121, 41))
+        font = QtGui.QFont()
+        font.setPointSize(12)
+        font.setBold(True)
+        self.btnCancelar.setFont(font)
+        self.btnCancelar.setStyleSheet(self.btn_style_sheet_1())
+        self.btnCancelar.setObjectName("btnCancelar")
+
+
+        # Accion botones
+        self.showKey.pressed.connect(lambda: self.showKey.setIcon(QtGui.QIcon("icono/mostrar2.png")))
+        self.showKey.pressed.connect(lambda: self.contasena.setEchoMode(QtWidgets.QLineEdit.EchoMode.Normal))
+        self.showKey.released.connect(lambda: self.showKey.setIcon(QtGui.QIcon("icono/nomostrar2.png")))
+        self.showKey.released.connect(lambda: self.contasena.setEchoMode(QtWidgets.QLineEdit.EchoMode.Password))
+
+        self.btnCrear.clicked.connect(self.validacionCampos)
+
+        self.btnCancelar.clicked.connect(lambda: self.cancelar(Login))
+
+        self.btnAdmin.clicked.connect(lambda: self.btnAdmin.setStyleSheet(self.btn_style_sheet_2()))
+        self.btnAdmin.clicked.connect(lambda: self.btnEmpleado.setStyleSheet(self.btn_style_sheet_1()))
+        self.btnAdmin.clicked.connect(self.set_admin)
+
+        self.btnEmpleado.clicked.connect(lambda: self.btnEmpleado.setStyleSheet(self.btn_style_sheet_2()))
+        self.btnEmpleado.clicked.connect(lambda: self.btnAdmin.setStyleSheet(self.btn_style_sheet_1()))
+        self.btnEmpleado.clicked.connect(self.set_empleado)
+        
+
+        self.Registrar.setCentralWidget(self.centralwidget)
+        self.menubar = QtWidgets.QMenuBar(parent=self.Registrar)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 1261, 21))
         self.menubar.setObjectName("menubar")
-        Registrar.setMenuBar(self.menubar)
-        self.statusbar = QtWidgets.QStatusBar(parent=Registrar)
+        self.Registrar.setMenuBar(self.menubar)
+        self.statusbar = QtWidgets.QStatusBar(parent=self.Registrar)
         self.statusbar.setObjectName("statusbar")
-        Registrar.setStatusBar(self.statusbar)
+        self.Registrar.setStatusBar(self.statusbar)
 
-        self.retranslateUi(Registrar)
-        QtCore.QMetaObject.connectSlotsByName(Registrar)
+        self.retranslateUi(self.Registrar)
+        QtCore.QMetaObject.connectSlotsByName(self.Registrar)
 
+    
     def retranslateUi(self, Registrar):
         _translate = QtCore.QCoreApplication.translate
         Registrar.setWindowTitle(_translate("Registrar", "MainWindow"))
@@ -156,4 +142,119 @@ class Ui_Registrar(object):
         self.btnAdmin.setText(_translate("Registrar", "ADMINISTRADOR"))
         self.btnCancelar.setText(_translate("Registrar", "CANCELAR"))
         self.btnCrear.setText(_translate("Registrar", "CREAR"))
-        self.etiquetaCargo.setText(_translate("Registrar", "Cargo elegido"))
+        self.etiquetaCargo.setText(_translate("Registrar", "Cargo deseado"))
+    
+
+    def set_admin(self):
+        self.nombreCargo = "Administrador"
+        self.etiquetaCargo.setText(self.nombreCargo)
+
+
+    def set_empleado(self):
+        self.nombreCargo = "Empleado"
+        self.etiquetaCargo.setText(self.nombreCargo)
+    
+
+    def validacionCampos(self):
+        camposValidados = True
+
+        if self.username.text() == "":
+            camposValidados = False
+        
+        if len(self.contasena.text()) == 0:
+            camposValidados = False
+        elif len(self.contasena.text()) < 8:
+            camposValidados = False
+        
+        if self.nombreCargo != "Administrador" and self.nombreCargo != "Empleado":
+            camposValidados = False
+        
+        if camposValidados == True:
+            self.crearUsuario()
+            self.cuadroUsuarioCreado()
+
+
+    def crearUsuario(self):                 # Metodo para almacenar datos del nuevo usuario
+        usuario = self.username.text()
+        password = self.contasena.text()
+        ocupacion = str(self.nombreCargo)
+        
+        new_user = [usuario, password, ocupacion]
+
+        with open('ArchivosCSV/Usuarios.csv', 'a', encoding='utf-8', newline='') as write:
+            writer = csv.writer(write)
+            writer.writerow(new_user)
+    
+
+    def cuadroUsuarioCreado(self):       # Se muestra un mensaje de usuario creado
+        self.notificacion = QtWidgets.QMessageBox()
+        self.notificacion.setWindowTitle("Usuario creado")
+        self.notificacion.setText("Se ha registrado con éxito")
+        self.notificacion.setIcon(QtWidgets.QMessageBox.Icon.Information)
+        self.notificacion.setStandardButtons(QtWidgets.QMessageBox.StandardButton.Ok)
+
+        btnAceptar = self.notificacion.button(QtWidgets.QMessageBox.StandardButton.Ok)
+        btnAceptar.setText("Aceptar")
+        btnAceptar.clicked.connect(self.volver_A_VentanaLogin)
+
+        self.notificacion.exec()
+
+    
+    def cancelar(self, login):                     # Metodo para cancelar registro de usuario
+        login.show()
+        self.Registrar.close()
+    
+
+    def volver_A_VentanaLogin(self):      # Metodo para mostrar ventana de inicio sesion
+        from Inicio_sesion import Ui_Login
+        self.ventanaLogin = QtWidgets.QMainWindow()
+        self.Ui = Ui_Login()
+        self.Ui.setupUi(self.ventanaLogin)
+        self.ventanaLogin.setWindowTitle("ULAGOS Market")
+        self.ventanaLogin.setWindowIcon(QtGui.QIcon("icono/martin.png"))
+        self.ventanaLogin.show()
+
+        self.Registrar.close()
+    
+
+    def btn_style_sheet_1(self):
+        return ("QPushButton{\n"
+                "   background-color: rgb(255, 255, 255);\n"
+                "   border-radius: 10px;\n"
+                "   border: 1px solid;\n"
+                "}\n"
+                "QPushButton::hover{\n"
+                "   background-color: rgb(255, 170, 255);\n"
+                "   color: rgb(85, 85, 255);\n"
+                "   border: 1px solid rgb(85, 0, 255);\n"
+                "}\n"
+                "QPushButton::pressed{\n"
+                "   background-color: rgb(255, 0, 255);\n"
+                "   color: rgb(255, 255, 255);\n"
+                "   border: 0px;\n"
+                "}")
+    
+
+    def btn_style_sheet_2(self):
+        return ("background-color: rgba(255, 85, 255, 0.75);\n"
+                "border-radius: 10px;\n"
+                "color: rgb(255, 255, 255);")
+
+
+
+
+class CustomButton(QtWidgets.QPushButton):
+
+    def __init__(self, parent=None):
+        super().__init__(parent)
+        self.setIcon(QtGui.QIcon("icono/nomostrar.png"))
+        self.setStyleSheet("border-top-right-radius: 10px;\n" "border-bottom-right-radius: 10px;\n"
+                           "border: solid;\n" "border-width: 1px 1px 1px 0px;")
+    
+
+    def enterEvent(self, event):
+        self.setIcon(QtGui.QIcon("icono/nomostrar2.png"))
+    
+
+    def leaveEvent(self, event):
+        self.setIcon(QtGui.QIcon("icono/nomostrar.png"))

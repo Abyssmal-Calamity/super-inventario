@@ -14,53 +14,34 @@ from Consultar import Ui_ShowInventary
 
 
 class Ui_MainWindow(object):
-    def gui_Logoff(self, login, main_w):
-        login.show()
-        main_w.close()
-    
-    def modificarInv(self, mainWindow):
-        # Se abre la ventana modificar inventario
-        self.ventModif = QtWidgets.QMainWindow()
-        self.Ui = Ui_ModifyWindow()
-        self.Ui.setupUi(self.ventModif, mainWindow)
-        self.ventModif.setWindowTitle("ULAGOS Market")
-        self.ventModif.setWindowIcon(QtGui.QIcon("icono\\xanxho.png"))
-        self.ventModif.show()
-
-        mainWindow.hide()
-    
-    def consultarInv(self, mainWindow):
-        # Se abre la ventana consultar inventario
-        self.ventCons = QtWidgets.QMainWindow()
-        self.Ui = Ui_ShowInventary()
-        self.Ui.setupUi(self.ventCons, mainWindow)
-        self.ventCons.setWindowTitle("ULAGOS Market")
-        self.ventCons.setWindowIcon(QtGui.QIcon("icono\\xanxho.png"))
-        self.ventCons.show()
-
-        mainWindow.hide()
 
     def setupUi(self, MainWindow, Login):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(1261, 532)        # Resolucion ventana
-        MainWindow.setStyleSheet("background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(0, 0, 0, 255), stop:1 rgba(0, 0, 0, 0));\n" "background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(255, 255, 255, 255));")
+        MainWindow.setStyleSheet("background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(0, 0, 0, 255), stop:1 rgba(0, 0, 0, 0));\n"
+                                 "background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(255, 255, 255, 255));")
         self.centralwidget = QtWidgets.QWidget(parent=MainWindow)
         self.centralwidget.setObjectName("centralwidget")
-        self.backgroud = QtWidgets.QLabel(parent=self.centralwidget)
+
+        
+        # Imagenes
+        self.backgroud = QtWidgets.QLabel(parent=self.centralwidget)    # Imagen de fondo
         self.backgroud.setGeometry(QtCore.QRect(10, 0, 1241, 511))
         self.backgroud.setText("")
         self.backgroud.setPixmap(QtGui.QPixmap("images/Screen_2_JPG.jpg"))
         self.backgroud.setObjectName("backgroud")
-        #self.thomas = QtWidgets.QLabel(parent=self.centralwidget)
+
+        #self.thomas = QtWidgets.QLabel(parent=self.centralwidget)       # Imagen del Thomas puesto como meme
         #self.thomas.setGeometry(QtCore.QRect(995, 278, 256, 256))
         #self.thomas.setStyleSheet("background:transparent;")
         #self.thomas.setText("")
-        #self.thomas.setPixmap(QtGui.QPixmap("../imagenes para TPA/thomas_2.png"))
+        #self.thomas.setPixmap(QtGui.QPixmap("images/thomas.png"))
         #self.thomas.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
         #self.thomas.setObjectName("thomas")
 
+        
         # Etiquetas
-        self.userLabel = QtWidgets.QLabel(parent=self.centralwidget)
+        self.userLabel = QtWidgets.QLabel(parent=self.centralwidget)        # Muestra el nombre de usuario
         self.userLabel.setGeometry(QtCore.QRect(130, 80, 111, 41))
         font = QtGui.QFont()
         font.setPointSize(12)
@@ -68,19 +49,31 @@ class Ui_MainWindow(object):
         self.userLabel.setText("profe")
         self.userLabel.setObjectName("userLabel")
 
-        # Interfaz botones con operaciones lambda
-        self.logoutButton = QtWidgets.QPushButton(parent=self.centralwidget, clicked = lambda: self.gui_Logoff(Login, MainWindow))    #lambda
+        
+        # Interfaz botones
+        self.logoutButton = QtWidgets.QPushButton(parent=self.centralwidget)    # Boton cerrar sesion
         self.logoutButton.setGeometry(QtCore.QRect(248, 80, 81, 41))
         self.logoutButton.setStyleSheet("font: 10pt \"MS Shell Dlg 2\";")
         self.logoutButton.setObjectName("logoutButton")
-        self.modify_invBtn = QtWidgets.QPushButton(parent=self.centralwidget, clicked = lambda: self.modificarInv(MainWindow))    #lambda
+
+        self.modify_invBtn = QtWidgets.QPushButton(parent=self.centralwidget)   # Boton modificar inventario
         self.modify_invBtn.setGeometry(QtCore.QRect(266, 290, 171, 61))
         self.modify_invBtn.setStyleSheet("font: 10pt \"MS Shell Dlg 2\";")
         self.modify_invBtn.setObjectName("modify_invBtn")
-        self.show_invBtn = QtWidgets.QPushButton(parent=self.centralwidget, clicked = lambda: self.consultarInv(MainWindow))    #lambda
+
+        self.show_invBtn = QtWidgets.QPushButton(parent=self.centralwidget)     # Boton consultar inventario
         self.show_invBtn.setGeometry(QtCore.QRect(826, 290, 171, 61))
         self.show_invBtn.setStyleSheet("font: 10pt \"MS Shell Dlg 2\";")
         self.show_invBtn.setObjectName("show_invBtn")
+
+        
+        # Accion botones
+        self.logoutButton.clicked.connect(lambda: self.gui_Logoff(Login, MainWindow))
+
+        self.modify_invBtn.clicked.connect(lambda: self.modificarInv(MainWindow))
+
+        self.show_invBtn.clicked.connect(lambda: self.consultarInv(MainWindow))
+
         
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(parent=MainWindow)
@@ -94,9 +87,39 @@ class Ui_MainWindow(object):
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
+    
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
         self.logoutButton.setText(_translate("MainWindow", "Cerrar\nsesion"))
         self.modify_invBtn.setText(_translate("MainWindow", "Modificar inventario"))
         self.show_invBtn.setText(_translate("MainWindow", "Consultar inventario"))
+    
+    
+    def gui_Logoff(self, login, main_w):            # Metodo para cerrar sesion
+        login.show()
+        main_w.close()
+    
+    
+    def modificarInv(self, mainWindow):             # Metodo para modificar inventario
+        # Se abre la ventana modificar inventario
+        self.ventModif = QtWidgets.QMainWindow()
+        self.Ui = Ui_ModifyWindow()
+        self.Ui.setupUi(self.ventModif, mainWindow)
+        self.ventModif.setWindowTitle("ULAGOS Market")
+        self.ventModif.setWindowIcon(QtGui.QIcon("icono\\martin.png"))
+        self.ventModif.show()
+
+        mainWindow.close()
+    
+    
+    def consultarInv(self, mainWindow):             # Metodo para consultar inventario
+        # Se abre la ventana consultar inventario
+        self.ventCons = QtWidgets.QMainWindow()
+        self.Ui = Ui_ShowInventary()
+        self.Ui.setupUi(self.ventCons, mainWindow)
+        self.ventCons.setWindowTitle("ULAGOS Market")
+        self.ventCons.setWindowIcon(QtGui.QIcon("icono\\martin.png"))
+        self.ventCons.show()
+
+        mainWindow.close()

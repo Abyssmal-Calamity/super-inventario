@@ -40,10 +40,10 @@ background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgb
    <widget class="QLineEdit" name="userEdit">
     <property name="geometry">
      <rect>
-      <x>680</x>
-      <y>230</y>
-      <width>181</width>
-      <height>31</height>
+      <x>666</x>
+      <y>229</y>
+      <width>200</width>
+      <height>32</height>
      </rect>
     </property>
     <property name="font">
@@ -52,17 +52,17 @@ background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgb
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">border-radius:10px
-</string>
+     <string notr="true">border-radius: 10px;
+border: 1px solid;</string>
     </property>
    </widget>
    <widget class="QLineEdit" name="passwordEdit">
     <property name="geometry">
      <rect>
-      <x>680</x>
-      <y>310</y>
-      <width>181</width>
-      <height>31</height>
+      <x>660</x>
+      <y>306</y>
+      <width>178</width>
+      <height>32</height>
      </rect>
     </property>
     <property name="font">
@@ -71,34 +71,41 @@ background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgb
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">border-radius:10px
-</string>
+     <string notr="true">border-top-left-radius: 10px;
+border-bottom-left-radius: 10px;
+border: solid;
+border-width: 1px 0px 1px 1px;</string>
+    </property>
+    <property name="echoMode">
+     <enum>QLineEdit::Normal</enum>
     </property>
    </widget>
    <widget class="QPushButton" name="loginButton">
     <property name="geometry">
      <rect>
       <x>810</x>
-      <y>410</y>
+      <y>404</y>
       <width>131</width>
-      <height>28</height>
+      <height>36</height>
      </rect>
     </property>
     <property name="styleSheet">
      <string notr="true">QPushButton{
 	font: 600 12pt &quot;Segoe UI Semibold&quot;;
+	background-color: rgb(255, 255, 255);
 	border-radius:10px;
+	border: 1px solid;
 }
 QPushButton::hover{
 	background-color: rgb(255, 170, 255);
 	color: rgb(85, 85, 255);
-	border-radius: 10px;
+	border: 1px solid rgb(85, 0, 255);
 }
 QPushButton::pressed{
 	font: 700 12pt &quot;Segoe UI&quot;;
-	background-color: rgb(255, 85, 255);
+	background-color: rgb(255, 0, 255);
 	color: rgb(255, 255, 255);
-	border-radius: 10px;
+	border: 0px;
 }</string>
     </property>
     <property name="text">
@@ -109,26 +116,36 @@ QPushButton::pressed{
     <property name="geometry">
      <rect>
       <x>1110</x>
-      <y>450</y>
+      <y>442</y>
       <width>131</width>
-      <height>28</height>
+      <height>36</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Segoe UI Semibold</family>
+      <pointsize>12</pointsize>
+      <italic>false</italic>
+      <bold>true</bold>
+     </font>
     </property>
     <property name="styleSheet">
      <string notr="true">QPushButton{
-	font: 600 11pt &quot;Segoe UI Semibold&quot;;
+	font: 600 12pt &quot;Segoe UI Semibold&quot;;
+	background-color: rgb(255, 255, 255);
 	border-radius:10px;
+	border: 1px solid;
 }
 QPushButton::hover{
 	background-color: rgb(255, 170, 255);
 	color: rgb(85, 85, 255);
-	border-radius: 10px;
+	border: 1px solid rgb(85, 0, 255);
 }
 QPushButton::pressed{
-	font: 700 11pt &quot;Segoe UI&quot;;
-	background-color: rgb(255, 85, 255);
+	font: 700 12pt &quot;Segoe UI&quot;;
+	background-color: rgb(255, 0, 255);
 	color: rgb(255, 255, 255);
-	border-radius: 10px;
+	border: 0px;
 }</string>
     </property>
     <property name="text">
@@ -139,7 +156,7 @@ QPushButton::pressed{
     <property name="geometry">
      <rect>
       <x>586</x>
-      <y>354</y>
+      <y>350</y>
       <width>480</width>
       <height>43</height>
      </rect>
@@ -154,30 +171,32 @@ QPushButton::pressed{
      <set>Qt::AlignCenter</set>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton">
+   <widget class="QPushButton" name="btnRegistrar">
     <property name="geometry">
      <rect>
       <x>620</x>
-      <y>410</y>
+      <y>404</y>
       <width>131</width>
-      <height>28</height>
+      <height>36</height>
      </rect>
     </property>
     <property name="styleSheet">
      <string notr="true">QPushButton{
 	font: 600 12pt &quot;Segoe UI Semibold&quot;;
+	background-color: rgb(255, 255, 255);
 	border-radius:10px;
+	border: 1px solid;
 }
 QPushButton::hover{
 	background-color: rgb(255, 170, 255);
 	color: rgb(85, 85, 255);
-	border-radius: 10px;
+	border: 1px solid rgb(85, 0, 255);
 }
 QPushButton::pressed{
 	font: 700 12pt &quot;Segoe UI&quot;;
-	background-color: rgb(255, 85, 255);
+	background-color: rgb(255, 0, 255);
 	color: rgb(255, 255, 255);
-	border-radius: 10px;
+	border: 0px;
 }</string>
     </property>
     <property name="text">
@@ -206,6 +225,45 @@ QPushButton::pressed{
      <set>Qt::AlignCenter</set>
     </property>
    </widget>
+   <widget class="QPushButton" name="showKey">
+    <property name="geometry">
+     <rect>
+      <x>838</x>
+      <y>306</y>
+      <width>34</width>
+      <height>32</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+	border-image: url(:/iconos/no-visible);
+	background-repeat: no-repeat;
+	width: 32px;
+	height: 32px;
+	border-top-right-radius: 10px;
+	border-bottom-right-radius: 10px;
+	border: solid;
+	border-width: 1px 1px 1px 0px;
+}
+QPushButton::hover{
+	border-image: url(:/iconos/no-visible-2);
+	background-repeat: no-repeat;
+}
+QPushButton::pressed{
+	border-image: url(:/iconos/visible-2);
+	background-repeat: no-repeat;
+}</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>32</width>
+      <height>32</height>
+     </size>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
@@ -219,6 +277,8 @@ QPushButton::pressed{
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
- <resources/>
+ <resources>
+  <include location="icono/ojos.qrc"/>
+ </resources>
  <connections/>
 </ui>
