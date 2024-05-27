@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>MainWindow</class>
- <widget class="QMainWindow" name="MainWindow">
+ <class>ModifyWindow</class>
+ <widget class="QMainWindow" name="ModifyWindow">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -33,7 +33,7 @@
      <bool>true</bool>
     </property>
    </widget>
-   <widget class="QTextEdit" name="producto1">
+   <widget class="QTextBrowser" name="producto1">
     <property name="geometry">
      <rect>
       <x>50</x>
@@ -43,17 +43,7 @@
      </rect>
     </property>
    </widget>
-   <widget class="QTextEdit" name="producto4">
-    <property name="geometry">
-     <rect>
-      <x>50</x>
-      <y>320</y>
-      <width>231</width>
-      <height>21</height>
-     </rect>
-    </property>
-   </widget>
-   <widget class="QTextEdit" name="producto2">
+   <widget class="QTextBrowser" name="producto2">
     <property name="geometry">
      <rect>
       <x>50</x>
@@ -63,7 +53,7 @@
      </rect>
     </property>
    </widget>
-   <widget class="QTextEdit" name="producto3">
+   <widget class="QTextBrowser" name="producto3">
     <property name="geometry">
      <rect>
       <x>50</x>
@@ -71,98 +61,6 @@
       <width>231</width>
       <height>21</height>
      </rect>
-    </property>
-   </widget>
-   <widget class="QTextEdit" name="producto6">
-    <property name="geometry">
-     <rect>
-      <x>50</x>
-      <y>380</y>
-      <width>231</width>
-      <height>21</height>
-     </rect>
-    </property>
-   </widget>
-   <widget class="QTextEdit" name="producto5">
-    <property name="geometry">
-     <rect>
-      <x>50</x>
-      <y>350</y>
-      <width>231</width>
-      <height>21</height>
-     </rect>
-    </property>
-   </widget>
-   <widget class="QTextEdit" name="producto8">
-    <property name="geometry">
-     <rect>
-      <x>50</x>
-      <y>440</y>
-      <width>231</width>
-      <height>21</height>
-     </rect>
-    </property>
-   </widget>
-   <widget class="QTextEdit" name="producto7">
-    <property name="geometry">
-     <rect>
-      <x>50</x>
-      <y>410</y>
-      <width>231</width>
-      <height>21</height>
-     </rect>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="boton_add_prod5">
-    <property name="geometry">
-     <rect>
-      <x>290</x>
-      <y>350</y>
-      <width>31</width>
-      <height>28</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>+1</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="boton_add_prod7">
-    <property name="geometry">
-     <rect>
-      <x>290</x>
-      <y>410</y>
-      <width>31</width>
-      <height>28</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>+1</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="boton_add_prod6">
-    <property name="geometry">
-     <rect>
-      <x>290</x>
-      <y>380</y>
-      <width>31</width>
-      <height>28</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>+1</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="boton_add_prod4">
-    <property name="geometry">
-     <rect>
-      <x>290</x>
-      <y>320</y>
-      <width>31</width>
-      <height>28</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>+1</string>
     </property>
    </widget>
    <widget class="QPushButton" name="boton_add_prod3">
@@ -204,25 +102,12 @@
      <string>+1</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="boton_add_prod8">
+   <widget class="QTextBrowser" name="cant_product1">
     <property name="geometry">
      <rect>
-      <x>290</x>
-      <y>440</y>
-      <width>31</width>
-      <height>28</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>+1</string>
-    </property>
-   </widget>
-   <widget class="QTextEdit" name="cant_product1">
-    <property name="geometry">
-     <rect>
-      <x>400</x>
+      <x>430</x>
       <y>230</y>
-      <width>41</width>
+      <width>71</width>
       <height>21</height>
      </rect>
     </property>
@@ -230,7 +115,7 @@
      <string notr="true">h</string>
     </property>
    </widget>
-   <widget class="QTextEdit" name="producto_adquirdo2">
+   <widget class="QTextBrowser" name="producto_adquirdo2">
     <property name="geometry">
      <rect>
       <x>770</x>
@@ -240,7 +125,7 @@
      </rect>
     </property>
    </widget>
-   <widget class="QTextEdit" name="producto_adquirdo1">
+   <widget class="QTextBrowser" name="producto_adquirdo1">
     <property name="geometry">
      <rect>
       <x>770</x>
@@ -250,61 +135,11 @@
      </rect>
     </property>
    </widget>
-   <widget class="QTextEdit" name="producto_adquirdo7">
-    <property name="geometry">
-     <rect>
-      <x>770</x>
-      <y>400</y>
-      <width>241</width>
-      <height>21</height>
-     </rect>
-    </property>
-   </widget>
-   <widget class="QTextEdit" name="producto_adquirdo3">
+   <widget class="QTextBrowser" name="producto_adquirdo3">
     <property name="geometry">
      <rect>
       <x>770</x>
       <y>280</y>
-      <width>241</width>
-      <height>21</height>
-     </rect>
-    </property>
-   </widget>
-   <widget class="QTextEdit" name="producto_adquirdo4">
-    <property name="geometry">
-     <rect>
-      <x>770</x>
-      <y>310</y>
-      <width>241</width>
-      <height>21</height>
-     </rect>
-    </property>
-   </widget>
-   <widget class="QTextEdit" name="producto_adquirdo6">
-    <property name="geometry">
-     <rect>
-      <x>770</x>
-      <y>370</y>
-      <width>241</width>
-      <height>21</height>
-     </rect>
-    </property>
-   </widget>
-   <widget class="QTextEdit" name="producto_adquirdo5">
-    <property name="geometry">
-     <rect>
-      <x>770</x>
-      <y>340</y>
-      <width>241</width>
-      <height>21</height>
-     </rect>
-    </property>
-   </widget>
-   <widget class="QTextEdit" name="producto_adquirdo8">
-    <property name="geometry">
-     <rect>
-      <x>770</x>
-      <y>430</y>
       <width>241</width>
       <height>21</height>
      </rect>
@@ -340,19 +175,6 @@
     </property>
     <property name="text">
      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Quitar&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="boton_remo_prod4">
-    <property name="geometry">
-     <rect>
-      <x>360</x>
-      <y>320</y>
-      <width>31</width>
-      <height>28</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>+1</string>
     </property>
    </widget>
    <widget class="QPushButton" name="boton_remo_prod3">
@@ -394,63 +216,11 @@
      <string>+1</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="boton_remo_prod7">
-    <property name="geometry">
-     <rect>
-      <x>360</x>
-      <y>410</y>
-      <width>31</width>
-      <height>28</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>+1</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="boton_remo_prod6">
-    <property name="geometry">
-     <rect>
-      <x>360</x>
-      <y>380</y>
-      <width>31</width>
-      <height>28</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>+1</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="boton_remo_prod5">
-    <property name="geometry">
-     <rect>
-      <x>360</x>
-      <y>350</y>
-      <width>31</width>
-      <height>28</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>+1</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="boton_remo_prod8">
-    <property name="geometry">
-     <rect>
-      <x>360</x>
-      <y>440</y>
-      <width>31</width>
-      <height>28</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>+1</string>
-    </property>
-   </widget>
    <widget class="QPushButton" name="boton_aplicar">
     <property name="geometry">
      <rect>
-      <x>440</x>
-      <y>320</y>
+      <x>310</x>
+      <y>400</y>
       <width>131</width>
       <height>28</height>
      </rect>
@@ -462,12 +232,12 @@
      <string>Aplicar Cambiós</string>
     </property>
    </widget>
-   <widget class="QTextEdit" name="cant_product3">
+   <widget class="QTextBrowser" name="cant_product3">
     <property name="geometry">
      <rect>
-      <x>400</x>
+      <x>430</x>
       <y>290</y>
-      <width>41</width>
+      <width>71</width>
       <height>21</height>
      </rect>
     </property>
@@ -475,77 +245,12 @@
      <string notr="true">h</string>
     </property>
    </widget>
-   <widget class="QTextEdit" name="cant_product2">
+   <widget class="QTextBrowser" name="cant_product2">
     <property name="geometry">
      <rect>
-      <x>400</x>
+      <x>430</x>
       <y>260</y>
-      <width>41</width>
-      <height>21</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">h</string>
-    </property>
-   </widget>
-   <widget class="QTextEdit" name="cant_product5">
-    <property name="geometry">
-     <rect>
-      <x>400</x>
-      <y>350</y>
-      <width>41</width>
-      <height>21</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">h</string>
-    </property>
-   </widget>
-   <widget class="QTextEdit" name="cant_product4">
-    <property name="geometry">
-     <rect>
-      <x>400</x>
-      <y>320</y>
-      <width>41</width>
-      <height>21</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">h</string>
-    </property>
-   </widget>
-   <widget class="QTextEdit" name="cant_product6">
-    <property name="geometry">
-     <rect>
-      <x>400</x>
-      <y>380</y>
-      <width>41</width>
-      <height>21</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">h</string>
-    </property>
-   </widget>
-   <widget class="QTextEdit" name="cant_product8">
-    <property name="geometry">
-     <rect>
-      <x>400</x>
-      <y>440</y>
-      <width>41</width>
-      <height>21</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">h</string>
-    </property>
-   </widget>
-   <widget class="QTextEdit" name="cant_product7">
-    <property name="geometry">
-     <rect>
-      <x>400</x>
-      <y>410</y>
-      <width>41</width>
+      <width>71</width>
       <height>21</height>
      </rect>
     </property>
@@ -572,8 +277,8 @@
    <widget class="QPushButton" name="thanos">
     <property name="geometry">
      <rect>
-      <x>1040</x>
-      <y>440</y>
+      <x>910</x>
+      <y>390</y>
       <width>131</width>
       <height>28</height>
      </rect>
@@ -585,7 +290,7 @@
      <string>borrar todo</string>
     </property>
    </widget>
-   <widget class="QTextEdit" name="cantidad_final1">
+   <widget class="QTextBrowser" name="cantidad_final1">
     <property name="geometry">
      <rect>
       <x>700</x>
@@ -598,7 +303,7 @@
      <string notr="true">h</string>
     </property>
    </widget>
-   <widget class="QTextEdit" name="cantidad_final3">
+   <widget class="QTextBrowser" name="cantidad_final3">
     <property name="geometry">
      <rect>
       <x>700</x>
@@ -611,72 +316,7 @@
      <string notr="true">h</string>
     </property>
    </widget>
-   <widget class="QTextEdit" name="cantidad_final5">
-    <property name="geometry">
-     <rect>
-      <x>700</x>
-      <y>340</y>
-      <width>41</width>
-      <height>21</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">h</string>
-    </property>
-   </widget>
-   <widget class="QTextEdit" name="cantidad_final4">
-    <property name="geometry">
-     <rect>
-      <x>700</x>
-      <y>310</y>
-      <width>41</width>
-      <height>21</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">h</string>
-    </property>
-   </widget>
-   <widget class="QTextEdit" name="cantidad_final7">
-    <property name="geometry">
-     <rect>
-      <x>700</x>
-      <y>400</y>
-      <width>41</width>
-      <height>21</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">h</string>
-    </property>
-   </widget>
-   <widget class="QTextEdit" name="cantidad_final6">
-    <property name="geometry">
-     <rect>
-      <x>700</x>
-      <y>370</y>
-      <width>41</width>
-      <height>21</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">h</string>
-    </property>
-   </widget>
-   <widget class="QTextEdit" name="cantidad_final8">
-    <property name="geometry">
-     <rect>
-      <x>700</x>
-      <y>430</y>
-      <width>41</width>
-      <height>21</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">h</string>
-    </property>
-   </widget>
-   <widget class="QTextEdit" name="cantidad_final2">
+   <widget class="QTextBrowser" name="cantidad_final2">
     <property name="geometry">
      <rect>
       <x>700</x>
