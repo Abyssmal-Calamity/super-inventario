@@ -29,6 +29,36 @@ class Ui_Registrar(object):
         self.fondo.setPixmap(QtGui.QPixmap("images/Register_Screen_JPG.jpg"))
         self.fondo.setObjectName("fondo")
 
+        self.texto1 = QtWidgets.QLabel(parent=self.centralwidget)
+        self.texto1.setGeometry(QtCore.QRect(210, 250, 300, 18))
+        font = QtGui.QFont()
+        font.setPointSize(10)
+        self.texto1.setFont(font)
+        self.texto1.setAlignment(QtCore.Qt.AlignmentFlag.AlignLeft)
+        self.texto1.setStyleSheet("background: transparent;\n" "color: rgb(225,0,0);\n")
+        self.texto1.setText("")
+        self.texto1.setObjectName("texto1")
+
+        self.texto2 = QtWidgets.QLabel(parent=self.centralwidget)
+        self.texto2.setGeometry(QtCore.QRect(210, 350, 300, 18))
+        font = QtGui.QFont()
+        font.setPointSize(10)
+        self.texto2.setFont(font)
+        self.texto2.setAlignment(QtCore.Qt.AlignmentFlag.AlignLeft)
+        self.texto2.setStyleSheet("background: transparent;\n" "color: rgb(225,0,0);\n")
+        self.texto2.setText("")
+        self.texto2.setObjectName("texto2")
+
+        self.texto3 = QtWidgets.QLabel(parent=self.centralwidget)
+        self.texto3.setGeometry(QtCore.QRect(210, 450, 300, 18))
+        font = QtGui.QFont()
+        font.setPointSize(10)
+        self.texto3.setFont(font)
+        self.texto3.setAlignment(QtCore.Qt.AlignmentFlag.AlignLeft)
+        self.texto3.setStyleSheet("background: transparent;\n" "color: rgb(225,0,0);\n")
+        self.texto3.setText("")
+        self.texto3.setObjectName("texto3")
+
         self.username = QtWidgets.QLineEdit(parent=self.centralwidget)
         font = QtGui.QFont()
         font.setPointSize(14)
@@ -159,17 +189,45 @@ class Ui_Registrar(object):
         camposValidados = True
 
         if self.username.text() == "":
+            self.username.setStyleSheet("border-radius: 10px;\n" "border: 2px solid rgb(255, 0, 0);")
+            self.texto1.setText("Este campo es obligatorio")
             camposValidados = False
+        elif self.usuario_existente():
+            self.username.setStyleSheet("border-radius: 10px;\n" "border: 2px solid rgb(255, 0, 0);")
+            self.texto1.setText("Ya existe un usuario registrado con este nombre")
+            camposValidados = False
+        else:
+            self.username.setStyleSheet("border-radius: 10px;\n" "border: 1px solid;")
+            self.texto1.setText("")
         
         if len(self.contasena.text()) == 0:
+            self.contasena.setStyleSheet("border-top-left-radius: 10px;\n" "border-bottom-left-radius: 10px;\n"
+                                         "border: solid rgb(255, 0, 0);\n" "border-width: 2px 0px 2px 2px;")
+            self.showKey.setStyleSheet("border-top-right-radius: 10px;\n" "border-bottom-right-radius: 10px;\n"
+                                       "border: solid rgb(255, 0, 0);\n" "border-width: 2px 2px 2px 0px;")
+            self.texto2.setText("Este campo es obligatorio")
             camposValidados = False
         elif len(self.contasena.text()) < 8:
+            self.contasena.setStyleSheet("border-top-left-radius: 10px;\n" "border-bottom-left-radius: 10px;\n"
+                                         "border: solid rgb(255, 0, 0);\n" "border-width: 2px 0px 2px 2px;")
+            self.showKey.setStyleSheet("border-top-right-radius: 10px;\n" "border-bottom-right-radius: 10px;\n"
+                                       "border: solid rgb(255, 0, 0);\n" "border-width: 2px 2px 2px 0px;")
+            self.texto2.setText("La contraseña debe tener mínimo 8 caracteres")
             camposValidados = False
+        else:
+            self.contasena.setStyleSheet("border-top-left-radius: 10px;\n" "border-bottom-left-radius: 10px;\n"
+                                         "border: solid;\n" "border-width: 1px 0px 1px 1px;")
+            self.showKey.setStyleSheet("border-top-right-radius: 10px;\n" "border-bottom-right-radius: 10px;\n"
+                                       "border: solid;\n" "border-width: 1px 1px 1px 0px;")
+            self.texto2.setText("")
         
         if self.nombreCargo != "Administrador" and self.nombreCargo != "Empleado":
+            self.texto3.setText("Debe elegir una opción")
             camposValidados = False
+        else:
+            self.texto3.setText("")
         
-        if camposValidados == True:
+        if camposValidados:
             self.crearUsuario()
             self.cuadroUsuarioCreado()
 
@@ -184,6 +242,19 @@ class Ui_Registrar(object):
         with open('ArchivosCSV/Usuarios.csv', 'a', encoding='utf-8', newline='') as write:
             writer = csv.writer(write)
             writer.writerow(new_user)
+    
+
+    def usuario_existente(self):        # Metodo para comprobar si ya existe un usuario que se intento crear
+        with open("ArchivosCSV/Usuarios.csv", "r", encoding="utf-8") as archivo:
+            users = csv.reader(archivo, delimiter=',')
+            next(users)
+            
+            for row in users:
+                if row[0] == self.username.text():
+                    return True
+        
+        return False
+
     
 
     def cuadroUsuarioCreado(self):       # Se muestra un mensaje de usuario creado
