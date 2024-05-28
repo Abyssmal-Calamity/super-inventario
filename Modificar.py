@@ -13,7 +13,7 @@ import csv
 class Ui_ModifyWindow(object):
     def setupUi(self, ModifyWindow, MainWindow):
         ModifyWindow.setObjectName("ModifyWindow")
-        ModifyWindow.resize(1256, 546)
+        ModifyWindow.resize(1261, 532)
         self.centralwidget = QtWidgets.QWidget(parent=ModifyWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.label = QtWidgets.QLabel(parent=self.centralwidget)
@@ -38,6 +38,9 @@ class Ui_ModifyWindow(object):
         self.producto3.setText(self.mostrar_producto(2))
         self.producto3.setObjectName("producto3")
 
+        self.btnVolver = QtWidgets.QPushButton(parent=self.centralwidget)
+        self.btnVolver.setGeometry(QtCore.QRect(1110, 80, 100, 32))
+        self.btnVolver.setObjectName("BtnVolver")
         self.boton_add_prod3 = QtWidgets.QPushButton(parent=self.centralwidget)
         self.boton_add_prod3.setGeometry(QtCore.QRect(290, 290, 31, 28))
         self.boton_add_prod3.setObjectName("boton_add_prod3")
@@ -51,12 +54,23 @@ class Ui_ModifyWindow(object):
         self.cant_product1.setGeometry(QtCore.QRect(430, 230, 71, 21))
         self.cant_product1.setStyleSheet("h")
         self.cant_product1.setObjectName("cant_product1")
-        self.producto_adquirdo2 = QtWidgets.QTextBrowser(parent=self.centralwidget)
-        self.producto_adquirdo2.setGeometry(QtCore.QRect(770, 250, 241, 21))
-        self.producto_adquirdo2.setObjectName("producto_adquirdo2")
+
+        self.cant_product2 = QtWidgets.QTextBrowser(parent=self.centralwidget)
+        self.cant_product2.setGeometry(QtCore.QRect(430, 260, 71, 21))
+        self.cant_product2.setStyleSheet("h")
+        self.cant_product2.setObjectName("cant_product2")
+
+        self.cant_product3 = QtWidgets.QTextBrowser(parent=self.centralwidget)
+        self.cant_product3.setGeometry(QtCore.QRect(430, 290, 71, 21))
+        self.cant_product3.setStyleSheet("h")
+        self.cant_product3.setObjectName("cant_product3")
+
         self.producto_adquirdo1 = QtWidgets.QTextBrowser(parent=self.centralwidget)
         self.producto_adquirdo1.setGeometry(QtCore.QRect(770, 220, 241, 21))
         self.producto_adquirdo1.setObjectName("producto_adquirdo1")
+        self.producto_adquirdo2 = QtWidgets.QTextBrowser(parent=self.centralwidget)
+        self.producto_adquirdo2.setGeometry(QtCore.QRect(770, 250, 241, 21))
+        self.producto_adquirdo2.setObjectName("producto_adquirdo2")
         self.producto_adquirdo3 = QtWidgets.QTextBrowser(parent=self.centralwidget)
         self.producto_adquirdo3.setGeometry(QtCore.QRect(770, 280, 241, 21))
         self.producto_adquirdo3.setObjectName("producto_adquirdo3")
@@ -81,14 +95,6 @@ class Ui_ModifyWindow(object):
         self.boton_aplicar.setGeometry(QtCore.QRect(310, 400, 131, 28))
         self.boton_aplicar.setStyleSheet("font: 10pt \"MS Shell Dlg 2\";")
         self.boton_aplicar.setObjectName("boton_aplicar")
-        self.cant_product3 = QtWidgets.QTextBrowser(parent=self.centralwidget)
-        self.cant_product3.setGeometry(QtCore.QRect(430, 290, 71, 21))
-        self.cant_product3.setStyleSheet("h")
-        self.cant_product3.setObjectName("cant_product3")
-        self.cant_product2 = QtWidgets.QTextBrowser(parent=self.centralwidget)
-        self.cant_product2.setGeometry(QtCore.QRect(430, 260, 71, 21))
-        self.cant_product2.setStyleSheet("h")
-        self.cant_product2.setObjectName("cant_product2")
         self.label_4 = QtWidgets.QLabel(parent=self.centralwidget)
         self.label_4.setGeometry(QtCore.QRect(400, 190, 71, 31))
         self.label_4.setStyleSheet("font: 10pt \"MS Shell Dlg 2\";")
@@ -109,6 +115,10 @@ class Ui_ModifyWindow(object):
         self.cantidad_final2.setGeometry(QtCore.QRect(700, 250, 41, 21))
         self.cantidad_final2.setStyleSheet("h")
         self.cantidad_final2.setObjectName("cantidad_final2")
+        
+        # Accion botones
+        self.btnVolver.clicked.connect(lambda: self.volver_a_ventana_principal(ModifyWindow, MainWindow))
+
         ModifyWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(parent=ModifyWindow)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 1256, 22))
@@ -120,6 +130,11 @@ class Ui_ModifyWindow(object):
 
         self.retranslateUi(ModifyWindow)
         QtCore.QMetaObject.connectSlotsByName(ModifyWindow)
+    
+
+    def volver_a_ventana_principal(self, modifyW, mainW):
+        mainW.show()
+        modifyW.close()
     
 
     def mostrar_producto(self, i):
@@ -134,6 +149,7 @@ class Ui_ModifyWindow(object):
     def retranslateUi(self, ModifyWindow):
         _translate = QtCore.QCoreApplication.translate
         ModifyWindow.setWindowTitle(_translate("ModifyWindow", "MainWindow"))
+        self.btnVolver.setText(_translate("ModifyWindow", "Volver"))
         self.boton_add_prod3.setText(_translate("ModifyWindow", "+1"))
         self.boton_add_prod2.setText(_translate("ModifyWindow", "+1"))
         self.boton_add_prod1.setText(_translate("ModifyWindow", "+1"))
@@ -142,6 +158,6 @@ class Ui_ModifyWindow(object):
         self.boton_remo_prod3.setText(_translate("ModifyWindow", "-1"))
         self.boton_remo_prod2.setText(_translate("ModifyWindow", "-1"))
         self.boton_remo_prod1.setText(_translate("ModifyWindow", "-1"))
-        self.boton_aplicar.setText(_translate("ModifyWindow", "Aplicar Cambiós"))
+        self.boton_aplicar.setText(_translate("ModifyWindow", "Aplicar Cambios"))
         self.label_4.setText(_translate("ModifyWindow", "<html><head/><body><p>cantidad</p></body></html>"))
         self.thanos.setText(_translate("ModifyWindow", "borrar todo"))
