@@ -23,7 +23,7 @@ class Ui_ShowInventary(object):
         self.background = QtWidgets.QLabel(parent=self.centralwidget)
         self.background.setGeometry(QtCore.QRect(10, 0, 1241, 511))
         self.background.setText("")
-        self.background.setPixmap(QtGui.QPixmap("images/Add_products_screen.jpg"))
+        self.background.setPixmap(QtGui.QPixmap("images/Consultar_screen.jpg"))
         self.background.setAlignment(QtCore.Qt.AlignmentFlag.AlignLeading|QtCore.Qt.AlignmentFlag.AlignLeft|QtCore.Qt.AlignmentFlag.AlignVCenter)
         self.background.setObjectName("background")
 
