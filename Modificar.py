@@ -19,7 +19,7 @@ class Ui_ModifyWindow(object):
         self.label = QtWidgets.QLabel(parent=self.centralwidget)
         self.label.setGeometry(QtCore.QRect(0, 0, 1241, 491))
         self.label.setText("")
-        self.label.setPixmap(QtGui.QPixmap("../imagenes para TPA/Add_products_screen.jpg"))
+        self.label.setPixmap(QtGui.QPixmap("images/Add_products_screen.jpg"))
         self.label.setScaledContents(True)
         self.label.setObjectName("label")
 
