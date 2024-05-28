@@ -7,6 +7,7 @@
 
 
 from PyQt6 import QtCore, QtGui, QtWidgets
+import csv
 
 
 class Ui_ModifyWindow(object):
@@ -21,15 +22,22 @@ class Ui_ModifyWindow(object):
         self.label.setPixmap(QtGui.QPixmap("../imagenes para TPA/Add_products_screen.jpg"))
         self.label.setScaledContents(True)
         self.label.setObjectName("label")
+
         self.producto1 = QtWidgets.QTextBrowser(parent=self.centralwidget)
         self.producto1.setGeometry(QtCore.QRect(50, 230, 231, 21))
+        self.producto1.setText(self.mostrar_producto(0))
         self.producto1.setObjectName("producto1")
+
         self.producto2 = QtWidgets.QTextBrowser(parent=self.centralwidget)
         self.producto2.setGeometry(QtCore.QRect(50, 260, 231, 21))
+        self.producto2.setText(self.mostrar_producto(1))
         self.producto2.setObjectName("producto2")
+
         self.producto3 = QtWidgets.QTextBrowser(parent=self.centralwidget)
         self.producto3.setGeometry(QtCore.QRect(50, 290, 231, 21))
+        self.producto3.setText(self.mostrar_producto(2))
         self.producto3.setObjectName("producto3")
+
         self.boton_add_prod3 = QtWidgets.QPushButton(parent=self.centralwidget)
         self.boton_add_prod3.setGeometry(QtCore.QRect(290, 290, 31, 28))
         self.boton_add_prod3.setObjectName("boton_add_prod3")
@@ -112,7 +120,17 @@ class Ui_ModifyWindow(object):
 
         self.retranslateUi(ModifyWindow)
         QtCore.QMetaObject.connectSlotsByName(ModifyWindow)
+    
 
+    def mostrar_producto(self, i):
+        with open("ArchivosCSV/Productos.csv", "r", encoding="utf-8") as F:
+            datos = csv.reader(F, delimiter=',')
+            next(datos)
+            producto = list(datos)
+        
+        return (producto[i][1] + " " + producto[i][0])
+
+    
     def retranslateUi(self, ModifyWindow):
         _translate = QtCore.QCoreApplication.translate
         ModifyWindow.setWindowTitle(_translate("ModifyWindow", "MainWindow"))
