@@ -102,14 +102,19 @@ class Ui_ModifyWindow(object):
         self.producto_adquirdo3.setVisible(self.producto3_no_Agregado())
 
         self.label_2 = QtWidgets.QLabel(parent=self.centralwidget)
-        self.label_2.setGeometry(QtCore.QRect(280, 190, 61, 41))
+        self.label_2.setGeometry(QtCore.QRect(280, 190, 61, 31))
         self.label_2.setStyleSheet("font: 10pt \"MS Shell Dlg 2\";")
         self.label_2.setObjectName("label_2")
 
         self.label_3 = QtWidgets.QLabel(parent=self.centralwidget)
-        self.label_3.setGeometry(QtCore.QRect(350, 200, 51, 31))
+        self.label_3.setGeometry(QtCore.QRect(356, 190, 51, 31))
         self.label_3.setStyleSheet("font: 10pt \"MS Shell Dlg 2\";")
         self.label_3.setObjectName("label_3")
+
+        self.label_4 = QtWidgets.QLabel(parent=self.centralwidget)
+        self.label_4.setGeometry(QtCore.QRect(440, 190, 71, 31))
+        self.label_4.setStyleSheet("font: 10pt \"MS Shell Dlg 2\";")
+        self.label_4.setObjectName("label_4")
 
         self.boton_remo_prod3 = QtWidgets.QPushButton(parent=self.centralwidget)
         self.boton_remo_prod3.setGeometry(QtCore.QRect(360, 290, 31, 28))
@@ -127,11 +132,6 @@ class Ui_ModifyWindow(object):
         self.boton_aplicar.setGeometry(QtCore.QRect(430, 440, 131, 41))
         self.boton_aplicar.setStyleSheet("font: 10pt \"MS Shell Dlg 2\";")
         self.boton_aplicar.setObjectName("boton_aplicar")
-
-        self.label_4 = QtWidgets.QLabel(parent=self.centralwidget)
-        self.label_4.setGeometry(QtCore.QRect(400, 190, 71, 31))
-        self.label_4.setStyleSheet("font: 10pt \"MS Shell Dlg 2\";")
-        self.label_4.setObjectName("label_4")
 
         self.thanos = QtWidgets.QPushButton(parent=self.centralwidget)
         self.thanos.setGeometry(QtCore.QRect(1090, 440, 111, 41))
@@ -159,6 +159,7 @@ class Ui_ModifyWindow(object):
         self.cantidad_final3.setObjectName("cantidad_final3")
         self.cantidad_final3.setVisible(self.producto3_no_Agregado())
         
+
         # Accion botones
         self.btnVolver.clicked.connect(lambda: self.volver_a_ventana_principal(ModifyWindow, MainWindow))
         
@@ -174,6 +175,7 @@ class Ui_ModifyWindow(object):
         self.boton_remo_prod3.clicked.connect(self.remoProd3)
 
         self.boton_aplicar.clicked.connect(self.guardar_cambios)
+        self.thanos.clicked.connect(self.eliminarTodo)
 
 
         ModifyWindow.setCentralWidget(self.centralwidget)
@@ -332,7 +334,30 @@ class Ui_ModifyWindow(object):
             guardar.writerows(lista)
         
         print("Cambios guardados con éxito")
+    
 
+    def eliminarTodo(self):
+        self.agregado1 = 0
+        self.cantidad_final1.setText(str(self.agregado1))
+        self.cantidad_final1.setVisible(self.producto1_no_Agregado())
+        self.producto_adquirdo1.setVisible(self.producto1_no_Agregado())
+        self.agregado2 = 0
+        self.cantidad_final2.setText(str(self.agregado2))
+        self.cantidad_final2.setVisible(self.producto2_no_Agregado())
+        self.producto_adquirdo2.setVisible(self.producto2_no_Agregado())
+        self.agregado3 = 0
+        self.cantidad_final3.setText(str(self.agregado3))
+        self.cantidad_final3.setVisible(self.producto3_no_Agregado())
+        self.producto_adquirdo3.setVisible(self.producto3_no_Agregado())
+
+        self.disponible1 = 100 - self.agregado1
+        self.cant_product1.setText(str(self.disponible1))
+        self.disponible2 = 100 - self.agregado2
+        self.cant_product2.setText(str(self.disponible2))
+        self.disponible3 = 100 - self.agregado3
+        self.cant_product3.setText(str(self.disponible3))
+        
+        self.guardar_cambios()
 
     
     def retranslateUi(self, ModifyWindow):
@@ -342,11 +367,9 @@ class Ui_ModifyWindow(object):
         self.boton_add_prod3.setText(_translate("ModifyWindow", "+1"))
         self.boton_add_prod2.setText(_translate("ModifyWindow", "+1"))
         self.boton_add_prod1.setText(_translate("ModifyWindow", "+1"))
-        self.label_2.setText(_translate("ModifyWindow", "<html><head/><body><p>agregar</p></body></html>"))
+        self.label_2.setText(_translate("ModifyWindow", "<html><head/><body><p>Agregar</p></body></html>"))
         self.label_3.setText(_translate("ModifyWindow", "<html><head/><body><p>Quitar</p></body></html>"))
         self.boton_remo_prod3.setText(_translate("ModifyWindow", "-1"))
         self.boton_remo_prod2.setText(_translate("ModifyWindow", "-1"))
         self.boton_remo_prod1.setText(_translate("ModifyWindow", "-1"))
-        self.boton_aplicar.setText(_translate("ModifyWindow", "Aplicar Cambios"))
-        self.label_4.setText(_translate("ModifyWindow", "<html><head/><body><p>cantidad</p></body></html>"))
-        self.thanos.setText(_translate("ModifyWindow", "borrar todo"))
+        self.label_4.setText(_translate("ModifyWindow", "<html><head/><body><p>Cantidad</p></body></html>"))
