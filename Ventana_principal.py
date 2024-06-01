@@ -46,7 +46,7 @@ class Ui_MainWindow(object):
         font = QtGui.QFont()
         font.setPointSize(12)
         self.userLabel.setFont(font)
-        self.userLabel.setText("profe")
+        self.userLabel.setText("")
         self.userLabel.setObjectName("userLabel")
 
         

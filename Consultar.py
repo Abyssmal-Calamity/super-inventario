@@ -33,7 +33,7 @@ class Ui_ShowInventary(object):
         font = QtGui.QFont()
         font.setPointSize(12)
         self.userLabel.setFont(font)
-        self.userLabel.setText("profe")
+        self.userLabel.setText("")
         self.userLabel.setObjectName("userLabel")
 
         # Interfaz botones con operaciones lambda
@@ -41,14 +41,6 @@ class Ui_ShowInventary(object):
         self.btnVolver.setGeometry(QtCore.QRect(248, 80, 81, 41))
         self.btnVolver.setStyleSheet("font: 10pt \"MS Shell Dlg 2\";")
         self.btnVolver.setObjectName("btnVolver")
-        self.btnAgregar = QtWidgets.QPushButton(parent=self.centralwidget)
-        self.btnAgregar.setGeometry(QtCore.QRect(462, 452, 75, 41))
-        self.btnAgregar.setStyleSheet("font: 10pt \"MS Shell Dlg 2\";")
-        self.btnAgregar.setObjectName("btnAgregar")
-        self.btnQuitar = QtWidgets.QPushButton(parent=self.centralwidget)
-        self.btnQuitar.setGeometry(QtCore.QRect(1116, 452, 75, 41))
-        self.btnQuitar.setStyleSheet("font: 10pt \"MS Shell Dlg 2\";")
-        self.btnQuitar.setObjectName("btnQuitar")
 
         ShowInventary.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(parent=ShowInventary)
@@ -66,5 +58,3 @@ class Ui_ShowInventary(object):
         _translate = QtCore.QCoreApplication.translate
         ShowInventary.setWindowTitle(_translate("ShowInventary", "MainWindow"))
         self.btnVolver.setText(_translate("ShowInventary", "Volver"))
-        self.btnAgregar.setText(_translate("ShowInventary", "Agregar"))
-        self.btnQuitar.setText(_translate("ShowInventary", "Quitar"))

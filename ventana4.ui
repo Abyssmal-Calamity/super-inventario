@@ -219,17 +219,17 @@
    <widget class="QPushButton" name="boton_aplicar">
     <property name="geometry">
      <rect>
-      <x>310</x>
-      <y>400</y>
+      <x>430</x>
+      <y>440</y>
       <width>131</width>
-      <height>28</height>
+      <height>41</height>
      </rect>
     </property>
     <property name="styleSheet">
      <string notr="true">font: 10pt &quot;MS Shell Dlg 2&quot;;</string>
     </property>
     <property name="text">
-     <string>Aplicar Cambiós</string>
+     <string>Aplicar Cambios</string>
     </property>
    </widget>
    <widget class="QTextBrowser" name="cant_product3">
@@ -277,10 +277,10 @@
    <widget class="QPushButton" name="thanos">
     <property name="geometry">
      <rect>
-      <x>910</x>
-      <y>390</y>
-      <width>131</width>
-      <height>28</height>
+      <x>1090</x>
+      <y>440</y>
+      <width>111</width>
+      <height>41</height>
      </rect>
     </property>
     <property name="styleSheet">
