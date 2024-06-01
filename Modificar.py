@@ -17,7 +17,7 @@ class Ui_ModifyWindow(object):
         self.centralwidget = QtWidgets.QWidget(parent=ModifyWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.label = QtWidgets.QLabel(parent=self.centralwidget)
-        self.label.setGeometry(QtCore.QRect(0, 0, 1241, 491))
+        self.label.setGeometry(QtCore.QRect(10, 0, 1241, 511))
         self.label.setText("")
         self.label.setPixmap(QtGui.QPixmap("images/Add_products_screen.jpg"))
         self.label.setScaledContents(True)
@@ -29,131 +29,142 @@ class Ui_ModifyWindow(object):
         self.agregado3 = 0
         
         self.producto1 = QtWidgets.QTextBrowser(parent=self.centralwidget)
-        self.producto1.setGeometry(QtCore.QRect(50, 230, 231, 21))
+        self.producto1.setGeometry(QtCore.QRect(60, 230, 231, 21))
         self.producto1.setText(self.mostrar_producto(0))
         self.producto1.setObjectName("producto1")
 
         self.producto2 = QtWidgets.QTextBrowser(parent=self.centralwidget)
-        self.producto2.setGeometry(QtCore.QRect(50, 260, 231, 21))
+        self.producto2.setGeometry(QtCore.QRect(60, 260, 231, 21))
         self.producto2.setText(self.mostrar_producto(1))
         self.producto2.setObjectName("producto2")
 
         self.producto3 = QtWidgets.QTextBrowser(parent=self.centralwidget)
-        self.producto3.setGeometry(QtCore.QRect(50, 290, 231, 21))
+        self.producto3.setGeometry(QtCore.QRect(60, 290, 231, 21))
         self.producto3.setText(self.mostrar_producto(2))
         self.producto3.setObjectName("producto3")
 
         self.btnVolver = QtWidgets.QPushButton(parent=self.centralwidget)
-        self.btnVolver.setGeometry(QtCore.QRect(1110, 80, 100, 32))
+        self.btnVolver.setGeometry(QtCore.QRect(1120, 90, 100, 32))
+        self.btnVolver.setStyleSheet(self.btn_style_sheet_1())
         self.btnVolver.setObjectName("BtnVolver")
 
         self.boton_add_prod3 = QtWidgets.QPushButton(parent=self.centralwidget)
-        self.boton_add_prod3.setGeometry(QtCore.QRect(290, 290, 31, 28))
+        self.boton_add_prod3.setGeometry(QtCore.QRect(300, 290, 31, 28))
+        self.boton_add_prod3.setStyleSheet(self.btn_style_sheet_2())
         self.boton_add_prod3.setObjectName("boton_add_prod3")
 
         self.boton_add_prod2 = QtWidgets.QPushButton(parent=self.centralwidget)
-        self.boton_add_prod2.setGeometry(QtCore.QRect(290, 260, 31, 28))
+        self.boton_add_prod2.setGeometry(QtCore.QRect(300, 260, 31, 28))
+        self.boton_add_prod2.setStyleSheet(self.btn_style_sheet_2())
         self.boton_add_prod2.setObjectName("boton_add_prod2")
 
         self.boton_add_prod1 = QtWidgets.QPushButton(parent=self.centralwidget)
-        self.boton_add_prod1.setGeometry(QtCore.QRect(290, 230, 31, 28))
+        self.boton_add_prod1.setGeometry(QtCore.QRect(300, 230, 31, 28))
+        self.boton_add_prod1.setStyleSheet(self.btn_style_sheet_2())
         self.boton_add_prod1.setObjectName("boton_add_prod1")
+
+        self.boton_remo_prod3 = QtWidgets.QPushButton(parent=self.centralwidget)
+        self.boton_remo_prod3.setGeometry(QtCore.QRect(370, 290, 31, 28))
+        self.boton_remo_prod3.setStyleSheet(self.btn_style_sheet_2())
+        self.boton_remo_prod3.setObjectName("boton_remo_prod3")
+
+        self.boton_remo_prod2 = QtWidgets.QPushButton(parent=self.centralwidget)
+        self.boton_remo_prod2.setGeometry(QtCore.QRect(370, 260, 31, 28))
+        self.boton_remo_prod2.setStyleSheet(self.btn_style_sheet_2())
+        self.boton_remo_prod2.setObjectName("boton_remo_prod2")
+
+        self.boton_remo_prod1 = QtWidgets.QPushButton(parent=self.centralwidget)
+        self.boton_remo_prod1.setGeometry(QtCore.QRect(370, 230, 31, 28))
+        self.boton_remo_prod1.setStyleSheet(self.btn_style_sheet_2())
+        self.boton_remo_prod1.setObjectName("boton_remo_prod1")
 
         self.disponible1 = 100 - self.agregado1
         self.cant_product1 = QtWidgets.QTextBrowser(parent=self.centralwidget)
-        self.cant_product1.setGeometry(QtCore.QRect(430, 230, 71, 21))
+        self.cant_product1.setGeometry(QtCore.QRect(440, 230, 71, 21))
         self.cant_product1.setStyleSheet("h")
         self.cant_product1.setText(str(self.disponible1))
         self.cant_product1.setObjectName("cant_product1")
 
         self.disponible2 = 100 - self.agregado2
         self.cant_product2 = QtWidgets.QTextBrowser(parent=self.centralwidget)
-        self.cant_product2.setGeometry(QtCore.QRect(430, 260, 71, 21))
+        self.cant_product2.setGeometry(QtCore.QRect(440, 260, 71, 21))
         self.cant_product2.setStyleSheet("h")
         self.cant_product2.setText(str(self.disponible2))
         self.cant_product2.setObjectName("cant_product2")
 
         self.disponible3 = 100 - self.agregado3
         self.cant_product3 = QtWidgets.QTextBrowser(parent=self.centralwidget)
-        self.cant_product3.setGeometry(QtCore.QRect(430, 290, 71, 21))
+        self.cant_product3.setGeometry(QtCore.QRect(440, 290, 71, 21))
         self.cant_product3.setStyleSheet("h")
         self.cant_product3.setText(str(self.disponible3))
         self.cant_product3.setObjectName("cant_product3")
 
         self.prod1 = ""
         self.producto_adquirdo1 = QtWidgets.QTextBrowser(parent=self.centralwidget)
-        self.producto_adquirdo1.setGeometry(QtCore.QRect(770, 220, 241, 21))
+        self.producto_adquirdo1.setGeometry(QtCore.QRect(780, 220, 241, 21))
         self.producto_adquirdo1.setText(self.mostrar_agregados(0))
         self.producto_adquirdo1.setObjectName("producto_adquirdo1")
         self.producto_adquirdo1.setVisible(self.producto1_no_Agregado())
 
         self.prod2 = ""
         self.producto_adquirdo2 = QtWidgets.QTextBrowser(parent=self.centralwidget)
-        self.producto_adquirdo2.setGeometry(QtCore.QRect(770, 250, 241, 21))
+        self.producto_adquirdo2.setGeometry(QtCore.QRect(780, 250, 241, 21))
         self.producto_adquirdo2.setText(self.mostrar_agregados(1))
         self.producto_adquirdo2.setObjectName("producto_adquirdo2")
         self.producto_adquirdo2.setVisible(self.producto2_no_Agregado())
 
         self.prod3 = ""
         self.producto_adquirdo3 = QtWidgets.QTextBrowser(parent=self.centralwidget)
-        self.producto_adquirdo3.setGeometry(QtCore.QRect(770, 280, 241, 21))
+        self.producto_adquirdo3.setGeometry(QtCore.QRect(780, 280, 241, 21))
         self.producto_adquirdo3.setText(self.mostrar_agregados(2))
         self.producto_adquirdo3.setObjectName("producto_adquirdo3")
         self.producto_adquirdo3.setVisible(self.producto3_no_Agregado())
 
         self.label_2 = QtWidgets.QLabel(parent=self.centralwidget)
-        self.label_2.setGeometry(QtCore.QRect(280, 190, 61, 31))
+        self.label_2.setGeometry(QtCore.QRect(290, 190, 61, 31))
         self.label_2.setStyleSheet("font: 10pt \"MS Shell Dlg 2\";")
         self.label_2.setObjectName("label_2")
 
         self.label_3 = QtWidgets.QLabel(parent=self.centralwidget)
-        self.label_3.setGeometry(QtCore.QRect(356, 190, 51, 31))
+        self.label_3.setGeometry(QtCore.QRect(366, 190, 51, 31))
         self.label_3.setStyleSheet("font: 10pt \"MS Shell Dlg 2\";")
         self.label_3.setObjectName("label_3")
 
         self.label_4 = QtWidgets.QLabel(parent=self.centralwidget)
-        self.label_4.setGeometry(QtCore.QRect(440, 190, 71, 31))
+        self.label_4.setGeometry(QtCore.QRect(450, 190, 71, 31))
         self.label_4.setStyleSheet("font: 10pt \"MS Shell Dlg 2\";")
         self.label_4.setObjectName("label_4")
 
-        self.boton_remo_prod3 = QtWidgets.QPushButton(parent=self.centralwidget)
-        self.boton_remo_prod3.setGeometry(QtCore.QRect(360, 290, 31, 28))
-        self.boton_remo_prod3.setObjectName("boton_remo_prod3")
-
-        self.boton_remo_prod2 = QtWidgets.QPushButton(parent=self.centralwidget)
-        self.boton_remo_prod2.setGeometry(QtCore.QRect(360, 260, 31, 28))
-        self.boton_remo_prod2.setObjectName("boton_remo_prod2")
-
-        self.boton_remo_prod1 = QtWidgets.QPushButton(parent=self.centralwidget)
-        self.boton_remo_prod1.setGeometry(QtCore.QRect(360, 230, 31, 28))
-        self.boton_remo_prod1.setObjectName("boton_remo_prod1")
-
         self.boton_aplicar = QtWidgets.QPushButton(parent=self.centralwidget)
-        self.boton_aplicar.setGeometry(QtCore.QRect(430, 440, 131, 41))
-        self.boton_aplicar.setStyleSheet("font: 10pt \"MS Shell Dlg 2\";")
+        self.boton_aplicar.setGeometry(QtCore.QRect(444, 440, 130, 68))
+        self.boton_aplicar.setStyleSheet(self.btn_style_sheet_1())
+        self.boton_aplicar.setIcon(QtGui.QIcon("icono/icono-agregar.png"))
+        self.boton_aplicar.setIconSize(QtCore.QSize(64, 64))
         self.boton_aplicar.setObjectName("boton_aplicar")
 
         self.thanos = QtWidgets.QPushButton(parent=self.centralwidget)
-        self.thanos.setGeometry(QtCore.QRect(1090, 440, 111, 41))
-        self.thanos.setStyleSheet("font: 10pt \"MS Shell Dlg 2\";")
+        self.thanos.setGeometry(QtCore.QRect(1104, 440, 130, 68))
+        self.thanos.setStyleSheet(self.btn_style_sheet_1())
+        self.thanos.setIcon(QtGui.QIcon("icono/icono-quitar.png"))
+        self.thanos.setIconSize(QtCore.QSize(64, 64))
         self.thanos.setObjectName("thanos")
 
         self.cantidad_final1 = QtWidgets.QTextBrowser(parent=self.centralwidget)
-        self.cantidad_final1.setGeometry(QtCore.QRect(700, 220, 51, 21))
+        self.cantidad_final1.setGeometry(QtCore.QRect(710, 220, 51, 21))
         self.cantidad_final1.setStyleSheet("h")
         self.cantidad_final1.setText(str(self.agregado1))
         self.cantidad_final1.setObjectName("cantidad_final1")
         self.cantidad_final1.setVisible(self.producto1_no_Agregado())
 
         self.cantidad_final2 = QtWidgets.QTextBrowser(parent=self.centralwidget)
-        self.cantidad_final2.setGeometry(QtCore.QRect(700, 250, 51, 21))
+        self.cantidad_final2.setGeometry(QtCore.QRect(710, 250, 51, 21))
         self.cantidad_final2.setStyleSheet("h")
         self.cantidad_final2.setText(str(self.agregado2))
         self.cantidad_final2.setObjectName("cantidad_final2")
         self.cantidad_final2.setVisible(self.producto2_no_Agregado())
 
         self.cantidad_final3 = QtWidgets.QTextBrowser(parent=self.centralwidget)
-        self.cantidad_final3.setGeometry(QtCore.QRect(700, 280, 51, 21))
+        self.cantidad_final3.setGeometry(QtCore.QRect(710, 280, 51, 21))
         self.cantidad_final3.setStyleSheet("h")
         self.cantidad_final3.setText(str(self.agregado3))
         self.cantidad_final3.setObjectName("cantidad_final3")
@@ -220,7 +231,6 @@ class Ui_ModifyWindow(object):
 
         if i == 0:
             self.prod1 = producto[i][1]
-            self.disponible1 -= self.agregado1
         elif i == 1:
             self.prod2 = producto[i][1]
         elif i == 2:
@@ -358,6 +368,41 @@ class Ui_ModifyWindow(object):
         self.cant_product3.setText(str(self.disponible3))
         
         self.guardar_cambios()
+    
+
+    def btn_style_sheet_1(self):
+        return ("QPushButton{\n"
+                "   background-color: rgb(255, 255, 255);\n"
+                "   border-radius: 10px;\n"
+                "   border: 1px solid;\n"
+                "}\n"
+                "QPushButton::hover{\n"
+                "   background-color: rgb(255, 170, 255);\n"
+                "   color: rgb(85, 85, 255);\n"
+                "   border: 1px solid rgb(85, 0, 255);\n"
+                "}\n"
+                "QPushButton::pressed{\n"
+                "   background-color: rgb(255, 0, 255);\n"
+                "   color: rgb(255, 255, 255);\n"
+                "   border: 0px;\n"
+                "}")
+    
+
+    def btn_style_sheet_2(self):
+        return ("QPushButton{\n"
+                "   background-color: rgb(235, 235, 235);\n"
+                "   border: 1px solid;\n"
+                "}\n"
+                "QPushButton::hover{\n"
+                "   background-color: rgb(255, 170, 255);\n"
+                "   color: rgb(85, 85, 255);\n"
+                "   border: 1px solid rgb(85, 0, 255);\n"
+                "}\n"
+                "QPushButton::pressed{\n"
+                "   background-color: rgb(255, 0, 255);\n"
+                "   color: rgb(255, 255, 255);\n"
+                "   border: 0px;\n"
+                "}")
 
     
     def retranslateUi(self, ModifyWindow):
