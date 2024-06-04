@@ -1,4 +1,4 @@
-# Form implementation generated from reading ui file 'ventana4.ui'
+# Form implementation generated from reading ui file 'Consultar_inventario.ui'
 #
 # Created by: PyQt6 UI code generator 6.6.1
 #
@@ -7,17 +7,16 @@
 
 
 from PyQt6 import QtCore, QtGui, QtWidgets
+import csv
 
 
 class Ui_ShowInventary(object):
-    def cerrarVentana(self, main_w, consul_w):
-        main_w.show()
-        consul_w.close()
 
     def setupUi(self, ShowInventary, MainWindow):
         ShowInventary.setObjectName("ShowInventary")
-        ShowInventary.resize(1261, 532)      # Resolucion ventana
-        ShowInventary.setStyleSheet("background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(0, 0, 0, 255), stop:1 rgba(0, 0, 0, 0));\n" "background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(255, 255, 255, 255));")
+        ShowInventary.resize(1261, 532)
+        ShowInventary.setStyleSheet("background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(0, 0, 0, 255), stop:1 rgba(0, 0, 0, 0));\n"
+                                    "background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(255, 255, 255, 255));")
         self.centralwidget = QtWidgets.QWidget(parent=ShowInventary)
         self.centralwidget.setObjectName("centralwidget")
         self.background = QtWidgets.QLabel(parent=self.centralwidget)
@@ -27,7 +26,10 @@ class Ui_ShowInventary(object):
         self.background.setAlignment(QtCore.Qt.AlignmentFlag.AlignLeading|QtCore.Qt.AlignmentFlag.AlignLeft|QtCore.Qt.AlignmentFlag.AlignVCenter)
         self.background.setObjectName("background")
 
-        # Etiquetas
+        self.btnVolver = QtWidgets.QPushButton(parent=self.centralwidget, clicked=lambda: self.cerrarVentana(MainWindow, ShowInventary))
+        self.btnVolver.setGeometry(QtCore.QRect(248, 80, 81, 41))
+        self.btnVolver.setStyleSheet("font: 10pt \"MS Shell Dlg 2\";")
+        self.btnVolver.setObjectName("btnVolver")
         self.userLabel = QtWidgets.QLabel(parent=self.centralwidget)
         self.userLabel.setGeometry(QtCore.QRect(130, 80, 111, 41))
         font = QtGui.QFont()
@@ -35,18 +37,52 @@ class Ui_ShowInventary(object):
         self.userLabel.setFont(font)
         self.userLabel.setText("")
         self.userLabel.setObjectName("userLabel")
-
-        # Interfaz botones con operaciones lambda
-        self.btnVolver = QtWidgets.QPushButton(parent=self.centralwidget, clicked = lambda: self.cerrarVentana(MainWindow, ShowInventary))    #lambda
-        self.btnVolver.setGeometry(QtCore.QRect(248, 80, 81, 41))
-        self.btnVolver.setStyleSheet("font: 10pt \"MS Shell Dlg 2\";")
-        self.btnVolver.setObjectName("btnVolver")
-
+        self.scrollArea = QtWidgets.QScrollArea(parent=self.centralwidget)
+        self.scrollArea.setGeometry(QtCore.QRect(50, 140, 1160, 358))
+        self.scrollArea.setStyleSheet("border-radius: 0px;")
+        self.scrollArea.setWidgetResizable(True)
+        self.scrollArea.setObjectName("scrollArea")
+        self.scrollAreaWidgetContents = QtWidgets.QWidget()
+        self.scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, 0, 1143, 478))
+        self.scrollAreaWidgetContents.setObjectName("scrollAreaWidgetContents")
+        self.verticalLayout = QtWidgets.QVBoxLayout(self.scrollAreaWidgetContents)
+        self.verticalLayout.setObjectName("verticalLayout")
+        self.frame = QtWidgets.QFrame(parent=self.scrollAreaWidgetContents)
+        self.frame.setMinimumSize(QtCore.QSize(0, 460))
+        self.frame.setMaximumSize(QtCore.QSize(1125, 16777215))
+        self.frame.setFrameShape(QtWidgets.QFrame.Shape.StyledPanel)
+        self.frame.setFrameShadow(QtWidgets.QFrame.Shadow.Raised)
+        self.frame.setObjectName("frame")
+        self.SahneNuss = QtWidgets.QLabel(parent=self.frame)
+        self.SahneNuss.setGeometry(QtCore.QRect(460, 30, 151, 131))
+        self.SahneNuss.setText("")
+        self.SahneNuss.setPixmap(QtGui.QPixmap("productos/Sahne.jpg"))
+        self.SahneNuss.setScaledContents(True)
+        self.SahneNuss.setObjectName("SahneNuss")
+        self.ColaCao = QtWidgets.QLabel(parent=self.frame)
+        self.ColaCao.setGeometry(QtCore.QRect(140, 30, 151, 131))
+        self.ColaCao.setText("")
+        self.ColaCao.setPixmap(QtGui.QPixmap("productos/colacao.jpg"))
+        self.ColaCao.setScaledContents(True)
+        self.ColaCao.setObjectName("ColaCao")
+        self.Flipy = QtWidgets.QLabel(parent=self.frame)
+        self.Flipy.setGeometry(QtCore.QRect(770, 30, 151, 131))
+        self.Flipy.setText("")
+        self.Flipy.setPixmap(QtGui.QPixmap("productos/Flipy.jpg"))
+        self.Flipy.setScaledContents(True)
+        self.Flipy.setObjectName("Flipy")
+        self.Cao = QtWidgets.QLabel(parent=self.frame)
+        self.Cao.setGeometry(QtCore.QRect(170, 200, 81, 21))
+        self.Cao.setObjectName("Cao")
+        self.Sahne = QtWidgets.QLabel(parent=self.frame)
+        self.Sahne.setGeometry(QtCore.QRect(490, 200, 81, 21))
+        self.Sahne.setObjectName("Sahne")
+        self.Flip = QtWidgets.QLabel(parent=self.frame)
+        self.Flip.setGeometry(QtCore.QRect(800, 200, 81, 21))
+        self.Flip.setObjectName("Flip")
+        self.verticalLayout.addWidget(self.frame)
+        self.scrollArea.setWidget(self.scrollAreaWidgetContents)
         ShowInventary.setCentralWidget(self.centralwidget)
-        self.menubar = QtWidgets.QMenuBar(parent=ShowInventary)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 1261, 21))
-        self.menubar.setObjectName("menubar")
-        ShowInventary.setMenuBar(self.menubar)
         self.statusbar = QtWidgets.QStatusBar(parent=ShowInventary)
         self.statusbar.setObjectName("statusbar")
         ShowInventary.setStatusBar(self.statusbar)
@@ -54,7 +90,29 @@ class Ui_ShowInventary(object):
         self.retranslateUi(ShowInventary)
         QtCore.QMetaObject.connectSlotsByName(ShowInventary)
 
+    
     def retranslateUi(self, ShowInventary):
         _translate = QtCore.QCoreApplication.translate
         ShowInventary.setWindowTitle(_translate("ShowInventary", "MainWindow"))
         self.btnVolver.setText(_translate("ShowInventary", "Volver"))
+        self.Cao.setText(_translate("ShowInventary", "0"))
+        self.Sahne.setText(_translate("ShowInventary", "0"))
+        self.Flip.setText(_translate("ShowInventary", "0"))
+    
+
+    def cerrarVentana(self, main_w, consul_w):
+        main_w.show()
+        consul_w.close()
+    
+
+    def loadDataFromCSV(self, file_path):
+        try:
+            with open(file_path, mode='r', newline='', encoding='utf-8') as file:
+                reader = csv.reader(file)
+                data = {rows[0]: rows[1] for rows in reader}
+
+            self.Cao.setText(data.get('Cao', '0'))
+            self.SahneLabel.setText(data.get('Sahne', '0'))
+            self.Flip.setText(data.get('Flip', '0'))
+        except Exception as e:
+            print(f"Error reading CSV file: {e}")
