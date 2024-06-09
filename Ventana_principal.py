@@ -52,18 +52,18 @@ class Ui_MainWindow(object):
         
         # Interfaz botones
         self.logoutButton = QtWidgets.QPushButton(parent=self.centralwidget)    # Boton cerrar sesion
-        self.logoutButton.setGeometry(QtCore.QRect(248, 80, 81, 41))
-        self.logoutButton.setStyleSheet("font: 10pt \"MS Shell Dlg 2\";")
+        self.logoutButton.setGeometry(QtCore.QRect(18, 132, 90, 60))
+        self.logoutButton.setStyleSheet(self.btn_style_sheet())
         self.logoutButton.setObjectName("logoutButton")
 
         self.modify_invBtn = QtWidgets.QPushButton(parent=self.centralwidget)   # Boton modificar inventario
         self.modify_invBtn.setGeometry(QtCore.QRect(266, 290, 171, 61))
-        self.modify_invBtn.setStyleSheet("font: 10pt \"MS Shell Dlg 2\";")
+        self.modify_invBtn.setStyleSheet(self.btn_style_sheet())
         self.modify_invBtn.setObjectName("modify_invBtn")
 
         self.show_invBtn = QtWidgets.QPushButton(parent=self.centralwidget)     # Boton consultar inventario
         self.show_invBtn.setGeometry(QtCore.QRect(826, 290, 171, 61))
-        self.show_invBtn.setStyleSheet("font: 10pt \"MS Shell Dlg 2\";")
+        self.show_invBtn.setStyleSheet(self.btn_style_sheet())
         self.show_invBtn.setObjectName("show_invBtn")
 
         
@@ -123,3 +123,22 @@ class Ui_MainWindow(object):
         self.ventCons.show()
 
         mainWindow.close()
+    
+
+    def btn_style_sheet(self):
+        return ("QPushButton{\n"
+                "   font: 600 12pt \"Segoe UI Semibold\";\n"
+                "   background-color: rgb(255, 255, 255);\n"
+                "   border-radius: 10px;\n"
+                "   border: 1px solid;\n"
+                "}\n"
+                "QPushButton::hover{\n"
+                "   background-color: rgb(255, 170, 255);\n"
+                "   color: rgb(85, 85, 255);\n"
+                "   border: 1px solid rgb(85, 0, 255);\n"
+                "}\n"
+                "QPushButton::pressed{\n"
+                "   background-color: rgb(255, 0, 255);\n"
+                "   color: rgb(255, 255, 255);\n"
+                "   border: 0px;\n"
+                "}")

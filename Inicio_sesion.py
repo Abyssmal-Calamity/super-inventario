@@ -12,6 +12,7 @@ from PyQt6 import QtCore, QtGui, QtWidgets
 # Se importan las ventanas
 from Ventana_principal import Ui_MainWindow
 from Registro import Ui_Registrar
+from Agregar_productos import Ui_AgregarP
 
 
 class Ui_Login(object):
@@ -95,6 +96,11 @@ class Ui_Login(object):
         self.btnRegistrar.setGeometry(QtCore.QRect(620, 404, 131, 36))
         self.btnRegistrar.setStyleSheet(self.btn_style_sheet())
         self.btnRegistrar.setObjectName("btnRegistrar")
+        
+        self.btnAgregar= QtWidgets.QPushButton(parent=self.centralwidget)    # Boton registrar usuario
+        self.btnAgregar.setGeometry(QtCore.QRect(620, 450, 131, 36))
+        self.btnAgregar.setStyleSheet(self.btn_style_sheet())
+        self.btnAgregar.setObjectName("btnRegisbtnAgregartrar")
 
         
         # Accion botones
@@ -108,6 +114,7 @@ class Ui_Login(object):
         self.loginButton.clicked.connect(self.acceder)
         
         self.btnRegistrar.clicked.connect(self.gui_registrar)
+        self.btnAgregar.clicked.connect(self.gui_agregar)
         
 
         self.log_in.setCentralWidget(self.centralwidget)
@@ -129,6 +136,7 @@ class Ui_Login(object):
         self.loginButton.setText(_translate("Login", "Ingresar"))
         self.exitButton.setText(_translate("Login", "Salir"))
         self.btnRegistrar.setText(_translate("Login", "Registrarse"))
+        self.btnAgregar.setText(_translate("Login", "Agregar Productos"))
     
     
     def limpiarCampos(self):                    # Metodo para limpiar los campos de texto
@@ -145,6 +153,17 @@ class Ui_Login(object):
         self.ventanaRegistro.setWindowTitle("ULAGOS Market")
         self.ventanaRegistro.setWindowIcon(QtGui.QIcon("icono\\martin.png"))
         self.ventanaRegistro.show()
+
+        self.log_in.close()
+        
+    def gui_agregar(self):     # Metodo para abrir ventana de agregado de nuevos productos
+        self.limpiarCampos()        # Se borran los datos de los campos de texto
+        self.ventanaAgregarP = QtWidgets.QMainWindow()      # Se abre la ventana de agregado
+        self.ui = Ui_AgregarP()
+        self.ui.setupUi(self.ventanaAgregarP, self.log_in)
+        self.ventanaAgregarP.setWindowTitle("ULAGOS Market")
+        self.ventanaAgregarP.setWindowIcon(QtGui.QIcon("icono\\martin.png"))
+        self.ventanaAgregarP.show()
 
         self.log_in.close()
 
