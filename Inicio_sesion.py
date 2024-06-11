@@ -135,7 +135,7 @@ class Ui_Login(object):
         Login.setWindowTitle(_translate("Login", "MainWindow"))
         self.loginButton.setText(_translate("Login", "Ingresar"))
         self.exitButton.setText(_translate("Login", "Salir"))
-        self.btnRegistrar.setText(_translate("Login", "Registrarse"))
+        self.btnRegistrar.setText(_translate("Login", "Registrar"))
         self.btnAgregar.setText(_translate("Login", "Agregar Productos"))
     
     
