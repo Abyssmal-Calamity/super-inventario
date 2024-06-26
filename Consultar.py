@@ -42,14 +42,6 @@ class Ui_ShowInventary(object):
                                      "   border: 0px;\n"
                                      "}")
         self.btnVolver.setObjectName("btnVolver")
-        
-        self.userLabel = QtWidgets.QLabel(parent=self.centralwidget)
-        self.userLabel.setGeometry(QtCore.QRect(130, 80, 111, 41))
-        font = QtGui.QFont()
-        font.setPointSize(12)
-        self.userLabel.setFont(font)
-        self.userLabel.setText("")
-        self.userLabel.setObjectName("userLabel")
 
         self.scrollArea = QtWidgets.QScrollArea(parent=self.centralwidget)
         self.scrollArea.setGeometry(QtCore.QRect(50, 140, 1160, 358))
@@ -65,9 +57,9 @@ class Ui_ShowInventary(object):
         lista_productos = Productos.cargar_productos_CSV()
 
         # Se crea un panel grid para cargar los productos del archivo csv y mostrarlos en este mismo
-        panel_grid = QtWidgets.QGridLayout(self.scrollAreaWidgetContents)
-        panel_grid.setHorizontalSpacing(20)
-        panel_grid.setVerticalSpacing(20)
+        panelGrid = QtWidgets.QGridLayout(self.scrollAreaWidgetContents)
+        panelGrid.setHorizontalSpacing(20)
+        panelGrid.setVerticalSpacing(20)
 
         # Se inicializan las filas y columnas para organizar los productos en el panel grid
         fila = 0
@@ -75,51 +67,48 @@ class Ui_ShowInventary(object):
 
         for producto in lista_productos:
             # Carga la imagen respecto al nombre del producto
-            nombre_producto = producto.get_nombre()
-            ruta_imagen = "productos/" + nombre_producto + ".jpg"
-            imagen_producto = QtGui.QPixmap(ruta_imagen)
+            nombreProducto = producto.get_nombre()
+            rutaImagen = "productos/" + nombreProducto + ".jpg"
+            imagenProducto = QtGui.QPixmap(rutaImagen)
             
             # Si no hay imagen carga una por defecto
-            if imagen_producto.isNull():
-                imagen_producto = QtGui.QPixmap("productos/No_Imagen.jpg") 
-                imagen_producto = imagen_producto.scaled(250, 250, QtCore.Qt.AspectRatioMode.KeepAspectRatio)
+            if imagenProducto.isNull():
+                imagenProducto = QtGui.QPixmap("productos/No_Imagen.jpg") 
+                imagenProducto = imagenProducto.scaled(250, 250, QtCore.Qt.AspectRatioMode.KeepAspectRatio)
 
             # Cambia el tamaño de la imagen y lo hace de 250x250 manteniendo el aspect ratio
-            imagen_producto = imagen_producto.scaled(250, 250, QtCore.Qt.AspectRatioMode.KeepAspectRatio)
+            imagenProducto = imagenProducto.scaled(250, 250, QtCore.Qt.AspectRatioMode.KeepAspectRatio)
 
             # Crea un label para la imagen del producto
-            label_imagen = QtWidgets.QLabel()
-            label_imagen.setPixmap(imagen_producto)
-            label_imagen.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
+            labelImagen = QtWidgets.QLabel()
+            labelImagen.setPixmap(imagenProducto)
+            labelImagen.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
 
             # Crea un label para el nombre del producto
-            nombre_producto = producto.get_nombre()
-            producto_texto = "Producto: " + nombre_producto
-            label_producto = QtWidgets.QLabel(producto_texto)
-            label_producto.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
+            nombreProducto = producto.get_nombre()
+            labelProducto = QtWidgets.QLabel(nombreProducto)
+            labelProducto.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
 
             # Crea un label para la cantidad del producto
             cantidad = producto.get_cantidad()
-            cantidad_texto = "Cantidad: " + cantidad
-            label_cantidad = QtWidgets.QLabel(cantidad_texto)
-            label_cantidad.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
+            labelCantidad = QtWidgets.QLabel("Cantidad: " + cantidad)
+            labelCantidad.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
             
             # Crea un label para la precio del producto
             precio = producto.get_precio()
-            precio_texto = "Precio: " + precio
-            label_precio = QtWidgets.QLabel(precio_texto)
-            label_precio.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
+            labelPrecio = QtWidgets.QLabel("Precio: $" + str(precio))
+            labelPrecio.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
 
             # Se crea una verticalbox para organizar los productos por imagen, nombre y cantidad en vertical
-            layout_producto = QtWidgets.QVBoxLayout()
-            layout_producto.setSpacing(0)
-            layout_producto.addWidget(label_imagen)
-            layout_producto.addWidget(label_producto)
-            layout_producto.addWidget(label_cantidad)
-            layout_producto.addWidget(label_precio)
+            VBoxProducto = QtWidgets.QVBoxLayout()
+            VBoxProducto.setSpacing(0)
+            VBoxProducto.addWidget(labelImagen)
+            VBoxProducto.addWidget(labelProducto)
+            VBoxProducto.addWidget(labelCantidad)
+            VBoxProducto.addWidget(labelPrecio)
 
             # Se añade el verticalbox al panel grid
-            panel_grid.addLayout(layout_producto, fila, columna)
+            panelGrid.addLayout(VBoxProducto, fila, columna)
 
             # Avanza una columna por cada producto, al pasar los 3 productos salta de linea
             columna += 1

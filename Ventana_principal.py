@@ -11,6 +11,7 @@ from PyQt6 import QtCore, QtGui, QtWidgets
 # Se importa las vistas
 from Modificar import Ui_ModifyWindow
 from Consultar import Ui_ShowInventary
+from Seleccionar_Productos import Ui_SelectProducts
 
 
 class Ui_MainWindow(object):
@@ -60,6 +61,11 @@ class Ui_MainWindow(object):
         self.modify_invBtn.setGeometry(QtCore.QRect(266, 290, 171, 61))
         self.modify_invBtn.setStyleSheet(self.btn_style_sheet())
         self.modify_invBtn.setObjectName("modify_invBtn")
+        
+        self.select_invBtn = QtWidgets.QPushButton(parent=self.centralwidget)   # Boton seleccionar productos
+        self.select_invBtn.setGeometry(QtCore.QRect(548, 290, 171, 61))
+        self.select_invBtn.setStyleSheet(self.btn_style_sheet())
+        self.select_invBtn.setObjectName("select_invBtn")
 
         self.show_invBtn = QtWidgets.QPushButton(parent=self.centralwidget)     # Boton consultar inventario
         self.show_invBtn.setGeometry(QtCore.QRect(826, 290, 171, 61))
@@ -71,6 +77,8 @@ class Ui_MainWindow(object):
         self.logoutButton.clicked.connect(lambda: self.gui_Logoff(Login, MainWindow))
 
         self.modify_invBtn.clicked.connect(lambda: self.modificarInv(MainWindow))
+        
+        self.select_invBtn.clicked.connect(lambda: self.selectInv(MainWindow))
 
         self.show_invBtn.clicked.connect(lambda: self.consultarInv(MainWindow))
 
@@ -94,6 +102,7 @@ class Ui_MainWindow(object):
         self.logoutButton.setText(_translate("MainWindow", "Cerrar\nsesion"))
         self.modify_invBtn.setText(_translate("MainWindow", "Modificar inventario"))
         self.show_invBtn.setText(_translate("MainWindow", "Consultar inventario"))
+        self.select_invBtn.setText(_translate("MainWindow", "Seleccionar productos"))
     
     
     def gui_Logoff(self, login, main_w):            # Metodo para cerrar sesion
@@ -109,6 +118,17 @@ class Ui_MainWindow(object):
         self.ventModif.setWindowTitle("ULAGOS Market")
         self.ventModif.setWindowIcon(QtGui.QIcon("icono\\martin.png"))
         self.ventModif.show()
+
+        mainWindow.close()
+        
+    def selectInv(self, mainWindow):                # Metodo para seleccionar productos
+        # Se abre la ventana seleccionar productos
+        self.ventSelect = QtWidgets.QMainWindow()
+        self.Ui = Ui_SelectProducts()
+        self.Ui.setupUi(self.ventSelect, mainWindow)
+        self.ventSelect.setWindowTitle("ULAGOS Market")
+        self.ventSelect.setWindowIcon(QtGui.QIcon("icono\\martin.png"))
+        self.ventSelect.show()
 
         mainWindow.close()
     

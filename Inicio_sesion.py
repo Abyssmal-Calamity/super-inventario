@@ -98,7 +98,7 @@ class Ui_Login(object):
         self.btnRegistrar.setObjectName("btnRegistrar")
         
         self.btnAgregar= QtWidgets.QPushButton(parent=self.centralwidget)    # Boton registrar usuario
-        self.btnAgregar.setGeometry(QtCore.QRect(620, 450, 131, 36))
+        self.btnAgregar.setGeometry(QtCore.QRect(614, 450, 143, 36))
         self.btnAgregar.setStyleSheet(self.btn_style_sheet())
         self.btnAgregar.setObjectName("btnRegisbtnAgregartrar")
 
