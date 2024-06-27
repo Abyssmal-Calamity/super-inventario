@@ -14,12 +14,11 @@ from clases.Productos import Productos
 
 class Ui_AgregarP(object):
     
-    def setupUi(self, AgregarP, Login):
+    def setupUi(self, AgregarP, MainWindow):
         self.AgregarP = AgregarP
         self.AgregarP.setObjectName("AgregarP")
         self.AgregarP.resize(1261, 532)         # Resolucion ventana
-        self.AgregarP.setStyleSheet("background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(0, 0, 0, 255), stop:1 rgba(0, 0, 0, 0));\n"
-                                "background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(255, 255, 255, 255));")
+        self.AgregarP.setStyleSheet("background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(61, 61, 61, 255));")
         self.centralwidget = QtWidgets.QWidget(parent=self.AgregarP)
         self.centralwidget.setObjectName("centralwidget")
 
@@ -129,9 +128,9 @@ class Ui_AgregarP(object):
 
 
         # Accion botones
-        self.btnCrear.clicked.connect(self.validacionCampos)
+        self.btnCrear.clicked.connect(lambda: self.validacionCampos(MainWindow))
 
-        self.btnCancelar.clicked.connect(lambda: self.cancelar(Login))
+        self.btnCancelar.clicked.connect(lambda: self.cancelar(MainWindow))
         
 
         self.AgregarP.setCentralWidget(self.centralwidget)
@@ -155,7 +154,7 @@ class Ui_AgregarP(object):
 
     
 
-    def validacionCampos(self):
+    def validacionCampos(self, mainWindow):
         camposValidados = True
 
         if self.marca.text() == "":
@@ -196,7 +195,7 @@ class Ui_AgregarP(object):
         
         if camposValidados:
             self.crearProducto()
-            self.cuadroProductoCreado()
+            self.cuadroProductoCreado(mainWindow)
 
 
     def crearProducto(self):                 # Metodo para almacenar datos del nuevo producto
@@ -220,7 +219,7 @@ class Ui_AgregarP(object):
 
     
 
-    def cuadroProductoCreado(self):       # Se muestra un mensaje de usuario creado
+    def cuadroProductoCreado(self, mainWindow):       # Se muestra un mensaje de usuario creado
         self.notificacion = QtWidgets.QMessageBox()
         self.notificacion.setWindowTitle("Producto creado")
         self.notificacion.setText("Se ha creado con éxito")
@@ -229,25 +228,18 @@ class Ui_AgregarP(object):
 
         btnAceptar = self.notificacion.button(QtWidgets.QMessageBox.StandardButton.Ok)
         btnAceptar.setText("Aceptar")
-        btnAceptar.clicked.connect(self.volver_A_VentanaLogin)
+        btnAceptar.clicked.connect(lambda: self.volver_A_VentanaPrincipal(mainWindow))
 
         self.notificacion.exec()
 
     
-    def cancelar(self, login):                     # Metodo para cancelar registro de usuario
-        login.show()
+    def cancelar(self, main_w):                     # Metodo para cancelar registro de usuario
+        main_w.show()
         self.AgregarP.close()
     
 
-    def volver_A_VentanaLogin(self):      # Metodo para mostrar ventana de inicio sesion
-        from Inicio_sesion import Ui_Login
-        self.ventanaLogin = QtWidgets.QMainWindow()
-        self.Ui = Ui_Login()
-        self.Ui.setupUi(self.ventanaLogin)
-        self.ventanaLogin.setWindowTitle("ULAGOS Market")
-        self.ventanaLogin.setWindowIcon(QtGui.QIcon("icono/martin.png"))
-        self.ventanaLogin.show()
-
+    def volver_A_VentanaPrincipal(self, main_w):      # Metodo para mostrar ventana principal
+        main_w.show()
         self.AgregarP.close()
     
 

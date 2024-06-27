@@ -12,15 +12,15 @@ from PyQt6 import QtCore, QtGui, QtWidgets
 from Modificar import Ui_ModifyWindow
 from Consultar import Ui_ShowInventary
 from Seleccionar_Productos import Ui_SelectProducts
+from Agregar_productos import Ui_AgregarP
 
 
 class Ui_MainWindow(object):
 
-    def setupUi(self, MainWindow, Login):
+    def setupUi(self, MainWindow, Login, Usuario, Cargo):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(1261, 532)        # Resolucion ventana
-        MainWindow.setStyleSheet("background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(0, 0, 0, 255), stop:1 rgba(0, 0, 0, 0));\n"
-                                 "background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(255, 255, 255, 255));")
+        MainWindow.setStyleSheet("background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(61, 61, 61, 255));")
         self.centralwidget = QtWidgets.QWidget(parent=MainWindow)
         self.centralwidget.setObjectName("centralwidget")
 
@@ -43,11 +43,13 @@ class Ui_MainWindow(object):
         
         # Etiquetas
         self.userLabel = QtWidgets.QLabel(parent=self.centralwidget)        # Muestra el nombre de usuario
-        self.userLabel.setGeometry(QtCore.QRect(130, 80, 111, 41))
+        self.userLabel.setGeometry(QtCore.QRect(150, 80, 171, 39))
         font = QtGui.QFont()
-        font.setPointSize(12)
+        font.setPointSize(14)
+        font.setBold(True)
         self.userLabel.setFont(font)
-        self.userLabel.setText("")
+        self.userLabel.setStyleSheet("background: transparent;")
+        self.userLabel.setText(Usuario)
         self.userLabel.setObjectName("userLabel")
 
         
@@ -58,7 +60,7 @@ class Ui_MainWindow(object):
         self.logoutButton.setObjectName("logoutButton")
 
         self.modify_invBtn = QtWidgets.QPushButton(parent=self.centralwidget)   # Boton modificar inventario
-        self.modify_invBtn.setGeometry(QtCore.QRect(266, 290, 171, 61))
+        self.modify_invBtn.setGeometry(QtCore.QRect(826, 290, 171, 61))
         self.modify_invBtn.setStyleSheet(self.btn_style_sheet())
         self.modify_invBtn.setObjectName("modify_invBtn")
         
@@ -68,9 +70,26 @@ class Ui_MainWindow(object):
         self.select_invBtn.setObjectName("select_invBtn")
 
         self.show_invBtn = QtWidgets.QPushButton(parent=self.centralwidget)     # Boton consultar inventario
-        self.show_invBtn.setGeometry(QtCore.QRect(826, 290, 171, 61))
+        self.show_invBtn.setGeometry(QtCore.QRect(266, 290, 171, 61))
         self.show_invBtn.setStyleSheet(self.btn_style_sheet())
         self.show_invBtn.setObjectName("show_invBtn")
+
+        self.despedirEmp = QtWidgets.QPushButton(parent=self.centralwidget)    # Boton para despedir un empleado
+        self.despedirEmp.setGeometry(QtCore.QRect(18, 420, 90, 60))
+        self.despedirEmp.setStyleSheet(self.btn_style_sheet())
+        self.despedirEmp.setObjectName("despedirEmp")
+
+        self.btnAgregar= QtWidgets.QPushButton(parent=self.centralwidget)    # Boton agregar productos
+        self.btnAgregar.setGeometry(QtCore.QRect(614, 450, 143, 36))
+        self.btnAgregar.setStyleSheet(self.btn_style_sheet())
+        self.btnAgregar.setObjectName("btnAgregar")
+        
+        # Nueva restricción: Se deshabilitará la opción de modificar el inventario si un usuario es Empleado
+        self.modify_invBtn.setVisible(self.RestriccionEmpleado(Cargo))
+        self.btnAgregar.setVisible(self.RestriccionEmpleado(Cargo))
+
+        # Opción exclusiva para administradores
+        self.despedirEmp.setVisible(self.btnDespedirVisible(Cargo))
 
         
         # Accion botones
@@ -81,6 +100,8 @@ class Ui_MainWindow(object):
         self.select_invBtn.clicked.connect(lambda: self.selectInv(MainWindow))
 
         self.show_invBtn.clicked.connect(lambda: self.consultarInv(MainWindow))
+
+        self.btnAgregar.clicked.connect(lambda: self.gui_agregar(MainWindow))
 
         
         MainWindow.setCentralWidget(self.centralwidget)
@@ -99,15 +120,42 @@ class Ui_MainWindow(object):
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
-        self.logoutButton.setText(_translate("MainWindow", "Cerrar\nsesion"))
+        self.logoutButton.setText(_translate("MainWindow", "Cerrar\nsesión"))
         self.modify_invBtn.setText(_translate("MainWindow", "Modificar inventario"))
         self.show_invBtn.setText(_translate("MainWindow", "Consultar inventario"))
         self.select_invBtn.setText(_translate("MainWindow", "Seleccionar productos"))
+        self.despedirEmp.setText(_translate("MainWindow", "Despedir\nempleados"))
+        self.btnAgregar.setText(_translate("Login", "Agregar Productos"))
+    
+
+    def RestriccionEmpleado(self, ocupacion):   # Retorna valor booleano que restringe las acciones de un empleado
+        if ocupacion == "Empleado":
+            self.select_invBtn.setGeometry(QtCore.QRect(826, 290, 171, 61))
+            return False
+        else:
+            return True
+    
+    def btnDespedirVisible(self, ocupacion):
+        if ocupacion == "Administrador":
+            return True
+        else:
+            return False
     
     
     def gui_Logoff(self, login, main_w):            # Metodo para cerrar sesion
         login.show()
         main_w.close()
+    
+
+    def gui_agregar(self, mainWindow):     # Metodo para abrir ventana de agregado de nuevos productos
+        self.ventanaAgregarP = QtWidgets.QMainWindow()      # Se abre la ventana de agregado
+        self.ui = Ui_AgregarP()
+        self.ui.setupUi(self.ventanaAgregarP, mainWindow)
+        self.ventanaAgregarP.setWindowTitle("ULAGOS Market")
+        self.ventanaAgregarP.setWindowIcon(QtGui.QIcon("icono\\martin.png"))
+        self.ventanaAgregarP.show()
+
+        mainWindow.close()
     
     
     def modificarInv(self, mainWindow):             # Metodo para modificar inventario
@@ -143,6 +191,9 @@ class Ui_MainWindow(object):
         self.ventCons.show()
 
         mainWindow.close()
+    
+
+    #def despedir
     
 
     def btn_style_sheet(self):

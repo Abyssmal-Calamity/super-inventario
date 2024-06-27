@@ -34,6 +34,7 @@ class Main_Window(QMainWindow):
 if __name__ == "__main__":
     # inicia la aplicacion
     app = QApplication(sys.argv)
+    app.setStyle("Fusion")
     ventana = Main_Window()
     ventana.setWindowTitle("ULAGOS Market")
     ventana.setWindowIcon(QIcon("icono\\martin.png"))

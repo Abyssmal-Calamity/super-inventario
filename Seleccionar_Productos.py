@@ -13,14 +13,13 @@ class Ui_SelectProducts(object):
     def setupUi(self, SelectProducts, MainWindow):
         SelectProducts.setObjectName("SelectProducts")
         SelectProducts.resize(1261, 532)
-        SelectProducts.setStyleSheet("background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(0, 0, 0, 255), stop:1 rgba(0, 0, 0, 0));\n"
-                                     "background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(255, 255, 255, 255));")
+        SelectProducts.setStyleSheet("background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(61, 61, 61, 255));")
         self.centralwidget = QtWidgets.QWidget(parent=SelectProducts)
         self.centralwidget.setObjectName("centralwidget")
         self.background = QtWidgets.QLabel(parent=self.centralwidget)
         self.background.setGeometry(QtCore.QRect(10, 0, 1241, 511))
         self.background.setText("")
-        self.background.setPixmap(QtGui.QPixmap("images/Consultar_screen.jpg"))
+        self.background.setPixmap(QtGui.QPixmap("images/caja_screen.png"))
         self.background.setAlignment(QtCore.Qt.AlignmentFlag.AlignLeading|QtCore.Qt.AlignmentFlag.AlignLeft|QtCore.Qt.AlignmentFlag.AlignVCenter)
         self.background.setObjectName("background")
 

@@ -16,8 +16,7 @@ class Ui_Registrar(object):
         self.Registrar = Registrar
         self.Registrar.setObjectName("Registrar")
         self.Registrar.resize(1261, 532)         # Resolucion ventana
-        self.Registrar.setStyleSheet("background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(0, 0, 0, 255), stop:1 rgba(0, 0, 0, 0));\n"
-                                "background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(255, 255, 255, 255));")
+        self.Registrar.setStyleSheet("background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(61, 61, 61, 255));")
         self.centralwidget = QtWidgets.QWidget(parent=self.Registrar)
         self.centralwidget.setObjectName("centralwidget")
 
@@ -30,32 +29,32 @@ class Ui_Registrar(object):
         self.fondo.setObjectName("fondo")
 
         self.texto1 = QtWidgets.QLabel(parent=self.centralwidget)
-        self.texto1.setGeometry(QtCore.QRect(210, 250, 300, 18))
+        self.texto1.setGeometry(QtCore.QRect(210, 264, 300, 18))
         font = QtGui.QFont()
         font.setPointSize(10)
         self.texto1.setFont(font)
         self.texto1.setAlignment(QtCore.Qt.AlignmentFlag.AlignLeft)
-        self.texto1.setStyleSheet("background: transparent;\n" "color: rgb(225,0,0);\n")
+        self.texto1.setStyleSheet("background: transparent;\n" "color: rgb(175,175,175);\n")
         self.texto1.setText("")
         self.texto1.setObjectName("texto1")
 
         self.texto2 = QtWidgets.QLabel(parent=self.centralwidget)
-        self.texto2.setGeometry(QtCore.QRect(210, 350, 300, 18))
+        self.texto2.setGeometry(QtCore.QRect(210, 364, 300, 18))
         font = QtGui.QFont()
         font.setPointSize(10)
         self.texto2.setFont(font)
         self.texto2.setAlignment(QtCore.Qt.AlignmentFlag.AlignLeft)
-        self.texto2.setStyleSheet("background: transparent;\n" "color: rgb(225,0,0);\n")
+        self.texto2.setStyleSheet("background: transparent;\n" "color: rgb(175,175,175);\n")
         self.texto2.setText("")
         self.texto2.setObjectName("texto2")
 
         self.texto3 = QtWidgets.QLabel(parent=self.centralwidget)
-        self.texto3.setGeometry(QtCore.QRect(210, 450, 300, 18))
+        self.texto3.setGeometry(QtCore.QRect(210, 460, 300, 18))
         font = QtGui.QFont()
         font.setPointSize(10)
         self.texto3.setFont(font)
         self.texto3.setAlignment(QtCore.Qt.AlignmentFlag.AlignLeft)
-        self.texto3.setStyleSheet("background: transparent;\n" "color: rgb(225,0,0);\n")
+        self.texto3.setStyleSheet("background: transparent;\n" "color: rgb(175,175,175);\n")
         self.texto3.setText("")
         self.texto3.setObjectName("texto3")
 
@@ -63,8 +62,8 @@ class Ui_Registrar(object):
         font = QtGui.QFont()
         font.setPointSize(14)
         self.username.setFont(font)
-        self.username.setGeometry(QtCore.QRect(210, 210, 300, 40))
-        self.username.setStyleSheet("border-radius: 10px;\n" "border: 1px solid;")
+        self.username.setGeometry(QtCore.QRect(210, 224, 300, 40))
+        self.username.setStyleSheet("border-radius: 10px;\n" "border: 1px solid;\n" "background-color: rgb(190,190,190);")
         self.username.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
         self.username.setObjectName("username")
 
@@ -72,8 +71,8 @@ class Ui_Registrar(object):
         font = QtGui.QFont()
         font.setPointSize(14)
         self.contasena.setFont(font)
-        self.contasena.setGeometry(QtCore.QRect(210, 310, 264, 40))
-        self.contasena.setStyleSheet("border-top-left-radius: 10px;\n" "border-bottom-left-radius: 10px;\n"
+        self.contasena.setGeometry(QtCore.QRect(210, 324, 264, 40))
+        self.contasena.setStyleSheet("border-top-left-radius: 10px;\n" "border-bottom-left-radius: 10px;\n" "background-color: rgb(190,190,190)\n;"
                                      "border: solid;\n" "border-width: 1px 0px 1px 1px;")
         self.contasena.setEchoMode(QtWidgets.QLineEdit.EchoMode.Password)
         self.contasena.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
@@ -85,7 +84,7 @@ class Ui_Registrar(object):
         font.setPointSize(14)
         font.setBold(True)
         self.etiquetaCargo.setFont(font)
-        self.etiquetaCargo.setStyleSheet("background-color: rgb(255, 255, 255);\n" "border-radius: 10px;\n" "border: solid;" "border-width: 1px;")
+        self.etiquetaCargo.setStyleSheet("color: rgb(230, 29, 82);\n" "background-color: rgb(190,190,190);\n" "border-radius: 10px;\n" "border: solid;" "border-width: 1px;")
         self.etiquetaCargo.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
         self.etiquetaCargo.setObjectName("etiquetaCargo")
         self.nombreCargo = ""
@@ -93,13 +92,13 @@ class Ui_Registrar(object):
         
         # Interfaz botones
         self.showKey = CustomButton(parent=self.centralwidget)
-        self.showKey.setGeometry(QtCore.QRect(474, 310, 36, 40))
+        self.showKey.setGeometry(QtCore.QRect(474, 324, 36, 40))
         self.showKey.setIconSize(QtCore.QSize(32, 32))
         self.showKey.setText("")
         self.showKey.setObjectName("showKey")
 
         self.btnAdmin = QtWidgets.QPushButton(parent=self.centralwidget)
-        self.btnAdmin.setGeometry(QtCore.QRect(200, 412, 121, 36))
+        self.btnAdmin.setGeometry(QtCore.QRect(200, 422, 121, 36))
         font = QtGui.QFont()
         font.setPointSize(10)
         self.btnAdmin.setFont(font)
@@ -107,7 +106,7 @@ class Ui_Registrar(object):
         self.btnAdmin.setObjectName("btnAdmin")
 
         self.btnEmpleado = QtWidgets.QPushButton(parent=self.centralwidget)
-        self.btnEmpleado.setGeometry(QtCore.QRect(390, 412, 121, 36))
+        self.btnEmpleado.setGeometry(QtCore.QRect(390, 422, 121, 36))
         font = QtGui.QFont()
         font.setPointSize(10)
         self.btnEmpleado.setFont(font)
@@ -290,24 +289,25 @@ class Ui_Registrar(object):
 
     def btn_style_sheet_1(self):
         return ("QPushButton{\n"
-                "   background-color: rgb(255, 255, 255);\n"
+                "   background-color: rgb(80, 80, 80);\n"
+                "   color: rgb(175, 175, 175);\n"
                 "   border-radius: 10px;\n"
                 "   border: 1px solid;\n"
                 "}\n"
                 "QPushButton::hover{\n"
-                "   background-color: rgb(255, 170, 255);\n"
-                "   color: rgb(85, 85, 255);\n"
-                "   border: 1px solid rgb(85, 0, 255);\n"
+                "   background-color: rgb(100, 100, 100);\n"
+                "   color: rgb(225, 225, 225);\n"
+                "   border: 1px solid rgb(100, 100, 100);\n"
                 "}\n"
                 "QPushButton::pressed{\n"
-                "   background-color: rgb(255, 0, 255);\n"
+                "   background-color: rgb(230, 29, 82);\n"
                 "   color: rgb(255, 255, 255);\n"
                 "   border: 0px;\n"
                 "}")
     
 
     def btn_style_sheet_2(self):
-        return ("background-color: rgba(255, 85, 255, 0.75);\n"
+        return ("background-color: rgba(230, 29, 82, 0.75);\n"
                 "border-radius: 10px;\n"
                 "color: rgb(255, 255, 255);")
 
@@ -320,7 +320,7 @@ class CustomButton(QtWidgets.QPushButton):
         super().__init__(parent)
         self.setIcon(QtGui.QIcon("icono/nomostrar.png"))
         self.setStyleSheet("border-top-right-radius: 10px;\n" "border-bottom-right-radius: 10px;\n"
-                           "border: solid;\n" "border-width: 1px 1px 1px 0px;")
+                           "border: solid;\n" "border-width: 1px 1px 1px 0px;\n" "background-color: rgb(190,190,190);")
     
 
     def enterEvent(self, event):

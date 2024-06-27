@@ -13,8 +13,7 @@ class Ui_ShowInventary(object):
     def setupUi(self, ShowInventary, MainWindow):
         ShowInventary.setObjectName("ShowInventary")
         ShowInventary.resize(1261, 532)
-        ShowInventary.setStyleSheet("background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(0, 0, 0, 255), stop:1 rgba(0, 0, 0, 0));\n"
-                                    "background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(255, 255, 255, 255));")
+        ShowInventary.setStyleSheet("background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(61, 61, 61, 255));")
         self.centralwidget = QtWidgets.QWidget(parent=ShowInventary)
         self.centralwidget.setObjectName("centralwidget")
         self.background = QtWidgets.QLabel(parent=self.centralwidget)
@@ -44,7 +43,7 @@ class Ui_ShowInventary(object):
         self.btnVolver.setObjectName("btnVolver")
 
         self.scrollArea = QtWidgets.QScrollArea(parent=self.centralwidget)
-        self.scrollArea.setGeometry(QtCore.QRect(50, 140, 1160, 358))
+        self.scrollArea.setGeometry(QtCore.QRect(50, 136, 1160, 358))
         self.scrollArea.setStyleSheet("border-radius: 0px;")
         self.scrollArea.setWidgetResizable(True)
         self.scrollArea.setObjectName("scrollArea")

@@ -12,20 +12,15 @@ from PyQt6 import QtCore, QtGui, QtWidgets
 # Se importan las ventanas
 from Ventana_principal import Ui_MainWindow
 from Registro import Ui_Registrar
-from Agregar_productos import Ui_AgregarP
 
 
 class Ui_Login(object):
-    """def __init__(self):
-        self.comprobarlistaUsuarios()"""
-
     
     def setupUi(self, Login):
         self.log_in = Login
         self.log_in.setObjectName("Login")
         self.log_in.resize(1261, 532)         # Resolucion ventana
-        self.log_in.setStyleSheet("background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(0, 0, 0, 255), stop:1 rgba(0, 0, 0, 0));\n"
-                            "background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(255, 255, 255, 255));")
+        self.log_in.setStyleSheet("background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(61, 61, 61, 255));")
         self.centralwidget = QtWidgets.QWidget(parent=self.log_in)
         self.centralwidget.setObjectName("centralwidget")
 
@@ -45,7 +40,7 @@ class Ui_Login(object):
         font = QtGui.QFont()
         font.setPointSize(12)
         self.userEdit.setFont(font)
-        self.userEdit.setStyleSheet("border-radius: 10px;\n" "border: 1px solid;")
+        self.userEdit.setStyleSheet("border-radius: 10px;\n" "border: 1px solid;\n" "background-color: rgb(190,190,190);")
         self.userEdit.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
         self.userEdit.setObjectName("userEdit")
 
@@ -56,7 +51,7 @@ class Ui_Login(object):
         self.passwordEdit.setFont(font)
         self.passwordEdit.setEchoMode(QtWidgets.QLineEdit.EchoMode.Password)
         self.passwordEdit.setStyleSheet("border-top-left-radius: 10px;\n" "border-bottom-left-radius: 10px;\n"
-                                        "border: solid;\n" "border-width: 1px 0px 1px 1px;")
+                                        "border: solid;\n" "border-width: 1px 0px 1px 1px;\n" "background-color: rgb(190,190,190);")
         self.passwordEdit.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
         self.passwordEdit.setObjectName("passwordEdit")
 
@@ -96,11 +91,6 @@ class Ui_Login(object):
         self.btnRegistrar.setGeometry(QtCore.QRect(620, 404, 131, 36))
         self.btnRegistrar.setStyleSheet(self.btn_style_sheet())
         self.btnRegistrar.setObjectName("btnRegistrar")
-        
-        self.btnAgregar= QtWidgets.QPushButton(parent=self.centralwidget)    # Boton registrar usuario
-        self.btnAgregar.setGeometry(QtCore.QRect(614, 450, 143, 36))
-        self.btnAgregar.setStyleSheet(self.btn_style_sheet())
-        self.btnAgregar.setObjectName("btnRegisbtnAgregartrar")
 
         
         # Accion botones
@@ -114,7 +104,6 @@ class Ui_Login(object):
         self.loginButton.clicked.connect(self.acceder)
         
         self.btnRegistrar.clicked.connect(self.gui_registrar)
-        self.btnAgregar.clicked.connect(self.gui_agregar)
         
 
         self.log_in.setCentralWidget(self.centralwidget)
@@ -136,7 +125,6 @@ class Ui_Login(object):
         self.loginButton.setText(_translate("Login", "Ingresar"))
         self.exitButton.setText(_translate("Login", "Salir"))
         self.btnRegistrar.setText(_translate("Login", "Registrar"))
-        self.btnAgregar.setText(_translate("Login", "Agregar Productos"))
     
     
     def limpiarCampos(self):                    # Metodo para limpiar los campos de texto
@@ -155,37 +143,69 @@ class Ui_Login(object):
         self.ventanaRegistro.show()
 
         self.log_in.close()
-        
-    def gui_agregar(self):     # Metodo para abrir ventana de agregado de nuevos productos
-        self.limpiarCampos()        # Se borran los datos de los campos de texto
-        self.ventanaAgregarP = QtWidgets.QMainWindow()      # Se abre la ventana de agregado
-        self.ui = Ui_AgregarP()
-        self.ui.setupUi(self.ventanaAgregarP, self.log_in)
-        self.ventanaAgregarP.setWindowTitle("ULAGOS Market")
-        self.ventanaAgregarP.setWindowIcon(QtGui.QIcon("icono\\martin.png"))
-        self.ventanaAgregarP.show()
+    
 
+    def gui_acceder(self, usuario, cargo):
+        self.ventanaPrincipal = QtWidgets.QMainWindow()     # Se abre la ventana principal
+        self.Ui = Ui_MainWindow()
+        self.Ui.setupUi(self.ventanaPrincipal, self.log_in, usuario, cargo)
+        self.ventanaPrincipal.setWindowTitle("ULAGOS Market")
+        self.ventanaPrincipal.setWindowIcon(QtGui.QIcon("icono\\martin.png"))
+        self.ventanaPrincipal.show()
+        
         self.log_in.close()
 
     
     def acceder(self):                 # Metodo para iniciar sesion
         nickname = self.userEdit.text()
         password = self.passwordEdit.text()
+        tipoUsuario = self.verificarDatos(nickname, password)   # Devuelve el cargo del usuario
 
         if self.comprobarlistaUsuarios():
             self.listaUsuariosVacia()
         
-        elif self.verificarDatos(nickname, password):
+        elif tipoUsuario == "Administrador":
             self.limpiarCampos()                                # Se borran los datos de los campos de texto
-            self.ventanaPrincipal = QtWidgets.QMainWindow()     # Se abre la ventana principal
-            self.Ui = Ui_MainWindow()
-            self.Ui.setupUi(self.ventanaPrincipal, self.log_in)
-            self.ventanaPrincipal.setWindowTitle("ULAGOS Market")
-            self.ventanaPrincipal.setWindowIcon(QtGui.QIcon("icono\\martin.png"))
-            self.ventanaPrincipal.show()
-            
-            self.log_in.close()
+            self.notificacion = QtWidgets.QMessageBox()         # Se muestra un mensaje de inicio de sesión como administrador
+            self.notificacion.setWindowTitle("Sesión Administrador")
+            self.notificacion.setText("Se ha iniciado sesión correctamente como administrador")
+            self.notificacion.setIcon(QtWidgets.QMessageBox.Icon.Information)
+            self.notificacion.setStandardButtons(QtWidgets.QMessageBox.StandardButton.Ok)
+
+            btnAceptar = self.notificacion.button(QtWidgets.QMessageBox.StandardButton.Ok)
+            btnAceptar.setText("Aceptar")
+            btnAceptar.clicked.connect(lambda: self.gui_acceder(nickname, tipoUsuario))
+
+            self.notificacion.exec()
         
+        elif tipoUsuario == "Empleado":
+            self.limpiarCampos()                                # Se borran los datos de los campos de texto
+            self.notificacion = QtWidgets.QMessageBox()         # Se muestra un mensaje de inicio de sesión como empleado
+            self.notificacion.setWindowTitle("Sesión Empleado")
+            self.notificacion.setText("Se ha iniciado sesión correctamente como empleado")
+            self.notificacion.setIcon(QtWidgets.QMessageBox.Icon.Information)
+            self.notificacion.setStandardButtons(QtWidgets.QMessageBox.StandardButton.Ok)
+
+            btnAceptar = self.notificacion.button(QtWidgets.QMessageBox.StandardButton.Ok)
+            btnAceptar.setText("Aceptar")
+            btnAceptar.clicked.connect(lambda: self.gui_acceder(nickname, tipoUsuario))
+
+            self.notificacion.exec()
+        
+        elif tipoUsuario == "Cliente":
+            self.limpiarCampos()                                # Se borran los datos de los campos de texto
+            self.notificacion = QtWidgets.QMessageBox()         # Se muestra un mensaje de inicio de sesión como cliente
+            self.notificacion.setWindowTitle("Sesión Cliente")
+            self.notificacion.setText("Se ha iniciado sesión correctamente como cliente")
+            self.notificacion.setIcon(QtWidgets.QMessageBox.Icon.Information)
+            self.notificacion.setStandardButtons(QtWidgets.QMessageBox.StandardButton.Ok)
+
+            btnAceptar = self.notificacion.button(QtWidgets.QMessageBox.StandardButton.Ok)
+            btnAceptar.setText("Aceptar")
+            btnAceptar.clicked.connect(lambda: self.gui_acceder(nickname, tipoUsuario))
+
+            self.notificacion.exec()
+
         elif len(nickname) == 0 or len(password) == 0:
             self.textLabel.setGeometry(QtCore.QRect(586, 350, 529, 43))
             self.textLabel.setPixmap(QtGui.QPixmap("images/Informacion.png"))
@@ -203,9 +223,9 @@ class Ui_Login(object):
             for row in lector:
                 if row[0] == usuario:
                     if row[1] == contrasena:
-                        return True
+                        return row[2]       # Si las condiciones son verdaderas, entonces retorna el nombre del cargo
             
-        return False
+        return None
     
 
     def comprobarlistaUsuarios(self):
@@ -243,18 +263,19 @@ class Ui_Login(object):
     def btn_style_sheet(self):
         return ("QPushButton{\n"
                 "   font: 600 12pt \"Segoe UI Semibold\";\n"
-                "   background-color: rgb(255, 255, 255);\n"
+                "   background-color: rgb(80, 80, 80);\n"
+                "   color: rgb(175, 175, 175);\n"
                 "   border-radius: 10px;\n"
                 "   border: 1px solid;\n"
                 "}\n"
                 "QPushButton::hover{\n"
-                "   background-color: rgb(255, 170, 255);\n"
-                "   color: rgb(85, 85, 255);\n"
-                "   border: 1px solid rgb(85, 0, 255);\n"
+                "   background-color: rgb(100, 100, 100);\n"
+                "   color: rgb(225, 225, 225);\n"
+                "   border: 1px solid rgb(100, 100, 100);\n"
                 "}\n"
                 "QPushButton::pressed{\n"
                 "   font: 700 12pt \"Segoe UI\";\n"
-                "   background-color: rgb(255, 0, 255);\n"
+                "   background-color: rgb(230, 29, 82);\n"
                 "   color: rgb(255, 255, 255);\n"
                 "   border: 0px;\n"
                 "}")
@@ -268,7 +289,7 @@ class CustomButton(QtWidgets.QPushButton):
         super().__init__(parent)
         self.setIcon(QtGui.QIcon("icono/nomostrar.png"))
         self.setStyleSheet("border-top-right-radius: 10px;\n" "border-bottom-right-radius: 10px;\n"
-                           "border: solid;\n" "border-width: 1px 1px 1px 0px;")
+                           "border: solid;\n" "border-width: 1px 1px 1px 0px;\n" "background-color: rgb(190,190,190);")
     
 
     def enterEvent(self, event):
