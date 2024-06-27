@@ -26,17 +26,18 @@ class Ui_ShowInventary(object):
         self.btnVolver = QtWidgets.QPushButton(parent=self.centralwidget, clicked=lambda: self.cerrarVentana(MainWindow, ShowInventary))
         self.btnVolver.setGeometry(QtCore.QRect(1120, 90, 100, 32))
         self.btnVolver.setStyleSheet("QPushButton{\n"
-                                     "   background-color: rgb(255, 255, 255);\n"
+                                     "   background-color: rgb(80, 80, 80);\n"
+                                     "   color: rgb(175, 175, 175);\n"
                                      "   border-radius: 10px;\n"
                                      "   border: 1px solid;\n"
                                      "}\n"
                                      "QPushButton::hover{\n"
-                                     "   background-color: rgb(255, 170, 255);\n"
-                                     "   color: rgb(85, 85, 255);\n"
-                                     "   border: 1px solid rgb(85, 0, 255);\n"
+                                     "   background-color: rgb(100, 100, 100);\n"
+                                     "   color: rgb(225, 225, 225);\n"
+                                     "   border: 1px solid rgb(100, 100, 100);\n"
                                      "}\n"
                                      "QPushButton::pressed{\n"
-                                     "   background-color: rgb(255, 0, 255);\n"
+                                     "   background-color: rgb(230, 29, 82);\n"
                                      "   color: rgb(255, 255, 255);\n"
                                      "   border: 0px;\n"
                                      "}")
