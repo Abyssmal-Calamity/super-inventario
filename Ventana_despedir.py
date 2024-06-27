@@ -79,4 +79,3 @@ class Ui_DespedirEmpleados(object):
         self.modify_invBtn.setText(_translate("DespedirEmp", "Modificar inventario"))
         self.show_invBtn.setText(_translate("DespedirEmp", "Consultar inventario"))
         self.select_invBtn.setText(_translate("DespedirEmp", "Seleccionar productos"))
-        self.despedirEmp.setText(_translate("DespedirEmp", "Despedir\nempleado"))

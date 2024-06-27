@@ -40,7 +40,7 @@ class Ui_Login(object):
         font = QtGui.QFont()
         font.setPointSize(12)
         self.userEdit.setFont(font)
-        self.userEdit.setStyleSheet("border-radius: 10px;\n" "border: 1px solid;\n" "background-color: rgb(190,190,190);")
+        self.userEdit.setStyleSheet("border-radius: 10px;\n" "border: 1px solid;\n" "background-color: rgb(190,190,190);\n" "color: rgb(0,0,0);")
         self.userEdit.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
         self.userEdit.setObjectName("userEdit")
 
@@ -51,7 +51,7 @@ class Ui_Login(object):
         self.passwordEdit.setFont(font)
         self.passwordEdit.setEchoMode(QtWidgets.QLineEdit.EchoMode.Password)
         self.passwordEdit.setStyleSheet("border-top-left-radius: 10px;\n" "border-bottom-left-radius: 10px;\n"
-                                        "border: solid;\n" "border-width: 1px 0px 1px 1px;\n" "background-color: rgb(190,190,190);")
+                                        "border: solid;\n" "border-width: 1px 0px 1px 1px;\n" "background-color: rgb(190,190,190);\n" "color: rgb(0,0,0);")
         self.passwordEdit.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
         self.passwordEdit.setObjectName("passwordEdit")
 

@@ -63,7 +63,7 @@ class Ui_Registrar(object):
         font.setPointSize(14)
         self.username.setFont(font)
         self.username.setGeometry(QtCore.QRect(210, 224, 300, 40))
-        self.username.setStyleSheet("border-radius: 10px;\n" "border: 1px solid;\n" "background-color: rgb(190,190,190);")
+        self.username.setStyleSheet("border-radius: 10px;\n" "border: 1px solid;\n" "background-color: rgb(190,190,190);\n" "color: rgb(0,0,0);")
         self.username.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
         self.username.setObjectName("username")
 
@@ -72,7 +72,7 @@ class Ui_Registrar(object):
         font.setPointSize(14)
         self.contasena.setFont(font)
         self.contasena.setGeometry(QtCore.QRect(210, 324, 264, 40))
-        self.contasena.setStyleSheet("border-top-left-radius: 10px;\n" "border-bottom-left-radius: 10px;\n" "background-color: rgb(190,190,190)\n;"
+        self.contasena.setStyleSheet("color: rgb(0,0,0);\n" "border-top-left-radius: 10px;\n" "border-bottom-left-radius: 10px;\n" "background-color: rgb(190,190,190)\n;"
                                      "border: solid;\n" "border-width: 1px 0px 1px 1px;")
         self.contasena.setEchoMode(QtWidgets.QLineEdit.EchoMode.Password)
         self.contasena.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
