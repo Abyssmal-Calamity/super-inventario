@@ -12,7 +12,9 @@ class Ui_SelectProducts(object):
 
     def setupUi(self, SelectProducts, MainWindow):
         SelectProducts.setObjectName("SelectProducts")
-        SelectProducts.resize(1261, 532)
+        SelectProducts.resize(1261, 532)        # Resolucion ventana
+        SelectProducts.setMinimumSize(1261, 532)
+        SelectProducts.setMaximumSize(1261, 532)
         SelectProducts.setStyleSheet("background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(61, 61, 61, 255));")
         self.centralwidget = QtWidgets.QWidget(parent=SelectProducts)
         self.centralwidget.setObjectName("centralwidget")
@@ -26,17 +28,18 @@ class Ui_SelectProducts(object):
         self.btnVolver = QtWidgets.QPushButton(parent=self.centralwidget, clicked=lambda: self.cerrarVentana(MainWindow, SelectProducts))
         self.btnVolver.setGeometry(QtCore.QRect(1120, 90, 100, 32))
         self.btnVolver.setStyleSheet("QPushButton{\n"
-                                     "   background-color: rgb(255, 255, 255);\n"
+                                     "   background-color: rgb(80, 80, 80);\n"
+                                     "   color: rgb(175, 175, 175);\n"
                                      "   border-radius: 10px;\n"
                                      "   border: 1px solid;\n"
                                      "}\n"
                                      "QPushButton::hover{\n"
-                                     "   background-color: rgb(255, 170, 255);\n"
-                                     "   color: rgb(85, 85, 255);\n"
-                                     "   border: 1px solid rgb(85, 0, 255);\n"
+                                     "   background-color: rgb(100, 100, 100);\n"
+                                     "   color: rgb(225, 225, 225);\n"
+                                     "   border: 1px solid rgb(100, 100, 100);\n"
                                      "}\n"
                                      "QPushButton::pressed{\n"
-                                     "   background-color: rgb(255, 0, 255);\n"
+                                     "   background-color: rgb(230, 29, 82);\n"
                                      "   color: rgb(255, 255, 255);\n"
                                      "   border: 0px;\n"
                                      "}")
@@ -44,7 +47,7 @@ class Ui_SelectProducts(object):
 
         self.scrollArea = QtWidgets.QScrollArea(parent=self.centralwidget)
         self.scrollArea.setGeometry(QtCore.QRect(50, 140, 730, 352))
-        self.scrollArea.setStyleSheet("border-radius: 0px;")
+        self.scrollArea.setStyleSheet("background-color: rgb(225,225,225);\n" "border-radius: 0px;")
         self.scrollArea.setObjectName("scrollArea")
 
         self.scrollAreaWidgetContents = QtWidgets.QWidget()
@@ -60,6 +63,7 @@ class Ui_SelectProducts(object):
         self.listaCarrito.setGeometry(QtCore.QRect(815, 140, 385, 352))
         self.listaCarrito.setWidgetResizable(True)
         self.listaCarrito.setObjectName("listaCarrito")
+        self.listaCarrito.setStyleSheet("background-color: rgb(225,225,225);\n" "border-radius: 0px;")
 
         self.scrollAreaCarritoWidgetContents = QtWidgets.QWidget()
         self.scrollAreaCarritoWidgetContents.setGeometry(QtCore.QRect(0, 0, 400, 352))
@@ -102,16 +106,19 @@ class Ui_SelectProducts(object):
             # Crea un label para el nombre del producto
             labelProducto = QtWidgets.QLabel(nombreProducto)
             labelProducto.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
+            labelProducto.setStyleSheet("color: rgb(10,10,10);")
 
             # Crea un label para la cantidad del producto
             cantidad = producto.get_cantidad()
             labelCantidad = QtWidgets.QLabel("Cantidad: " + cantidad)
             labelCantidad.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
+            labelCantidad.setStyleSheet("color: rgb(10,10,10);")
             
             # Crea un label para la precio del producto
             precio = producto.get_precio()
             labelPrecio = QtWidgets.QLabel("Precio: $" + str(precio))
             labelPrecio.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
+            labelPrecio.setStyleSheet("color: rgb(10,10,10);")
             
             # Botón para agregar producto al carrito
             btnAgregar = QtWidgets.QPushButton("Agregar al carrito")
@@ -214,6 +221,7 @@ class Ui_SelectProducts(object):
             precio = cantidad * int(listadeproductos['precio'])
             datosProducto = QtWidgets.QLabel(nombreProductoCarrito + '\nCantidad: ' + str(cantidad) + '\nPrecio total: $' + str(precio))
             datosProducto.setAlignment(QtCore.Qt.AlignmentFlag.AlignVCenter)
+            datosProducto.setStyleSheet("color: rgb(10,10,10);")
 
             btnMenos = QtWidgets.QPushButton("-")
             btnMenos.setFixedSize(30, 30)

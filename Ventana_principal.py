@@ -13,6 +13,7 @@ from Modificar import Ui_ModifyWindow
 from Consultar import Ui_ShowInventary
 from Seleccionar_Productos import Ui_SelectProducts
 from Agregar_productos import Ui_AgregarP
+from ListaUsuarios import Ui_VentanaListaUsuarios
 
 
 class Ui_MainWindow(object):
@@ -20,6 +21,8 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow, Login, Usuario, Cargo):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(1261, 532)        # Resolucion ventana
+        MainWindow.setMinimumSize(1261, 532)
+        MainWindow.setMaximumSize(1261, 532)
         MainWindow.setStyleSheet("background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(61, 61, 61, 255));")
         self.centralwidget = QtWidgets.QWidget(parent=MainWindow)
         self.centralwidget.setObjectName("centralwidget")
@@ -74,13 +77,13 @@ class Ui_MainWindow(object):
         self.show_invBtn.setStyleSheet(self.btn_style_sheet())
         self.show_invBtn.setObjectName("show_invBtn")
 
-        self.despedirEmp = QtWidgets.QPushButton(parent=self.centralwidget)    # Boton para despedir un empleado
-        self.despedirEmp.setGeometry(QtCore.QRect(18, 420, 90, 60))
-        self.despedirEmp.setStyleSheet(self.btn_style_sheet())
-        self.despedirEmp.setObjectName("despedirEmp")
+        self.btnAdministrarUsers = QtWidgets.QPushButton(parent=self.centralwidget)    # Boton para despedir un empleado
+        self.btnAdministrarUsers.setGeometry(QtCore.QRect(18, 420, 90, 60))
+        self.btnAdministrarUsers.setStyleSheet(self.btn_style_sheet())
+        self.btnAdministrarUsers.setObjectName("btnAdministrarUsers")
 
         self.btnAgregar= QtWidgets.QPushButton(parent=self.centralwidget)    # Boton agregar productos
-        self.btnAgregar.setGeometry(QtCore.QRect(614, 450, 143, 36))
+        self.btnAgregar.setGeometry(QtCore.QRect(614, 430, 143, 60))
         self.btnAgregar.setStyleSheet(self.btn_style_sheet())
         self.btnAgregar.setObjectName("btnAgregar")
         
@@ -89,7 +92,7 @@ class Ui_MainWindow(object):
         self.btnAgregar.setVisible(self.RestriccionEmpleado(Cargo))
 
         # Opción exclusiva para administradores
-        self.despedirEmp.setVisible(self.btnDespedirVisible(Cargo))
+        self.btnAdministrarUsers.setVisible(self.btnDespedirVisible(Cargo))
 
         
         # Accion botones
@@ -102,6 +105,8 @@ class Ui_MainWindow(object):
         self.show_invBtn.clicked.connect(lambda: self.consultarInv(MainWindow))
 
         self.btnAgregar.clicked.connect(lambda: self.gui_agregar(MainWindow))
+
+        self.btnAdministrarUsers.clicked.connect(lambda: self.verListaUsuarios(MainWindow))
 
         
         MainWindow.setCentralWidget(self.centralwidget)
@@ -124,8 +129,8 @@ class Ui_MainWindow(object):
         self.modify_invBtn.setText(_translate("MainWindow", "Modificar inventario"))
         self.show_invBtn.setText(_translate("MainWindow", "Consultar inventario"))
         self.select_invBtn.setText(_translate("MainWindow", "Seleccionar productos"))
-        self.despedirEmp.setText(_translate("MainWindow", "Despedir\nempleados"))
-        self.btnAgregar.setText(_translate("Login", "Agregar Productos"))
+        self.btnAdministrarUsers.setText(_translate("MainWindow", "Administrar\nusuarios"))
+        self.btnAgregar.setText(_translate("Login", "Agregar nuevos\nproductos"))
     
 
     def RestriccionEmpleado(self, ocupacion):   # Retorna valor booleano que restringe las acciones de un empleado
@@ -193,7 +198,15 @@ class Ui_MainWindow(object):
         mainWindow.close()
     
 
-    #def despedir
+    def verListaUsuarios(self, mainWindow):
+        self.ventanaUsuarios = QtWidgets.QMainWindow()
+        self.Ui = Ui_VentanaListaUsuarios()
+        self.Ui.setupUi(self.ventanaUsuarios, mainWindow)
+        self.ventanaUsuarios.setWindowTitle("ULAGOS Market")
+        self.ventanaUsuarios.setWindowIcon(QtGui.QIcon("icono\\martin.png"))
+        self.ventanaUsuarios.show()
+
+        mainWindow.close()
     
 
     def btn_style_sheet(self):

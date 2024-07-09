@@ -20,6 +20,8 @@ class Ui_Login(object):
         self.log_in = Login
         self.log_in.setObjectName("Login")
         self.log_in.resize(1261, 532)         # Resolucion ventana
+        self.log_in.setMinimumSize(1261, 532)
+        self.log_in.setMaximumSize(1261, 532)
         self.log_in.setStyleSheet("background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(61, 61, 61, 255));")
         self.centralwidget = QtWidgets.QWidget(parent=self.log_in)
         self.centralwidget.setObjectName("centralwidget")

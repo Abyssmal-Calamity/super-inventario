@@ -18,6 +18,8 @@ class Ui_AgregarP(object):
         self.AgregarP = AgregarP
         self.AgregarP.setObjectName("AgregarP")
         self.AgregarP.resize(1261, 532)         # Resolucion ventana
+        self.AgregarP.setMinimumSize(1261, 532)
+        self.AgregarP.setMaximumSize(1261, 532)
         self.AgregarP.setStyleSheet("background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(61, 61, 61, 255));")
         self.centralwidget = QtWidgets.QWidget(parent=self.AgregarP)
         self.centralwidget.setObjectName("centralwidget")

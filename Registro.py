@@ -16,6 +16,8 @@ class Ui_Registrar(object):
         self.Registrar = Registrar
         self.Registrar.setObjectName("Registrar")
         self.Registrar.resize(1261, 532)         # Resolucion ventana
+        self.Registrar.setMinimumSize(1261, 532)
+        self.Registrar.setMaximumSize(1261, 532)
         self.Registrar.setStyleSheet("background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(61, 61, 61, 255));")
         self.centralwidget = QtWidgets.QWidget(parent=self.Registrar)
         self.centralwidget.setObjectName("centralwidget")
