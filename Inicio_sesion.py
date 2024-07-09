@@ -65,9 +65,9 @@ class Ui_Login(object):
         self.textLabel.setObjectName("textLabel")
 
         self.bienvenida = QtWidgets.QLabel(self.centralwidget)              # Muestra texto de bienvenida
-        self.bienvenida.setGeometry(QtCore.QRect(490, 100, 270, 84))
+        self.bienvenida.setGeometry(QtCore.QRect(490, 70, 308, 86))
         self.bienvenida.setStyleSheet("background: transparent;")
-        self.bienvenida.setPixmap(QtGui.QPixmap("images/bembenido.png"))
+        self.bienvenida.setPixmap(QtGui.QPixmap("images/bemvenido.png"))
         self.bienvenida.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
         self.bienvenida.setObjectName("bienvenida")
 

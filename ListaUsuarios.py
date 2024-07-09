@@ -3,7 +3,7 @@ import csv
 
 class Ui_VentanaListaUsuarios(object):
 
-    def setupUi(self, ListaEmp, MainWindow):
+    def setupUi(self, ListaEmp, MainWindow, Usuario):
         ListaEmp.setObjectName("ListaEmp")
         ListaEmp.resize(1261, 532)        # Resolucion ventana
         ListaEmp.setMinimumSize(1261, 532)
@@ -11,13 +11,14 @@ class Ui_VentanaListaUsuarios(object):
         ListaEmp.setStyleSheet("background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(61, 61, 61, 255));")
         self.centralwidget = QtWidgets.QWidget(parent=ListaEmp)
         self.centralwidget.setObjectName("centralwidget")
+        self.Usuario = Usuario
 
         
         # Imagenes
         self.backgroud = QtWidgets.QLabel(parent=self.centralwidget)    # Imagen de fondo
         self.backgroud.setGeometry(QtCore.QRect(10, 0, 1241, 511))
         self.backgroud.setText("")
-        self.backgroud.setPixmap(QtGui.QPixmap("images/Register_Screen_JPG.jpg"))
+        self.backgroud.setPixmap(QtGui.QPixmap("images/admin_user_screen.jpg"))
         self.backgroud.setObjectName("backgroud")
 
         
@@ -157,8 +158,9 @@ class Ui_VentanaListaUsuarios(object):
         datos = self.leerDatosDesdeCSV()
 
         if datos:
-            # Seleccionar las columnas "Ocupación", "Usuario" (columnas 2, 0 ) 
-            datos_seleccionados = [[fila[2],fila[0]] for fila in datos]
+            # Selecciona las columnas "Ocupación", "Usuario" (columnas 2, 0 ) de todos los usuarios
+            # excepto las del administrador en uso
+            datos_seleccionados = [[fila[2],fila[0]] for fila in datos if fila[0] != self.Usuario]
             encabezados = datos_seleccionados.pop(0)  
             self.tablaListaUsuarios.setColumnCount(len(encabezados))
             self.tablaListaUsuarios.setHorizontalHeaderLabels(encabezados)

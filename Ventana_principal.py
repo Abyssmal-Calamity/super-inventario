@@ -78,12 +78,12 @@ class Ui_MainWindow(object):
         self.show_invBtn.setObjectName("show_invBtn")
 
         self.btnAdministrarUsers = QtWidgets.QPushButton(parent=self.centralwidget)    # Boton para despedir un empleado
-        self.btnAdministrarUsers.setGeometry(QtCore.QRect(18, 420, 90, 60))
+        self.btnAdministrarUsers.setGeometry(QtCore.QRect(18, 420, 120, 60))
         self.btnAdministrarUsers.setStyleSheet(self.btn_style_sheet())
         self.btnAdministrarUsers.setObjectName("btnAdministrarUsers")
 
         self.btnAgregar= QtWidgets.QPushButton(parent=self.centralwidget)    # Boton agregar productos
-        self.btnAgregar.setGeometry(QtCore.QRect(614, 430, 143, 60))
+        self.btnAgregar.setGeometry(QtCore.QRect(1090, 430, 143, 60))
         self.btnAgregar.setStyleSheet(self.btn_style_sheet())
         self.btnAgregar.setObjectName("btnAgregar")
         
@@ -106,7 +106,7 @@ class Ui_MainWindow(object):
 
         self.btnAgregar.clicked.connect(lambda: self.gui_agregar(MainWindow))
 
-        self.btnAdministrarUsers.clicked.connect(lambda: self.verListaUsuarios(MainWindow))
+        self.btnAdministrarUsers.clicked.connect(lambda: self.verListaUsuarios(MainWindow, Usuario))
 
         
         MainWindow.setCentralWidget(self.centralwidget)
@@ -128,7 +128,7 @@ class Ui_MainWindow(object):
         self.logoutButton.setText(_translate("MainWindow", "Cerrar\nsesión"))
         self.modify_invBtn.setText(_translate("MainWindow", "Modificar inventario"))
         self.show_invBtn.setText(_translate("MainWindow", "Consultar inventario"))
-        self.select_invBtn.setText(_translate("MainWindow", "Seleccionar productos"))
+        self.select_invBtn.setText(_translate("MainWindow", "Caja para empleados"))
         self.btnAdministrarUsers.setText(_translate("MainWindow", "Administrar\nusuarios"))
         self.btnAgregar.setText(_translate("Login", "Agregar nuevos\nproductos"))
     
@@ -198,10 +198,10 @@ class Ui_MainWindow(object):
         mainWindow.close()
     
 
-    def verListaUsuarios(self, mainWindow):
+    def verListaUsuarios(self, mainWindow, usuario):
         self.ventanaUsuarios = QtWidgets.QMainWindow()
         self.Ui = Ui_VentanaListaUsuarios()
-        self.Ui.setupUi(self.ventanaUsuarios, mainWindow)
+        self.Ui.setupUi(self.ventanaUsuarios, mainWindow, usuario)
         self.ventanaUsuarios.setWindowTitle("ULAGOS Market")
         self.ventanaUsuarios.setWindowIcon(QtGui.QIcon("icono\\martin.png"))
         self.ventanaUsuarios.show()
