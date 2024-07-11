@@ -45,6 +45,26 @@ class Ui_SelectProducts(object):
                                      "}")
         self.btnVolver.setObjectName("btnVolver")
 
+        self.btnComprar = QtWidgets.QPushButton(parent=self.centralwidget, clicked=self.cuadroCompraRealizada)
+        self.btnComprar.setGeometry(QtCore.QRect(970, 450, 100, 32))
+        self.btnComprar.setStyleSheet("QPushButton{\n"
+                                     "   background-color: rgb(80, 80, 80);\n"
+                                     "   color: rgb(175, 175, 175);\n"
+                                     "   border-radius: 10px;\n"
+                                     "   border: 1px solid;\n"
+                                     "}\n"
+                                     "QPushButton::hover{\n"
+                                     "   background-color: rgb(100, 100, 100);\n"
+                                     "   color: rgb(225, 225, 225);\n"
+                                     "   border: 1px solid rgb(100, 100, 100);\n"
+                                     "}\n"
+                                     "QPushButton::pressed{\n"
+                                     "   background-color: rgb(230, 29, 82);\n"
+                                     "   color: rgb(255, 255, 255);\n"
+                                     "   border: 0px;\n"
+                                     "}")
+        self.btnComprar.setObjectName("btnComprar")
+
         self.scrollArea = QtWidgets.QScrollArea(parent=self.centralwidget)
         self.scrollArea.setGeometry(QtCore.QRect(50, 140, 730, 352))
         self.scrollArea.setStyleSheet("background-color: rgb(225,225,225);\n" "border-radius: 0px;")
@@ -159,6 +179,7 @@ class Ui_SelectProducts(object):
         _translate = QtCore.QCoreApplication.translate
         SelectProducts.setWindowTitle(_translate("SelectProducts", "Seleccionar Productos"))
         self.btnVolver.setText(_translate("SelectProducts", "Volver"))
+        self.btnComprar.setText(_translate("SelectProducts", "Comprar"))
 
     def cerrarVentana(self, main_w, consul_w):
         main_w.show()
@@ -240,6 +261,19 @@ class Ui_SelectProducts(object):
             HBoxProducto.addWidget(btnMas)
 
             self.VBoxCarrito.addWidget(HBoxScroll)
+    
+
+    def cuadroCompraRealizada(self):       # Se muestra un mensaje de compra realizada
+        self.notificacion = QtWidgets.QMessageBox()
+        self.notificacion.setWindowTitle("Compra realizada")
+        self.notificacion.setText("Ha comprado sus productos correctamente")
+        self.notificacion.setIcon(QtWidgets.QMessageBox.Icon.Information)
+        self.notificacion.setStandardButtons(QtWidgets.QMessageBox.StandardButton.Ok)
+
+        btnAceptar = self.notificacion.button(QtWidgets.QMessageBox.StandardButton.Ok)
+        btnAceptar.setText("Aceptar")
+
+        self.notificacion.exec()
     
 
             

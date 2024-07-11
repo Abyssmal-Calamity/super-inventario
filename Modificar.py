@@ -47,9 +47,14 @@ class Ui_ModifyWindow(object):
         self.producto3.setObjectName("producto3")
 
         self.btnVolver = QtWidgets.QPushButton(parent=self.centralwidget)
-        self.btnVolver.setGeometry(QtCore.QRect(1120, 90, 100, 32))
+        self.btnVolver.setGeometry(QtCore.QRect(40, 90, 100, 32))
         self.btnVolver.setStyleSheet(self.btn_style_sheet_1())
         self.btnVolver.setObjectName("BtnVolver")
+
+        self.btnGuardar = QtWidgets.QPushButton(parent=self.centralwidget)
+        self.btnGuardar.setGeometry(QtCore.QRect(1090, 90, 100, 32))
+        self.btnGuardar.setStyleSheet(self.btn_style_sheet_1())
+        self.btnGuardar.setObjectName("btnGuardar")
 
         self.boton_add_prod3 = QtWidgets.QPushButton(parent=self.centralwidget)
         self.boton_add_prod3.setGeometry(QtCore.QRect(300, 290, 31, 28))
@@ -413,6 +418,7 @@ class Ui_ModifyWindow(object):
         _translate = QtCore.QCoreApplication.translate
         ModifyWindow.setWindowTitle(_translate("ModifyWindow", "MainWindow"))
         self.btnVolver.setText(_translate("ModifyWindow", "Volver"))
+        self.btnGuardar.setText(_translate("ModifyWindow", "Guardar"))
         self.boton_add_prod3.setText(_translate("ModifyWindow", "+1"))
         self.boton_add_prod2.setText(_translate("ModifyWindow", "+1"))
         self.boton_add_prod1.setText(_translate("ModifyWindow", "+1"))
