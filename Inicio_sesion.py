@@ -209,8 +209,8 @@ class Ui_Login(object):
             self.notificacion.exec()
 
         elif len(nickname) == 0 or len(password) == 0:
-            self.textLabel.setGeometry(QtCore.QRect(586, 350, 529, 43))
-            self.textLabel.setPixmap(QtGui.QPixmap("images/Informacion.png"))
+            self.textLabel.setGeometry(QtCore.QRect(566, 350, 534, 45))
+            self.textLabel.setPixmap(QtGui.QPixmap("images/Informacion2.png"))
 
         else:
             self.textLabel.setGeometry(QtCore.QRect(586, 350, 480, 43))

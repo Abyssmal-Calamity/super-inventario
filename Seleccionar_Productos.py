@@ -60,7 +60,7 @@ class Ui_SelectProducts(object):
         self.panelGrid.setVerticalSpacing(20)
         
         self.listaCarrito = QtWidgets.QScrollArea(self.centralwidget)
-        self.listaCarrito.setGeometry(QtCore.QRect(815, 140, 385, 352))
+        self.listaCarrito.setGeometry(QtCore.QRect(815, 140, 385, 310))
         self.listaCarrito.setWidgetResizable(True)
         self.listaCarrito.setObjectName("listaCarrito")
         self.listaCarrito.setStyleSheet("background-color: rgb(225,225,225);\n" "border-radius: 0px;")

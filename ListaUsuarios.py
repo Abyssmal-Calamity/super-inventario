@@ -24,33 +24,28 @@ class Ui_VentanaListaUsuarios(object):
         
         # Interfaz botones
         self.BtnDespedir = QtWidgets.QPushButton(parent=self.centralwidget)    # Boton para despedir un empleado
-        self.BtnDespedir.setGeometry(QtCore.QRect(18, 440, 180, 44))
+        self.BtnDespedir.setGeometry(QtCore.QRect(610, 440, 180, 44))
         font = QtGui.QFont()
         font.setFamily("Arial")
         font.setPointSize(12)
         font.setBold(True)
         self.BtnDespedir.setFont(font)
         self.BtnDespedir.setStyleSheet("QPushButton{\n"
-                                     "   background-color: rgb(80, 80, 80);\n"
-                                     "   color: rgb(175, 175, 175);\n"
-                                     "   border-radius: 10px;\n"
-                                     "   border: 1px solid;\n"
-                                     "}\n"
-                                     "QPushButton::hover{\n"
-                                     "   background-color: rgb(100, 100, 100);\n"
-                                     "   color: rgb(225, 225, 225);\n"
-                                     "   border: 1px solid rgb(100, 100, 100);\n"
-                                     "}\n"
-                                     "QPushButton::pressed{\n"
-                                     "   background-color: rgb(230, 29, 82);\n"
-                                     "   color: rgb(255, 255, 255);\n"
-                                     "   border: 0px;\n"
-                                     "}")
+                                        "   background-color: rgba(80, 80, 80, 0.6);\n"
+                                        "   color: rgb(175, 175, 175);\n"
+                                        "   border-radius: 10px;\n"
+                                        "   border: 1px solid;\n"
+                                        "}")
         self.BtnDespedir.setObjectName("BtnDespedir")
         self.BtnDespedir.setEnabled(False)
 
         self.btnVolver = QtWidgets.QPushButton(parent=self.centralwidget)
-        self.btnVolver.setGeometry(QtCore.QRect(1120, 90, 100, 32))
+        self.btnVolver.setGeometry(QtCore.QRect(30, 440, 100, 36))
+        font = QtGui.QFont()
+        font.setFamily("Arial")
+        font.setPointSize(12)
+        font.setBold(True)
+        self.btnVolver.setFont(font)
         self.btnVolver.setStyleSheet("QPushButton{\n"
                                      "   background-color: rgb(80, 80, 80);\n"
                                      "   color: rgb(175, 175, 175);\n"
@@ -71,7 +66,9 @@ class Ui_VentanaListaUsuarios(object):
         
         
         # Accion botones
-        self.BtnDespedir.clicked.connect(lambda: self.eliminarUsuario(self.obtenerUsuarioSeleccionado()))
+        #self.BtnDespedir.clicked.connect(lambda: self.eliminarUsuario(self.obtenerUsuarioSeleccionado()))
+        self.BtnDespedir.clicked.connect(self.confirmacion)
+
         self.btnVolver.clicked.connect(lambda: self.cerrarVentana(MainWindow, ListaEmp))
 
 
@@ -176,9 +173,31 @@ class Ui_VentanaListaUsuarios(object):
         if filasSeleccionada:
             # Se seleccionó al menos una fila
             self.BtnDespedir.setEnabled(True)
+            self.BtnDespedir.setStyleSheet("QPushButton{\n"
+                                            "   background-color: rgb(80, 80, 80);\n"
+                                            "   color: rgb(175, 175, 175);\n"
+                                            "   border-radius: 10px;\n"
+                                            "   border: 1px solid;\n"
+                                            "}\n"
+                                            "QPushButton::hover{\n"
+                                            "   background-color: rgb(100, 100, 100);\n"
+                                            "   color: rgb(225, 225, 225);\n"
+                                            "   border: 1px solid rgb(100, 100, 100);\n"
+                                            "}\n"
+                                            "QPushButton::pressed{\n"
+                                            "   background-color: rgb(230, 29, 82);\n"
+                                            "   color: rgb(255, 255, 255);\n"
+                                            "   border: 0px;\n"
+                                            "}")
         else:
             # No se seleccionó ninguna fila
             self.BtnDespedir.setEnabled(False)
+            self.BtnDespedir.setStyleSheet("QPushButton{\n"
+                                            "   background-color: rgba(80, 80, 80, 0.6);\n"
+                                            "   color: rgb(175, 175, 175);\n"
+                                            "   border-radius: 10px;\n"
+                                            "   border: 1px solid;\n"
+                                            "}")
 
 
     def obtenerUsuarioSeleccionado(self):
@@ -206,4 +225,21 @@ class Ui_VentanaListaUsuarios(object):
 
         # Actualizar los botones
         self.actualizarBotones()
+    
+
+    def confirmacion(self):       # Se muestra un mensaje para confirmar eliminación de usuario
+        self.notificacion = QtWidgets.QMessageBox()
+        self.notificacion.setWindowTitle("Eliminar usuario")
+        self.notificacion.setText("Esta acción no se podrá deshacer. ¿Desea continuar?")
+        self.notificacion.setIcon(QtWidgets.QMessageBox.Icon.Information)
+        self.notificacion.setStandardButtons(QtWidgets.QMessageBox.StandardButton.Ok | QtWidgets.QMessageBox.StandardButton.Cancel)
+
+        btnAceptar = self.notificacion.button(QtWidgets.QMessageBox.StandardButton.Ok)
+        btnAceptar.setText("Aceptar")
+        btnAceptar.clicked.connect(lambda: self.eliminarUsuario(self.obtenerUsuarioSeleccionado()))
+
+        btnCancelar = self.notificacion.button(QtWidgets.QMessageBox.StandardButton.Cancel)
+        btnCancelar.setText("Cancelar")
+
+        self.notificacion.exec()
 

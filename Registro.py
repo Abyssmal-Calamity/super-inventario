@@ -190,36 +190,42 @@ class Ui_Registrar(object):
         camposValidados = True
 
         if self.username.text() == "":
-            self.username.setStyleSheet("border-radius: 10px;\n" "border: 2px solid rgb(255, 0, 0);")
+            self.username.setStyleSheet("border-radius: 10px;\n" "border: 2px solid rgb(255, 0, 0);\n"
+                                        "background-color: rgb(190,190,190);\n" "color: rgb(0,0,0);")
             self.texto1.setText("Este campo es obligatorio")
             camposValidados = False
         elif self.usuario_existente():
-            self.username.setStyleSheet("border-radius: 10px;\n" "border: 2px solid rgb(255, 0, 0);")
+            self.username.setStyleSheet("border-radius: 10px;\n" "border: 2px solid rgb(255, 0, 0);\n"
+                                        "background-color: rgb(190,190,190);\n" "color: rgb(0,0,0);")
             self.texto1.setText("Ya existe un usuario registrado con este nombre")
             camposValidados = False
         else:
-            self.username.setStyleSheet("border-radius: 10px;\n" "border: 1px solid;")
+            self.username.setStyleSheet("border-radius: 10px;\n" "border: 1px solid;\n"
+                                        "background-color: rgb(190,190,190);\n" "color: rgb(0,0,0);")
             self.texto1.setText("")
         
         if len(self.contasena.text()) == 0:
             self.contasena.setStyleSheet("border-top-left-radius: 10px;\n" "border-bottom-left-radius: 10px;\n"
-                                         "border: solid rgb(255, 0, 0);\n" "border-width: 2px 0px 2px 2px;")
+                                         "border: solid rgb(255, 0, 0);\n" "border-width: 2px 0px 2px 2px;\n"
+                                         "background-color: rgb(190,190,190);\n" "color: rgb(0,0,0);")
             self.showKey.setStyleSheet("border-top-right-radius: 10px;\n" "border-bottom-right-radius: 10px;\n"
-                                       "border: solid rgb(255, 0, 0);\n" "border-width: 2px 2px 2px 0px;")
+                                       "border: solid rgb(255, 0, 0);\n" "background-color: rgb(190,190,190);\n" "border-width: 2px 2px 2px 0px;")
             self.texto2.setText("Este campo es obligatorio")
             camposValidados = False
         elif len(self.contasena.text()) < 8:
             self.contasena.setStyleSheet("border-top-left-radius: 10px;\n" "border-bottom-left-radius: 10px;\n"
-                                         "border: solid rgb(255, 0, 0);\n" "border-width: 2px 0px 2px 2px;")
+                                         "border: solid rgb(255, 0, 0);\n" "border-width: 2px 0px 2px 2px;\n"
+                                         "background-color: rgb(190,190,190);\n" "color: rgb(0,0,0);")
             self.showKey.setStyleSheet("border-top-right-radius: 10px;\n" "border-bottom-right-radius: 10px;\n"
-                                       "border: solid rgb(255, 0, 0);\n" "border-width: 2px 2px 2px 0px;")
+                                       "border: solid rgb(255, 0, 0);\n" "background-color: rgb(190,190,190);\n" "border-width: 2px 2px 2px 0px;")
             self.texto2.setText("La contraseña debe tener mínimo 8 caracteres")
             camposValidados = False
         else:
             self.contasena.setStyleSheet("border-top-left-radius: 10px;\n" "border-bottom-left-radius: 10px;\n"
-                                         "border: solid;\n" "border-width: 1px 0px 1px 1px;")
+                                         "border: solid;\n" "border-width: 1px 0px 1px 1px;\n"
+                                         "background-color: rgb(190,190,190);\n" "color: rgb(0,0,0);")
             self.showKey.setStyleSheet("border-top-right-radius: 10px;\n" "border-bottom-right-radius: 10px;\n"
-                                       "border: solid;\n" "border-width: 1px 1px 1px 0px;")
+                                       "border: solid;\n" "background-color: rgb(190,190,190);\n" "border-width: 1px 1px 1px 0px;")
             self.texto2.setText("")
         
         if self.nombreCargo != "Administrador" and self.nombreCargo != "Empleado":
